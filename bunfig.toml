@@ -1,0 +1,8 @@
+[install]
+registry = "https://registry.npmjs.org"
+saveTextLockfile = true
+# 24h supply-chain guard: skip package versions published less than a day ago.
+minimumReleaseAge = 86400
+
+# Flat node_modules keeps existing tooling resolution unchanged with the local workspace package.
+linker = "hoisted"

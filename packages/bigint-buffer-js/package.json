@@ -1,0 +1,12 @@
+{
+  "name": "@quantum-qli/bigint-buffer-js",
+  "version": "1.0.0",
+  "private": true,
+  "description": "First-party pure-JavaScript, bounds-checked replacement for the unmaintained bigint-buffer native addon (GHSA-3gc7-fjrx-p6mg).",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "dependencies": {
+    "buffer": "^6.0.3"
+  }
+}

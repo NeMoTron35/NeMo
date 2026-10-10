@@ -1,0 +1,25 @@
+name: Bug report
+description: Report a reproducible product defect, not a security vulnerability.
+body:
+  - type: markdown
+    attributes:
+      value: "For sensitive findings, use SECURITY.md. Never include keys, backups, session tokens or populated environment files."
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Include the page, actions, demo/live mode and network, without private material.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Version, browser and operating system
+    validations:
+      required: true

@@ -1,0 +1,9 @@
+{
+  "name": "Quantum QLi",
+  "short_name": "Quantum QLi",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#202711",
+  "theme_color": "#063cf5",
+  "icons": [{ "src": "/favicon.png", "sizes": "64x64", "type": "image/png" }]
+}
