@@ -1,0 +1,40 @@
+name: Rebuild README banner
+
+on:
+  push:
+    branches: [sharpen-readme-banner-v2]
+    paths:
+      - ".banner-staging/READY"
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Reconstruct verified banner
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .banner-staging/part*.b64 > /tmp/quantum-qli-banner.b64
+          test "$(wc -c < /tmp/quantum-qli-banner.b64)" -eq 58056
+          base64 --decode /tmp/quantum-qli-banner.b64 > docs/quantum-qli-banner.webp
+          test "$(wc -c < docs/quantum-qli-banner.webp)" -eq 43540
+          echo "adac4ec77d5b89691cc678f56ed8deb6861da8aea736d7770c1b4c342af276ca  docs/quantum-qli-banner.webp" | sha256sum --check -
+
+      - name: Commit reconstructed asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .banner-staging
+          rm -f .github/workflows/rebuild-readme-banner.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Store sharper README banner"
+          git push origin HEAD:sharpen-readme-banner-v2
