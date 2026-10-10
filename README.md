@@ -100,7 +100,7 @@ The in-app readers are available at `/docs` and `/whitepaper`.
 ## Repository standards
 
 - Pull requests run CI, type/build checks, tests, repository-hygiene validation and security checks.
-- Dependabot is configured for weekly dependency and GitHub Actions updates.
+- Dependabot tracks GitHub Actions updates; Bun dependencies are covered by the scheduled first-party advisory audit and reviewed updates.
 - CodeQL and the first-party dependency audit are configured without repository secrets.
 - Contribution rules: [CONTRIBUTING.md](CONTRIBUTING.md)
 - Code of conduct: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
