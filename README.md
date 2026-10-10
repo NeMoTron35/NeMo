@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/ci.yml"><img src="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/security.yml"><img src="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/security.yml/badge.svg" alt="Security checks"></a>
-  <img src="https://img.shields.io/badge/tests-52%20passing-brightgreen" alt="52 tests passing">
+  <img src="https://img.shields.io/badge/tests-55%20passing-brightgreen" alt="55 tests passing">
   <img src="https://img.shields.io/badge/license-no%20grant-lightgrey" alt="No license grant">
 </p>
 
@@ -82,7 +82,7 @@ bun run check:repository
 bun run audit:dependencies
 ```
 
-The current verified source snapshot passes **52 tests**, formatting, production build, repository-hygiene checks, and lint with no errors. Dependency advisories are intentionally reported separately and are not suppressed.
+The current verified source snapshot passes **55 tests**, production build, repository-hygiene checks, and lint with **0 errors / 0 warnings**. The dependency audit reports **0 advisories at any severity** and does not suppress findings.
 
 ## Documentation
 
@@ -101,7 +101,7 @@ The in-app readers are available at `/docs` and `/whitepaper`.
 
 - Pull requests run CI, type/build checks, tests, repository-hygiene validation and security checks.
 - Dependabot is configured for weekly dependency and GitHub Actions updates.
-- CodeQL and dependency review are configured without repository secrets.
+- CodeQL and the first-party dependency audit are configured without repository secrets.
 - Contribution rules: [CONTRIBUTING.md](CONTRIBUTING.md)
 - Code of conduct: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 - Release process: [RELEASE.md](RELEASE.md)

@@ -10,3 +10,7 @@ routeTree.gen.ts
 .workspace
 *.tsbuildinfo
 src/integrations/supabase/types.ts
+README.md
+SUPPORT.md
+LICENSE
+.github/**
