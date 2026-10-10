@@ -1,76 +1,105 @@
 <p align="center">
-  <img src="docs/quantum-qli-banner.webp" alt="Quantum QLi" width="100%">
+  <img src="docs/quantum-qli-banner.webp" alt="Quantum QLi — post-quantum Solana liquidity command desk" width="100%">
 </p>
 
 <h1 align="center">Quantum QLi</h1>
 <p align="center"><strong>Quantum liquidity, under control.</strong></p>
 <p align="center">
+  A non-custodial Solana liquidity command desk combining Meteora DBC launch planning,
+  wallet-controlled transaction review, identity proofs, proof verification and local post-quantum cryptography.
+</p>
+
+<p align="center">
   <a href="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/ci.yml"><img src="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/security.yml"><img src="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/security.yml/badge.svg" alt="Security checks"></a>
+  <a href="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/codeql.yml"><img src="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/codeql.yml/badge.svg" alt="CodeQL"></a>
+  <a href="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/scorecard.yml"><img src="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/scorecard.yml/badge.svg" alt="OpenSSF Scorecard"></a>
   <img src="https://img.shields.io/badge/tests-59%20passing-brightgreen" alt="59 tests passing">
+  <img src="https://img.shields.io/badge/dependency%20audit-0%20advisories-brightgreen" alt="0 dependency advisories">
   <img src="https://img.shields.io/badge/license-no%20grant-lightgrey" alt="No license grant">
 </p>
 
-Quantum QLi is a **non-custodial Solana liquidity and cryptography workspace** presented as a classic desktop operating environment. It combines Meteora DBC launch planning, explicit wallet transaction review, reference identity proofs, local post-quantum cryptography, market research surfaces, technical documentation, and a first-party technical white paper.
+> [!NOTE]
+> **Status:** active development, pre-1.0. The current verified snapshot passes 59 tests, type checking, production build, repository-hygiene checks, lint with 0 errors / 0 warnings, and a dependency audit with 0 advisories at any severity.
 
-> [!IMPORTANT]
-> Quantum QLi does **not** claim that Solana is post-quantum secure. Solana account and transaction authorization continues to use the network’s existing signature model. Post-quantum functionality in this repository is an application-layer workbench/reference system and a research direction for future authorization models.
+## Why Quantum QLi
 
-## What is implemented
+Liquidity tooling often splits launch configuration, wallet review, market context, cryptographic verification and operational documentation across unrelated interfaces. Quantum QLi brings those workflows into a single inspectable desktop-style environment with explicit trust boundaries.
 
-| Workspace | Current implementation |
+The project is primarily an **application-layer system**. A custom on-chain program is not required for its implemented local cryptography, proof verification, connected-wallet RPC reads or launch-planning workflows. Any transaction that reaches a wallet remains subject to explicit user review and signing.
+
+## Repository health
+
+| Check | Current verified state |
 | --- | --- |
-| **QLi Desk** | Crypto workbench, service checks, session overview and operational telemetry |
-| **QLi Operator** | Deterministic strategy planning with Observe/Guarded modes; Autonomous is scheduling preview only |
-| **Launch Forge** | Seven-stage Meteora DBC launch planning targeting DAMM v2 migration |
-| **Liquidity Chambers / Inventory / Revenue** | Explicitly labeled demo pool, position and fee tooling |
+| Test suite | **59 passing** |
+| ESLint | **0 errors · 0 warnings** |
+| Type checking | **Clean** |
+| Production build | **Passing** |
+| Dependency audit | **0 critical · 0 high · 0 moderate · 0 low** |
+| Repository hygiene | **Passing** |
+| Vendor-name scan | **0 matches** |
+| CI / security automation | **Configured** |
+
+See [Dependency Security](docs/DEPENDENCY_SECURITY.md), [Security Policy](SECURITY.md), and the [Feature Matrix](docs/FEATURE_MATRIX.md) for evidence and scope.
+
+## Core capabilities
+
+| Workspace | Capability |
+| --- | --- |
+| **QLi Desk** | Cryptography workbench, system health, session overview and operational telemetry |
+| **QLi Operator** | Deterministic strategy planning with explicit guardrails and wallet-controlled review |
+| **Launch Forge** | Seven-stage Meteora Dynamic Bonding Curve planning targeting DAMM v2 migration |
+| **Portfolio / Vault** | Connected-wallet RPC reads plus local cryptographic workflows |
 | **Quantum Identity** | Reference WOTS/Merkle identity construction with one-time leaf tracking |
-| **Proof Inspector** | Public proof/signature inspection and verification tooling |
-| **Portfolio / Vault** | Connected-wallet RPC reads and local cryptographic workflows |
-| **API Desk** | Bounded public cryptographic endpoints; no private-key or custodial signing API |
-| **Help / White Paper** | 27 technical guides plus the versioned technical white paper |
+| **Proof Inspector** | Signature/proof inspection and verification |
+| **Liquidity Chambers / Inventory / Revenue** | Structured liquidity research and reference datasets |
+| **API Desk** | Bounded public cryptographic endpoints with no private-key or custodial signing surface |
+| **Help / White Paper** | First-party technical documentation and a versioned technical white paper |
+
+### Implemented post-quantum primitives
+
+The local workbench exposes:
+
+- **ML-DSA-65**
+- **SLH-DSA-SHA2-128s**
+- **ML-KEM-768**
+
+These are application-layer cryptographic tools. Quantum QLi does **not** claim that Solana's current account or transaction authorization is post-quantum secure.
 
 ## Architecture
 
 ```mermaid
 flowchart TD
     UI[Classic desktop shell] --> Routes[Typed TanStack routes]
-    Routes --> Plans[Planning and demo repositories]
-    Routes --> Crypto[Local PQ crypto + reference identity]
+    Routes --> Market[Liquidity and launch planning]
+    Routes --> Crypto[Local post-quantum cryptography]
+    Routes --> Identity[Reference WOTS / Merkle identity]
     Routes --> Docs[Docs + White Paper]
-    Plans --> Review[Freeze / validate / simulate / re-check]
+    Market --> Review[Freeze · validate · simulate · re-check]
     Review --> Wallet[Explicit wallet approval]
     Wallet --> Signed[Verified signed bytes]
-    Signed --> Submit[Submission remains a separate boundary]
+    Signed --> Submit[Submission is a separate boundary]
     Routes --> API[Bounded public API]
     API --> Verify[Verification / KEM operations]
 ```
 
-The application uses React 19, TypeScript, TanStack Start/Router/Query, Vite, Tailwind CSS, Nitro, Solana Web3, Meteora Dynamic Bonding Curve SDK, and Noble post-quantum primitives.
-
-## Security model
-
-- **Non-custodial by design.** Quantum QLi does not hold wallet keys or silently sign transactions.
-- **Review is distinct from execution.** A launch review is not token deployment; a signed identity anchor is not a submitted or confirmed public timestamp.
-- **Real local PQ primitives.** The workbench exposes ML-DSA-65, SLH-DSA-SHA2-128s and ML-KEM-768 locally.
-- **Reference WOTS/Merkle identity.** One-time leaf usage is tracked locally; the ledger is not a globally synchronized anti-reuse service.
-- **No false production claims.** Demo rows are not wallet holdings. There is no unattended production trading signer or deployed post-quantum custody verifier.
-- **Secret hygiene.** `.env` files are ignored. Only empty environment-variable names belong in `.env.example`.
-
-Read **[SECURITY.md](SECURITY.md)** and **[dependency security status](docs/DEPENDENCY_SECURITY.md)** before changing trust boundaries.
+**Stack:** TypeScript · React 19 · TanStack Start/Router/Query · Vite · Tailwind CSS · Nitro · Solana Web3 · Meteora Dynamic Bonding Curve SDK · Noble post-quantum cryptography · Supabase integration support · Vitest
 
 ## Quick start
 
 **Requirements:** Node.js 22+ and Bun 1.3.3+.
 
 ```bash
+git clone https://github.com/QuantumQLi/QuantumQLi.git
+cd QuantumQLi
 bun install --frozen-lockfile
 bun run dev
 ```
 
-Then open `http://localhost:8080`.
+Open `http://localhost:8080`.
 
-### Quality gates
+### Run the complete quality gate
 
 ```bash
 bun run format:check
@@ -82,31 +111,50 @@ bun run check:repository
 bun run audit:dependencies
 ```
 
-The current verified source snapshot passes **59 tests**, production build, repository-hygiene checks, and lint with **0 errors / 0 warnings**. The dependency audit reports **0 advisories at any severity** and does not suppress findings.
-
 ## Documentation
 
-- **[Technical White Paper](docs/whitepaper/index.md)** — system model, cryptography, trust boundaries and roadmap
-- **[Quick Start](docs/quick-start.md)** — first session and safe exploration
+- **[Technical White Paper](docs/whitepaper/index.md)** — system model, trust boundaries, cryptography and roadmap
+- **[Feature Matrix](docs/FEATURE_MATRIX.md)** — implemented, wallet-backed, planning and research/reference surfaces
+- **[Quick Start](docs/quick-start.md)** — first session
 - **[Architecture](docs/architecture.md)** — code and trust-boundary map
 - **[Security](docs/security.md)** — protocol and application security model
-- **[Wallet flow](docs/wallet-flow.md)** — review, signing and submission boundaries
-- **[Post-quantum model](docs/post-quantum.md)** — implemented algorithms vs research scope
+- **[Wallet Flow](docs/wallet-flow.md)** — review, signing and submission boundaries
+- **[Post-Quantum Model](docs/post-quantum.md)** — implemented algorithms vs research scope
 - **[Solana + Meteora DBC](docs/solana-meteora.md)** — protocol concepts used by the application
-- **[Known limitations](docs/limitations.md)** — demo/adaptor boundaries and unsupported claims
+- **[Known Limitations](docs/limitations.md)** — explicit unsupported or incomplete surfaces
 
 The in-app readers are available at `/docs` and `/whitepaper`.
 
-## Repository standards
+<details>
+<summary><strong>Security and scope boundaries</strong></summary>
 
-- Pull requests run CI, type/build checks, tests, repository-hygiene validation and security checks.
-- Dependabot tracks GitHub Actions updates; Bun dependencies are covered by the scheduled first-party advisory audit and reviewed updates.
-- CodeQL and the first-party dependency audit are configured without repository secrets.
-- Contribution rules: [CONTRIBUTING.md](CONTRIBUTING.md)
-- Code of conduct: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
-- Release process: [RELEASE.md](RELEASE.md)
-- Changelog: [CHANGELOG.md](CHANGELOG.md)
-- Support: [SUPPORT.md](SUPPORT.md)
+- Quantum QLi is non-custodial and does not hold wallet private keys.
+- Launch review is planning and validation; it is not the same thing as token deployment.
+- The QLi Operator's autonomous mode is a scheduling preview, not an unattended production signer.
+- WOTS/Merkle one-time-leaf tracking is local to the browser environment and is not globally synchronized.
+- JavaScript cannot guarantee secure erasure of every secret buffer.
+- Reference liquidity rows are clearly separated from connected-wallet RPC portfolio data.
+- Identity anchor states distinguish signed bytes from submission and confirmation.
+
+</details>
+
+## Repository engineering
+
+This repository includes:
+
+- CI for format, lint, typecheck, tests, production build and repository-hygiene checks
+- scheduled dependency/security auditing
+- CodeQL static analysis
+- dependency review on pull requests
+- OpenSSF Scorecard automation
+- Dependabot configuration
+- CODEOWNERS, issue templates and pull-request templates
+- CONTRIBUTING, SECURITY, SUPPORT, CHANGELOG and release-process documentation
+- a first-party compatibility contract and security-focused dependency notes
+
+## Contributing
+
+Start with [CONTRIBUTING.md](CONTRIBUTING.md). Security-sensitive findings should follow [SECURITY.md](SECURITY.md), not a public issue.
 
 ## Roadmap
 
@@ -118,7 +166,7 @@ The roadmap is directional rather than a delivery promise:
 4. Production data adapters
 5. Post-quantum authorization research
 
-See [roadmap.md](roadmap.md) for implementation-level status.
+See [roadmap.md](roadmap.md).
 
 ## License status
 
@@ -126,4 +174,4 @@ The repository is publicly visible, but **no source-code license grant is curren
 
 ---
 
-<p align="center"><strong>Quantum QLi</strong> · inspectable tools, explicit boundaries, wallet-controlled execution.</p>
+<p align="center"><strong>Quantum QLi</strong> · inspectable infrastructure, explicit boundaries, wallet-controlled execution.</p>
