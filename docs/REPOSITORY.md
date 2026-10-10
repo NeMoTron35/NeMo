@@ -16,7 +16,6 @@ Quantum QLi is a non-custodial Solana liquidity command desk with Meteora DBC la
 - [x] CI workflow
 - [x] Security workflow
 - [x] CodeQL workflow
-- [x] Pull-request dependency review
 - [x] OpenSSF Scorecard workflow
 - [x] Dependabot configuration
 - [x] CODEOWNERS
@@ -27,16 +26,17 @@ Quantum QLi is a non-custodial Solana liquidity command desk with Meteora DBC la
 - [x] Feature matrix
 - [x] Zero tracked references to the previous site-builder vendor
 - [x] Zero dependency advisories in the verified local audit
+- [ ] Enable GitHub Dependency graph before turning on native pull-request dependency review
 
 ## GitHub settings worth enabling manually
 
 Where available for the repository:
 
 1. Enable private vulnerability reporting.
-2. Protect `main` and require successful CI/security checks.
+2. Protect `main` and require successful CI and security checks.
 3. Require pull requests for normal changes once the workflow checks are proven stable.
-4. Enable dependency graph / Dependabot alerts.
+4. Enable Dependency graph / Dependabot alerts.
 5. Add the suggested topics above.
 6. Keep the repository description aligned with the canonical description above.
 
-Repository age, stars, forks and contributor count are community/time signals. They should grow organically and should not be manufactured to influence external rating tools.
+Repository age, stars, forks and contributor count are community and time signals. They should grow organically and should not be manufactured to influence external rating tools.

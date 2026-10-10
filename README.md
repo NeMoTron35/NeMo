@@ -145,12 +145,13 @@ This repository includes:
 - CI for format, lint, typecheck, tests, production build and repository-hygiene checks
 - scheduled dependency/security auditing
 - CodeQL static analysis
-- dependency review on pull requests
 - OpenSSF Scorecard automation
 - Dependabot configuration
 - CODEOWNERS, issue templates and pull-request templates
 - CONTRIBUTING, SECURITY, SUPPORT, CHANGELOG and release-process documentation
 - a first-party compatibility contract and security-focused dependency notes
+
+GitHub-native dependency review can be enabled after the repository's Dependency graph setting is turned on. Until then, the first-party lockfile audit remains the enforced dependency-security check.
 
 ## Contributing
 

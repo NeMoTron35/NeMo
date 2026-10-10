@@ -1,23 +1,33 @@
 # Quantum QLi feature matrix
 
-This matrix separates implemented functionality from planning, connected-wallet data and research/reference surfaces.
+This page separates implemented functionality from connected-wallet, planning and research/reference surfaces.
 
-| Surface | Status | Evidence / boundary |
-| --- | --- | --- |
-| Local ML-DSA-65 signing / verification | **Implemented** | Runs locally through Noble post-quantum primitives |
-| Local SLH-DSA-SHA2-128s signing / verification | **Implemented** | Runs locally through Noble post-quantum primitives |
-| Local ML-KEM-768 encapsulation / decapsulation | **Implemented** | Runs locally; private material is not exposed through the public API |
-| Proof Inspector | **Implemented** | Parses and verifies supported proof/signature formats |
-| Connected-wallet Portfolio | **Wallet-backed** | Reads connected-wallet/RPC state when available |
-| Vault cryptography | **Implemented locally** | Local cryptographic workflows; non-custodial |
-| Launch Forge | **Planning / validation** | Seven-stage Meteora DBC planning targeting DAMM v2 migration; review is not deployment |
-| QLi Operator Observe / Guarded | **Implemented planning** | Deterministic plans and guardrails; signing remains wallet-controlled |
-| QLi Operator Autonomous | **Scheduling preview** | No unattended production signer or background trading service |
-| Quantum Identity WOTS/Merkle | **Reference implementation** | One-time leaf consumption is tracked locally; no global reuse ledger |
-| Identity anchor | **Bounded transaction flow** | Distinguishes signed bytes, submission and confirmation |
-| Liquidity Chambers / Inventory / Revenue | **Reference datasets** | Structured research surfaces; not presented as connected-wallet holdings |
-| Public crypto API | **Implemented with limits** | Verification/KEM operations only; no custodial private-key API |
-| Technical docs / White Paper | **Implemented** | First-party docs under `docs/` plus in-app readers |
+## Implemented locally
+
+- **ML-DSA-65 signing and verification** — runs locally through Noble post-quantum primitives.
+- **SLH-DSA-SHA2-128s signing and verification** — runs locally through Noble post-quantum primitives.
+- **ML-KEM-768 encapsulation and decapsulation** — runs locally; private material is not exposed through the public API.
+- **Proof Inspector** — parses and verifies supported proof and signature formats.
+- **Vault cryptography** — local cryptographic workflows with a non-custodial boundary.
+- **Technical documentation and White Paper** — first-party material under `docs/` plus in-app readers.
+
+## Connected-wallet surfaces
+
+- **Portfolio** — reads connected-wallet and RPC state when available.
+- **Wallet transaction review** — wallet authorization remains explicit and client controlled.
+
+## Planning and validation
+
+- **Launch Forge** — seven-stage Meteora DBC planning targeting DAMM v2 migration. Review is not deployment.
+- **QLi Operator Observe / Guarded** — deterministic plans and guardrails with wallet-controlled signing.
+- **Identity anchor** — distinguishes signed bytes, submission and confirmation as separate states.
+
+## Research and reference surfaces
+
+- **Quantum Identity WOTS/Merkle** — reference construction with one-time leaf consumption tracked locally; there is no globally synchronized reuse ledger.
+- **QLi Operator Autonomous** — scheduling preview only; there is no unattended production signer or background trading service.
+- **Liquidity Chambers / Inventory / Revenue** — structured reference datasets, not connected-wallet holdings.
+- **Public crypto API** — bounded verification and KEM operations; no custodial private-key API.
 
 ## Verification baseline
 
@@ -33,4 +43,4 @@ At the current verified snapshot:
 
 ## Security interpretation
 
-"Post-quantum" in Quantum QLi refers to the local/application-layer cryptographic primitives and research/reference identity work. It is not a claim that Solana's current network authorization scheme has been replaced or made post-quantum secure.
+"Post-quantum" in Quantum QLi refers to the local and application-layer cryptographic primitives plus research/reference identity work. It is not a claim that Solana's current network authorization scheme has been replaced or made post-quantum secure.
