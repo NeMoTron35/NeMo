@@ -21,4 +21,3 @@ Install scripts are not needed for the replacement package. Bun's `hoisted` link
 ## Update automation
 
 Dependabot tracks GitHub Actions. Bun dependency updates are reviewed separately because the repository intentionally overrides an upstream vulnerable package with a local workspace replacement; the scheduled `audit:dependencies` workflow still checks every locked package version against the public advisory service.
-
