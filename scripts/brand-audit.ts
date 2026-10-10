@@ -5,7 +5,7 @@ import { relative, join } from "node:path";
 // Check the retired identifier without making the audit itself a content match.
 export const retiredName = String.fromCharCode(113, 117, 97, 110, 116, 101, 107);
 export const lineHash = (line: string) => createHash("sha256").update(line).digest("hex");
-// Exact line fingerprints: protocol bytes and verified external GitHub coordinates only.
+// Exact line fingerprints: immutable v1 protocol bytes only.
 export const approvedLines: Record<string, readonly string[]> = {
   "src/lib/qli-core/compatibility.ts": [
     "18fa95c258c8ad43f10daa66af162e893a594c07b2a9129bcc44c89d6520a620",
@@ -19,17 +19,8 @@ export const approvedLines: Record<string, readonly string[]> = {
     "17f75f1b875cfc3f73b28d750df671a59cd92f9dfd0463b59724fa2d99d5630c",
     "7ab5755b6ea12b8a01dfad2a6395301d753d3c900f35091c7bf1f42deb0bf0a1",
   ],
-  "src/lib/qli-core/data.ts": ["4ee9acdad7b38f26bc5a4b8b42ba0202a8b0f94aaa9245cd9e0c851f80785c64"],
-  "README.md": [
-    "d48bd6c70ec82da818115df87d4d4ed3a892642650507199ab4340f3a80705de",
-    "5d7dfebe18b181e59aa3a2003a2120c9656b6a518924687f0d3d487b1ae30b85",
-  ],
-  ".github/CODEOWNERS": ["81b25d70b5d54b3e806d5e32178a0f3dbe278d81ab6192eccb964efe44a33d0f"],
-  ".github/ISSUE_TEMPLATE/config.yml": [
-    "68a9ec1774325810ce09479a6e6045ddd29391d98d2209a31537103b064066ad",
-  ],
-  "docs/REPOSITORY.md": ["e49e1f5a2c7f160bda3757dba1de4aa7824714089a3d126145ba5f6c202b3267"],
 };
+
 export function brandViolations(path: string, text: string): string[] {
   const failures: string[] = [];
   if (path.toLowerCase().includes(retiredName)) failures.push(`Retired namespace path: ${path}`);
@@ -40,6 +31,7 @@ export function brandViolations(path: string, text: string): string[] {
   }
   return failures;
 }
+
 export function sourceFiles(dir: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     if ([".git", "node_modules", "dist", ".workspace", ".tanstack"].includes(entry.name)) return [];
@@ -48,6 +40,7 @@ export function sourceFiles(dir: string): string[] {
     return entry.isDirectory() ? sourceFiles(path) : [relative(process.cwd(), path)];
   });
 }
+
 export function auditBrand() {
   return sourceFiles(process.cwd()).flatMap((path) =>
     brandViolations(path, readFileSync(path, "utf8")),

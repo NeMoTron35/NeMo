@@ -136,7 +136,7 @@ export const productNavigation = [
   ["Proof Inspector", "/verify"],
   ["Docs", "/docs"],
 ] as const;
-export const GITHUB_URL = "https://github.com/quantekdbc/quantek";
+export const GITHUB_URL = "https://github.com/QuantumQLi/QuantumQLi";
 export const METEORA_DBC_URL = "https://docs.meteora.ag/overview/products/dbc/what-is-dbc";
 /** All internal routes (console + product). GitHub is external. */
 export const publicNavigation = [
