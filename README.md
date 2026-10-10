@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/ci.yml"><img src="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/security.yml"><img src="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/security.yml/badge.svg" alt="Security checks"></a>
-  <img src="https://img.shields.io/badge/tests-55%20passing-brightgreen" alt="55 tests passing">
+  <img src="https://img.shields.io/badge/tests-59%20passing-brightgreen" alt="59 tests passing">
   <img src="https://img.shields.io/badge/license-no%20grant-lightgrey" alt="No license grant">
 </p>
 
@@ -82,7 +82,7 @@ bun run check:repository
 bun run audit:dependencies
 ```
 
-The current verified source snapshot passes **55 tests**, production build, repository-hygiene checks, and lint with **0 errors / 0 warnings**. The dependency audit reports **0 advisories at any severity** and does not suppress findings.
+The current verified source snapshot passes **59 tests**, production build, repository-hygiene checks, and lint with **0 errors / 0 warnings**. The dependency audit reports **0 advisories at any severity** and does not suppress findings.
 
 ## Documentation
 
