@@ -1,8 +1,8 @@
-// QUANTEK Quantum Wallet model + adapter boundary. QUANTEK has NOT deployed an on-chain WOTS verifier/vault program.
+// Quantum QLi Quantum Wallet model + adapter boundary. Quantum QLi has NOT deployed an on-chain WOTS verifier/vault program.
 import { DOMAINS, H, hex, utf8, PQ_PARAMETERS } from "./pq";
 
 /** Explicitly not deployed. Never substitute a third-party program id. */
-export const QUANTEK_QUANTUM_WALLET_PROGRAM_ID: string | null = null;
+export const QLI_QUANTUM_WALLET_PROGRAM_ID: string | null = null;
 export const QUANTUM_WALLET_STATUS = "Protocol adapter not deployed" as const;
 export const STAGE_CHUNK_BYTES = 900; // conservative payload per staging transaction (1,232-byte packet limit)
 
@@ -58,7 +58,7 @@ export function withdrawalCommitment(intent: WithdrawalIntent, vaults: Vault[]):
   if (!next) throw new Error("No next vault available for remainder rollover.");
   const fields = {
     namespace: DOMAINS.quantumWallet,
-    program: QUANTEK_QUANTUM_WALLET_PROGRAM_ID ?? "not-deployed",
+    program: QLI_QUANTUM_WALLET_PROGRAM_ID ?? "not-deployed",
     vault: String(intent.vaultIndex),
     recipient: intent.recipient,
     mint: intent.mint,
@@ -97,13 +97,13 @@ export function createQuantumWalletAdapter(): QuantumWalletAdapter {
     throw new ProtocolNotDeployedError();
   };
   return {
-    programId: QUANTEK_QUANTUM_WALLET_PROGRAM_ID,
-    deployed: QUANTEK_QUANTUM_WALLET_PROGRAM_ID !== null,
+    programId: QLI_QUANTUM_WALLET_PROGRAM_ID,
+    deployed: QLI_QUANTUM_WALLET_PROGRAM_ID !== null,
     buildDeposit: refuse,
     buildStageSignature: refuse,
     buildWithdraw: refuse,
   };
 }
 export function canExecuteLive() {
-  return QUANTEK_QUANTUM_WALLET_PROGRAM_ID !== null;
+  return QLI_QUANTUM_WALLET_PROGRAM_ID !== null;
 }

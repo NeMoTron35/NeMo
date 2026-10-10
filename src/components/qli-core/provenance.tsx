@@ -1,3 +1,4 @@
+import { WOTS_PROOF_KIND, POSSESSION_MESSAGE_PREFIX } from "@/lib/qli-core/compatibility";
 import { useRef, useState } from "react";
 import type { Transaction } from "@solana/web3.js";
 import { Link } from "@tanstack/react-router";
@@ -18,7 +19,7 @@ import {
 import { PublicKey } from "@solana/web3.js";
 import { Button } from "@/components/ui/button";
 import { PageHeading, Panel, Field, CopyValue, InfoTip } from "./controls";
-import { useConsole } from "@/lib/quantek/context";
+import { useConsole } from "@/lib/qli-core/context";
 import {
   DOMAINS,
   PQ_PARAMETERS,
@@ -27,7 +28,7 @@ import {
   type Domain,
   type VerifyResult,
   type WotsProof,
-} from "@/lib/quantek/pq";
+} from "@/lib/qli-core/pq";
 import {
   anchorMemo,
   buildAnchorTransaction,
@@ -40,10 +41,10 @@ import {
   signLeaf,
   SCRYPT_PARAMS,
   MEMO_PROGRAM_ID,
-} from "@/lib/quantek/identity";
-import { signDerivationMessage, signReviewedTransaction } from "@/lib/quantek/wallet";
-import { createDBCServices, explainTransactionError } from "@/lib/quantek/dbc";
-import { vaultChain, withdrawalCommitment } from "@/lib/quantek/quantum-wallet";
+} from "@/lib/qli-core/identity";
+import { signDerivationMessage, signReviewedTransaction } from "@/lib/qli-core/wallet";
+import { createDBCServices, explainTransactionError } from "@/lib/qli-core/dbc";
+import { vaultChain, withdrawalCommitment } from "@/lib/qli-core/quantum-wallet";
 
 const STAGES = ["Derive", "Register", "Anchor", "Prove"] as const;
 function LeafGrid({ used, next, built }: { used: number[]; next: number; built: number }) {
@@ -639,7 +640,7 @@ const CATS: { id: Category; label: string; domain: Domain; hint: string }[] = [
     id: "launch",
     label: "Launch attestation",
     domain: DOMAINS.launch,
-    hint: 'Token metadata JSON with extensions["quantek.network/launch/v1"].proof, or a raw proof.',
+    hint: `Token metadata JSON with extensions["${DOMAINS.launch}"].proof, or a raw proof.`,
   },
   {
     id: "identity",
@@ -661,7 +662,7 @@ function extractProof(input: unknown, domain: Domain): WotsProof {
     extensions?: Record<string, unknown>;
     properties?: { extensions?: Record<string, unknown> };
   };
-  if (o.kind === "quantek-wots16-merkle-v1") return o as unknown as WotsProof;
+  if (o.kind === WOTS_PROOF_KIND) return o as unknown as WotsProof;
   if (o.proof && typeof o.proof === "object") return extractProof(o.proof, domain);
   const ext = o.extensions ?? o.properties?.extensions;
   if (ext && ext[domain]) return extractProof(ext[domain], domain);
@@ -685,7 +686,13 @@ async function demoFor(cat: Category) {
     };
   }
   if (cat === "identity")
-    return signLeaf(keys, 7, DOMAINS.proof, "quantek:v1:possession:demo:nonce=00", "public-demo");
+    return signLeaf(
+      keys,
+      7,
+      DOMAINS.proof,
+      `${POSSESSION_MESSAGE_PREFIX}demo:nonce=00`,
+      "public-demo",
+    );
   const vaults = vaultChain("demo-root", 3, 0);
   const cm = withdrawalCommitment(
     {

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { WalletData, VaultNav } from "@/components/qli/vault-pages";
-import { PageHeading } from "@/components/quantek/controls";
-import { metadata } from "@/lib/quantek/data";
+import { PageHeading } from "@/components/qli-core/controls";
+import { metadata } from "@/lib/qli-core/data";
 export const Route = createFileRoute("/activity")({
   head: () =>
     metadata(

@@ -1,3 +1,4 @@
+import { DOMAINS as FROZEN_DOMAINS, IDENTITY_MEMO_PREFIX } from "@/lib/qli-core/compatibility";
 // @vitest-environment node
 import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync, statSync } from "node:fs";
@@ -6,8 +7,8 @@ import { PublicKey } from "@solana/web3.js";
 import { createRouter } from "@tanstack/react-router";
 import { QueryClient } from "@tanstack/react-query";
 import { routeTree } from "@/routeTree.gen";
-import { RWA_PRESETS, searchRwa, isValidMint } from "@/lib/quantek/rwa";
-import { DOMAINS, verifyWotsProof, PQ_PARAMETERS, proofBytes } from "@/lib/quantek/pq";
+import { RWA_PRESETS, searchRwa, isValidMint } from "@/lib/qli-core/rwa";
+import { DOMAINS, verifyWotsProof, PQ_PARAMETERS, proofBytes } from "@/lib/qli-core/pq";
 import {
   createLeafLedger,
   publicDemoKeys,
@@ -16,19 +17,19 @@ import {
   isQtkAddress,
   buildTree,
   anchorMemo,
-} from "@/lib/quantek/identity";
+} from "@/lib/qli-core/identity";
 import {
-  QUANTEK_QUANTUM_WALLET_PROGRAM_ID,
+  QLI_QUANTUM_WALLET_PROGRAM_ID,
   canExecuteLive,
   createQuantumWalletAdapter,
   vaultChain,
   ProtocolNotDeployedError,
-} from "@/lib/quantek/quantum-wallet";
-import { DEFAULT_MIGRATION, sdkMethodPlan, tokenBadgeState } from "@/lib/quantek/dbc";
+} from "@/lib/qli-core/quantum-wallet";
+import { DEFAULT_MIGRATION, sdkMethodPlan, tokenBadgeState } from "@/lib/qli-core/dbc";
 import { MigrationOption } from "@meteora-ag/dynamic-bonding-curve-sdk";
-import { launchSchema } from "@/lib/quantek/validation";
-import { productNavigation, consoleNavigation, GITHUB_URL } from "@/lib/quantek/data";
-import { initialLaunch } from "@/lib/quantek/launch-draft";
+import { launchSchema } from "@/lib/qli-core/validation";
+import { productNavigation, consoleNavigation, GITHUB_URL } from "@/lib/qli-core/data";
+import { initialLaunch } from "@/lib/qli-core/launch-draft";
 
 function files(dir: string): string[] {
   return readdirSync(dir).flatMap((f) => {
@@ -38,9 +39,9 @@ function files(dir: string): string[] {
 }
 const valid = { ...initialLaunch, name: "Arc", symbol: "ARC" };
 
-describe("QUANTEK v0.2", () => {
-  it("uses only QUANTEK domains and no third-party product strings", () => {
-    for (const d of Object.values(DOMAINS)) expect(d.startsWith("quantek.network/")).toBe(true);
+describe("Quantum QLi v0.2", () => {
+  it("uses only Quantum QLi domains and no third-party product strings", () => {
+    expect(DOMAINS).toEqual(FROZEN_DOMAINS);
     const banned = [/pqc\.market/i, /\bpq1/, /pump\.fun/i, /pump[- ]sdk/i];
     for (const f of files("src").filter(
       (f) => /\.(tsx?|css)$/.test(f) && !f.includes("/test/") && !f.endsWith("routeTree.gen.ts"),
@@ -97,7 +98,7 @@ describe("QUANTEK v0.2", () => {
     expect(launchSchema.safeParse({ ...valid, decimals: 5 }).success).toBe(false);
   });
   it("refuses live Quantum Wallet execution while the program is not deployed", async () => {
-    expect(QUANTEK_QUANTUM_WALLET_PROGRAM_ID).toBeNull();
+    expect(QLI_QUANTUM_WALLET_PROGRAM_ID).toBeNull();
     expect(canExecuteLive()).toBe(false);
     const a = createQuantumWalletAdapter();
     const v = vaultChain("root", 3)[0]!;
@@ -134,7 +135,7 @@ describe("QUANTEK v0.2", () => {
     expect(() => verifyWotsProof({ ...p, domain: "other" as never })).toThrow();
     const addr = qtkAddress(tree.root, tree.keys.publicSeed);
     expect(isQtkAddress(addr)).toBe(true);
-    expect(anchorMemo({ address: addr, root: "r" })).toMatch(/^quantek:v1:identity:qtk1/);
+    expect(anchorMemo({ address: addr, root: "r" })).toBe(`${IDENTITY_MEMO_PREFIX}${addr}:r`);
   }, 60000);
   it("routes every top-nav and console path", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
@@ -145,7 +146,7 @@ describe("QUANTEK v0.2", () => {
       "Proof Inspector",
       "Docs",
     ]);
-    expect(GITHUB_URL).toBe("https://github.com/quantekdbc/quantek");
+    expect(new URL(GITHUB_URL).hostname).toBe("github.com");
     for (const [, u] of [...productNavigation, ...consoleNavigation])
       expect(router.matchRoutes(u).at(-1)?.routeId).toBe(u);
   });

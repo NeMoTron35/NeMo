@@ -1,4 +1,12 @@
-// QUANTEK local reference identity. Secret material lives only in memory of the caller; nothing here persists secrets.
+import {
+  WOTS_PROOF_KIND,
+  LEAF_LEDGER_PREFIX,
+  IDENTITY_MEMO_PREFIX,
+  POSSESSION_MESSAGE_PREFIX,
+  REGISTRATION_MESSAGE_PREFIX,
+  PUBLIC_DEMO_INPUT,
+} from "./compatibility";
+// Quantum QLi local reference identity. Secret material lives only in memory of the caller; nothing here persists secrets.
 import { hkdf } from "@noble/hashes/hkdf";
 import { sha256 as nobleSha256 } from "@noble/hashes/sha256";
 import { scryptAsync } from "@noble/hashes/scrypt";
@@ -71,7 +79,7 @@ export async function deriveKeys(
 export async function publicDemoKeys(): Promise<SecretKeys> {
   const okm = hkdf(
     nobleSha256,
-    utf8("QUANTEK PUBLIC DEMO — KNOWN SECRET — NEVER USE LIVE"),
+    utf8(PUBLIC_DEMO_INPUT),
     utf8(DOMAINS.identity),
     utf8("qtk-demo"),
     64,
@@ -176,7 +184,7 @@ export async function signLeaf(
     hex(chain(chainSecret(tree.keys, leaf, i), tree.keys.publicSeed, leaf, i, 0, digit)),
   );
   return {
-    kind: "quantek-wots16-merkle-v1",
+    kind: WOTS_PROOF_KIND,
     domain,
     label,
     message,
@@ -190,7 +198,7 @@ export async function signLeaf(
 
 /** Append-only one-time leaf ledger. Persists ONLY used indexes + public identity metadata. */
 export type LeafLedger = { root: string; used: number[]; purposes: Record<number, string> };
-const STORE = "quantek.ledger.v1:";
+const STORE = LEAF_LEDGER_PREFIX;
 export function createLeafLedger(root: string, storage?: Pick<Storage, "getItem" | "setItem">) {
   let state: LeafLedger = { root, used: [], purposes: {} };
   try {
@@ -237,7 +245,7 @@ export function createLeafLedger(root: string, storage?: Pick<Storage, "getItem"
 export type LeafLedgerApi = ReturnType<typeof createLeafLedger>;
 
 export function anchorMemo(id: Pick<PublicIdentity, "address" | "root">) {
-  return `quantek:v1:identity:${id.address}:${id.root}`;
+  return `${IDENTITY_MEMO_PREFIX}${id.address}:${id.root}`;
 }
 /** Unsigned SPL Memo instruction; routed through the shared prepare → review → simulate → wallet flow. */
 export function buildAnchorTransaction(
@@ -253,8 +261,8 @@ export function buildAnchorTransaction(
   );
 }
 export function challengeMessage(id: PublicIdentity, nonce: string, leaf: number) {
-  return `quantek:v1:possession:${id.address}:${id.root}:leaf=${leaf}:nonce=${nonce}`;
+  return `${POSSESSION_MESSAGE_PREFIX}${id.address}:${id.root}:leaf=${leaf}:nonce=${nonce}`;
 }
 export function registrationMessage(id: PublicIdentity) {
-  return `quantek:v1:register:${id.address}:${id.root}:${id.publicSeed}:wallet=${id.wallet ?? "none"}`;
+  return `${REGISTRATION_MESSAGE_PREFIX}${id.address}:${id.root}:${id.publicSeed}:wallet=${id.wallet ?? "none"}`;
 }

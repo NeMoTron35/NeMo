@@ -5,10 +5,10 @@ import { KeyRound, RotateCw, Eye, EyeOff, LoaderCircle, ShieldAlert } from "luci
 import { Button } from "@/components/ui/button";
 import { DeskWindow } from "./window";
 import { useWalletDialog } from "./wallet-dialog-context";
-import { PageHeading, Field } from "@/components/quantek/controls";
-import { useConsole } from "@/lib/quantek/context";
+import { PageHeading, Field } from "@/components/qli-core/controls";
+import { useConsole } from "@/lib/qli-core/context";
 import { useVault } from "@/lib/qli/vault-context";
-import { isValidMint } from "@/lib/quantek/rwa";
+import { isValidMint } from "@/lib/qli-core/rwa";
 const vaultNav = [
   ["Vault Desk", "/vault"],
   ["My Vaults & Key", "/vaults"],

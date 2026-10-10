@@ -34,8 +34,8 @@ import {
   navigation,
   GITHUB_URL,
   METEORA_DBC_URL,
-} from "@/lib/quantek/data";
-import { useConsole } from "@/lib/quantek/context";
+} from "@/lib/qli-core/data";
+import { useConsole } from "@/lib/qli-core/context";
 import { useWalletDialog } from "@/components/qli/wallet-dialog-context";
 import { WindowChrome } from "@/components/qli/desktop-window";
 import { useWindowPosition } from "@/components/qli/use-window-position";

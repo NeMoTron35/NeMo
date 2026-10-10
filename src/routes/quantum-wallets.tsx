@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { QuantumWalletsPage } from "@/components/quantek/quantum-wallets";
-import { metadata } from "@/lib/quantek/data";
+import { QuantumWalletsPage } from "@/components/qli-core/quantum-wallets";
+import { metadata } from "@/lib/qli-core/data";
 export const Route = createFileRoute("/quantum-wallets")({
   head: () =>
     metadata(

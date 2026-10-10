@@ -27,6 +27,6 @@ Generate a random nonce, reserve the next unused leaf and sign a possession chal
 
 ## Leaf ledger
 
-Reference ledgers persist root, consumed indexes and purpose labels under the existing `quantek.ledger.v1:` storage namespace. Public-demo ledgers are session-only. This local guard is not a synchronized cross-device lock: clearing/corrupting storage or using multiple tabs/devices can defeat reuse protection. Never treat it as production key-management enforcement.
+Reference ledgers persist root, consumed indexes and purpose labels under the existing `LEAF_LEDGER_PREFIX` from `src/lib/qli-core/compatibility.ts` storage namespace. Public-demo ledgers are session-only. This local guard is not a synchronized cross-device lock: clearing/corrupting storage or using multiple tabs/devices can defeat reuse protection. Never treat it as production key-management enforcement.
 
 Closing an identity drops references to its tree. JavaScript cannot guarantee secure erasure; this identity close path does not explicitly zero every WOTS seed buffer. See [Security](/docs?article=security).

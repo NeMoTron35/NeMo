@@ -21,7 +21,7 @@ import { Connection, type Commitment } from "@solana/web3.js";
 import { initialEvents, type AuditEvent } from "./data";
 import { createSessionStrategyRepository, type StrategyRepository } from "./repository";
 import { rpcSchema } from "./validation";
-import type { Plan } from "@/components/quantek/controls";
+import type { Plan } from "@/components/qli-core/controls";
 import {
   ConsoleContext as Context,
   defaultSettings,

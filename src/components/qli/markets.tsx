@@ -4,8 +4,8 @@ import { ArrowUpRight, RotateCw, Search, LoaderCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { DeskWindow } from "./window";
-import { PageHeading, Field } from "@/components/quantek/controls";
-import { Sparkline } from "@/components/quantek/geometry";
+import { PageHeading, Field } from "@/components/qli-core/controls";
+import { Sparkline } from "@/components/qli-core/geometry";
 import {
   filterMarkets,
   getMarkets,
@@ -13,7 +13,7 @@ import {
   type Market,
   type MarketSort,
 } from "@/lib/qli/market";
-import { useConsole } from "@/lib/quantek/context";
+import { useConsole } from "@/lib/qli-core/context";
 const money = (n: number) =>
   "$" + n.toLocaleString("en-US", { maximumFractionDigits: n < 1 ? 5 : 0 });
 export function MarketPage({

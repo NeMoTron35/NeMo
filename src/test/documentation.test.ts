@@ -7,7 +7,7 @@ import {
   parseDocumentation,
   documentationSearch,
 } from "@/lib/qli/documentation";
-import { DOMAINS } from "@/lib/quantek/pq";
+import { DOMAINS } from "@/lib/qli-core/pq";
 describe("Quantum QLi first-party documentation", () => {
   it("bundles every required topic from Markdown with unique stable ids", () => {
     expect(documentation.length).toBe(27);
@@ -68,7 +68,7 @@ describe("Quantum QLi first-party documentation", () => {
     for (const match of local.matchAll(/bun run ([a-z:-]+)/g))
       if (match[1]) expect(scripts[match[1]]).toBeDefined();
     const protocol = documentation.find((d) => d.id === "protocol-reference")?.body ?? "";
-    for (const domain of Object.values(DOMAINS)) expect(protocol).toContain(domain);
+    for (const key of Object.keys(DOMAINS)) expect(protocol).toContain(`DOMAINS.${key}`);
     expect(documentation.find((d) => d.id === "quantum-identity")?.body).toContain(
       "signed, not submitted",
     );

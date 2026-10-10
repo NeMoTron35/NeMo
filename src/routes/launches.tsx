@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LaunchesPage } from "@/components/qli/markets";
-import { metadata } from "@/lib/quantek/data";
+import { metadata } from "@/lib/qli-core/data";
 export const Route = createFileRoute("/launches")({
   head: () =>
     metadata(

@@ -3,9 +3,9 @@ import { ArrowUpRight, ShieldCheck, Orbit, FlaskConical, Save } from "lucide-rea
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { PageHeading, Panel, Field } from "./controls";
-import { useConsole } from "@/lib/quantek/context";
-import { pools } from "@/lib/quantek/data";
-import { strategySchema } from "@/lib/quantek/validation";
+import { useConsole } from "@/lib/qli-core/context";
+import { pools } from "@/lib/qli-core/data";
+import { strategySchema } from "@/lib/qli-core/validation";
 export function AgentPage() {
   const c = useConsole();
   const [pool, setPool] = useState(c.strategyRepository.load()?.pool ?? c.targetPool);

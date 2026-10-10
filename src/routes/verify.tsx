@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { VerifyPage } from "@/components/quantek/provenance";
-import { metadata } from "@/lib/quantek/data";
+import { VerifyPage } from "@/components/qli-core/provenance";
+import { metadata } from "@/lib/qli-core/data";
 export const Route = createFileRoute("/verify")({
   head: () =>
     metadata(

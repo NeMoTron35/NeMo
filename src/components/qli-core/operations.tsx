@@ -12,9 +12,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { PageHeading, Panel, Field, CopyValue } from "./controls";
-import { useConsole } from "@/lib/quantek/context";
-import { DBC_PROGRAM_ID } from "@/lib/quantek/dbc";
-import { rpcSchema } from "@/lib/quantek/validation";
+import { useConsole } from "@/lib/qli-core/context";
+import { DBC_PROGRAM_ID } from "@/lib/qli-core/dbc";
+import { rpcSchema } from "@/lib/qli-core/validation";
 import { z } from "zod";
 export function ActivityPage() {
   const c = useConsole();

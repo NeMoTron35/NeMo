@@ -92,7 +92,7 @@ export async function signReviewedTransaction({
 }
 import { SolanaSignMessage, type SolanaSignMessageFeature } from "@solana/wallet-standard-features";
 import { ed25519 } from "@noble/curves/ed25519";
-/** Signs the deterministic QUANTEK derivation message locally. No transaction. Returned signature stays in memory. */
+/** Signs the deterministic Quantum QLi derivation message locally. No transaction. Returned signature stays in memory. */
 export async function signDerivationMessage(
   wallet: Wallet,
   account: WalletAccount,

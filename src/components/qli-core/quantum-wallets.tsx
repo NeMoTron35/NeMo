@@ -13,11 +13,11 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHeading, Panel, Field, InfoTip } from "./controls";
-import { useConsole } from "@/lib/quantek/context";
-import { PQ_PARAMETERS, DOMAINS } from "@/lib/quantek/pq";
-import { isValidMint } from "@/lib/quantek/rwa";
+import { useConsole } from "@/lib/qli-core/context";
+import { PQ_PARAMETERS, DOMAINS } from "@/lib/qli-core/pq";
+import { isValidMint } from "@/lib/qli-core/rwa";
 import {
-  QUANTEK_QUANTUM_WALLET_PROGRAM_ID,
+  QLI_QUANTUM_WALLET_PROGRAM_ID,
   QUANTUM_WALLET_STATUS,
   canExecuteLive,
   createQuantumWalletAdapter,
@@ -25,7 +25,7 @@ import {
   vaultChain,
   withdrawalCommitment,
   type AssetRow,
-} from "@/lib/quantek/quantum-wallet";
+} from "@/lib/qli-core/quantum-wallet";
 
 const ASSETS: AssetRow[] = [
   {
@@ -121,7 +121,7 @@ export function QuantumWalletsPage() {
         <Construction size={16} />
         <span>
           <strong>{QUANTUM_WALLET_STATUS}.</strong> Quantum QLi has not deployed an on-chain WOTS
-          verifier program (program id: {String(QUANTEK_QUANTUM_WALLET_PROGRAM_ID)}). This section
+          verifier program (program id: {String(QLI_QUANTUM_WALLET_PROGRAM_ID)}). This section
           models the vault chain, commitments and signature staging locally. No deposit or
           withdrawal can execute.
         </span>

@@ -8,15 +8,16 @@ Read CONTRIBUTING.md and SECURITY.md before changing operation or auth boundarie
 - Keep typed demo repositories separate from DBC transaction adapters; fabricated addresses must never enter live signing flows.
 - Initialize the Meteora client inside invoked service factories; browser wallet-standard access and crypto run only after hydration or user interaction.
 - Keep settings and strategy repositories inside the console provider, session-only and isolated per SSR request; production persistence requires a secured metadata repository excluding cryptographic secrets.
-- Verification uses an explicitly isolated public-demo WOTS encoding, with QUANTEK-owned domain strings and no third-party protocol compatibility claims, so demonstration proofs cannot be misrepresented.
+- Verification uses an explicitly isolated public-demo WOTS encoding, with frozen first-party v1 domain strings and no third-party protocol compatibility claims, so demonstration proofs cannot be misrepresented.
 
 - Wallet signing adapters freeze the reviewed message, verify RPC genesis/fee payer/blockhash, simulate without replacing the blockhash, recheck changes and verify returned signed bytes; submission remains separate to prevent unreviewed writes.
 - All existing public and operational routes share a desktop shell with grouped source navigation, global menus and an icon Dock so no retained capability depends on a single navigation surface.
-- Independent public parity modules live under `qli`; they share the existing console context and wallet-review boundary so demo market records can never enter signing adapters.
+- Public-parity `qli` modules share the console context and wallet-review boundary; demo market records must never enter signing adapters.
 - Browser ML-DSA vault keys live only in the request-isolated provider's tab memory and are wiped on clear/unmount; offline backup is explicit, never persisted or uploaded.
 - Public crypto endpoints under `/api/public/v1/*` accept bounded public material only and dynamically load crypto handlers; no custodial signing or private-key endpoint exists.
-- Resolve rpc-websockets to its browser bundle for Worker compatibility because its node-only export condition cannot resolve in the published Worker environment.
-- Preserve existing qtk1 proof encodings, ledger keys and domain strings through display renames so consumed-key tracking and public proof verification remain compatible.
+- Resolve rpc-websockets to its browser bundle; its Node-only export cannot resolve in the published Worker.
+- Keep operations under `qli-core`, distinct from public-parity `qli`; this prevents collisions while preserving shared providers.
+- Freeze v1 domains, wire kinds, public-demo derivation input and ledger/message prefixes in `src/lib/qli-core/compatibility.ts`; pre-refactor byte vectors prevent namespace cleanup from invalidating proofs or consumed leaves.
 - Hash-signature primitives live in pq.ts, identity derivation/ledger/memo in identity.ts, vault modeling in quantum-wallet.ts; the leaf ledger persists only consumed indexes so secrets never touch storage.
 - The Quantum Wallet adapter refuses live construction while its program id is null, so no third-party program can be silently used.
 - Theme public and retained operational surfaces through shared semantic CSS and dialog slots so presentation changes do not alter signing or proof logic.

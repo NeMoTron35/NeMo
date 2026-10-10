@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, ScanLine, ShieldCheck, Orbit } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useConsole } from "@/lib/quantek/context";
+import { useConsole } from "@/lib/qli-core/context";
 export function QuantumHero() {
   const c = useConsole();
   return (

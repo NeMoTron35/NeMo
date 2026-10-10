@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { PageHeading, Panel } from "./controls";
 import { Sparkline } from "./geometry";
-import { pools, type Pool } from "@/lib/quantek/data";
-import { useConsole } from "@/lib/quantek/context";
+import { pools, type Pool } from "@/lib/qli-core/data";
+import { useConsole } from "@/lib/qli-core/context";
 export function PoolsPage() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All pools");

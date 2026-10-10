@@ -12,9 +12,9 @@ import {
   fingerprint,
 } from "@/lib/qli/crypto";
 import { filterMarkets, demoMarkets, validateOrder, getMarkets } from "@/lib/qli/market";
-import { publicNavigation } from "@/lib/quantek/data";
-import { initialLaunch } from "@/lib/quantek/launch-draft";
-import { launchSchema } from "@/lib/quantek/validation";
+import { publicNavigation } from "@/lib/qli-core/data";
+import { initialLaunch } from "@/lib/qli-core/launch-draft";
+import { launchSchema } from "@/lib/qli-core/validation";
 Object.defineProperty(globalThis, "crypto", { value: webcrypto, configurable: true });
 const post = (body: unknown) =>
   new Request("https://example.test/api/public/v1/signatures/verify", {

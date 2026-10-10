@@ -1,3 +1,4 @@
+import { DOMAINS } from "./compatibility";
 import { createContext, useContext, useState, useEffect, useRef, type ReactNode } from "react";
 import {
   createLeafLedger,
@@ -21,7 +22,7 @@ import { Connection, type Commitment } from "@solana/web3.js";
 import { initialEvents, type AuditEvent } from "./data";
 import { createSessionStrategyRepository, type StrategyRepository } from "./repository";
 import { rpcSchema } from "./validation";
-import type { Plan } from "@/components/quantek/controls";
+import type { Plan } from "@/components/qli-core/controls";
 export type SessionSettings = {
   commitment: Commitment;
   priority: number;
@@ -33,7 +34,7 @@ export const defaultSettings: SessionSettings = {
   commitment: "confirmed",
   priority: 1000,
   slippage: 50,
-  domain: "quantek.network/identity/v1",
+  domain: DOMAINS.identity,
   version: "1",
 };
 export type ConsoleState = {

@@ -8,12 +8,12 @@ import {
   VersionedTransaction,
 } from "@solana/web3.js";
 import type { Wallet, WalletAccount } from "@wallet-standard/base";
-import { signReviewedTransaction } from "@/lib/quantek/wallet";
-import { createDBCServices, DBC_PROGRAM_ID, DEFAULT_MIGRATION } from "@/lib/quantek/dbc";
+import { signReviewedTransaction } from "@/lib/qli-core/wallet";
+import { createDBCServices, DBC_PROGRAM_ID, DEFAULT_MIGRATION } from "@/lib/qli-core/dbc";
 import { MigrationOption } from "@meteora-ag/dynamic-bonding-curve-sdk";
-import { createSessionStrategyRepository } from "@/lib/quantek/repository";
-import { rpcSchema } from "@/lib/quantek/validation";
-import { makeDemoProof, verifyDemoProof } from "@/lib/quantek/pq";
+import { createSessionStrategyRepository } from "@/lib/qli-core/repository";
+import { rpcSchema } from "@/lib/qli-core/validation";
+import { makeDemoProof, verifyDemoProof } from "@/lib/qli-core/pq";
 import { webcrypto } from "node:crypto";
 Object.defineProperty(globalThis, "crypto", { value: webcrypto, configurable: true });
 afterEach(() => vi.restoreAllMocks());

@@ -1,3 +1,4 @@
+import { auditBrand } from "./brand-audit";
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
 import { execFileSync } from "node:child_process";
@@ -51,6 +52,7 @@ function walk(dir: string) {
   }
 }
 walk(root);
+for (const violation of auditBrand()) failures.add(violation);
 const tracked = execFileSync("git", ["ls-files", "-z"], { encoding: "utf8" })
   .split("\0")
   .filter(Boolean);
@@ -71,6 +73,6 @@ if (failures.size) {
   process.exitCode = 1;
 } else {
   console.log(
-    "Repository hygiene passed: ZERO non-neutral name/content matches; no detected credential material or populated environment files.",
+    "Repository hygiene passed: ZERO vendor-name matches; ZERO retired namespace paths or unapproved content matches; no detected credential material or populated environment files.",
   );
 }

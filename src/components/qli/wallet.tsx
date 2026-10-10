@@ -2,7 +2,7 @@ import { createContext, useContext, useState, type ReactNode } from "react";
 import { Wallet, ArrowUpRight, LoaderCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { useConsole } from "@/lib/quantek/context";
+import { useConsole } from "@/lib/qli-core/context";
 import { WalletDialogContext as Context } from "./wallet-dialog-context";
 export function WalletProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);

@@ -23,14 +23,14 @@ import {
   DAMM_V2_FEE_OPTIONS,
   resolveQuoteMint,
   type LaunchDraft,
-} from "@/lib/quantek/validation";
-import { useConsole } from "@/lib/quantek/context";
+} from "@/lib/qli-core/validation";
+import { useConsole } from "@/lib/qli-core/context";
 import {
   DBC_PROGRAM_ID,
   PERMISSIONLESS_QUOTES,
   sdkMethodPlan,
   tokenBadgeState,
-} from "@/lib/quantek/dbc";
+} from "@/lib/qli-core/dbc";
 import {
   RWA_PRESETS,
   RWA_REGISTRY_LABEL,
@@ -40,10 +40,10 @@ import {
   findRwa,
   verifyMintOnRpc,
   type MintCheck,
-} from "@/lib/quantek/rwa";
-import { DOMAINS, hex, messageDigest, proofBytes, type WotsProof } from "@/lib/quantek/pq";
-import { signLeaf } from "@/lib/quantek/identity";
-import { initialLaunch, launchDigest } from "@/lib/quantek/launch-draft";
+} from "@/lib/qli-core/rwa";
+import { DOMAINS, hex, messageDigest, proofBytes, type WotsProof } from "@/lib/qli-core/pq";
+import { signLeaf } from "@/lib/qli-core/identity";
+import { initialLaunch, launchDigest } from "@/lib/qli-core/launch-draft";
 
 const STEPS = ["Asset", "Curve", "Fees", "Migration", "Quote Market", "First Buy", "Review"];
 function CurvePreview({ d }: { d: LaunchDraft }) {

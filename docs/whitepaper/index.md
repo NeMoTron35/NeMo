@@ -124,7 +124,7 @@ JSON request bodies are limited to 65,536 bytes. Binary fields are validated for
 
 Health history is capped and held in volatile worker memory; public crypto/service history can disappear on restart or differ across instances. It is not uptime evidence. External persistence would need explicit integration and security review; none is established by the current history store.
 
-Routes live in `src/routes/`; desktop presentation in `src/components/`; reference identity, DBC and wallet boundaries in `src/lib/quantek/`; crypto/API/market/vault modules in `src/lib/qli/`. Technical help bundles Markdown sources from `docs/`. The generated route tree is not manually authored.
+Routes live in `src/routes/`; desktop presentation in `src/components/`; reference identity, DBC and wallet boundaries in `src/lib/qli-core/`; crypto/API/market/vault modules in `src/lib/qli/`. Technical help bundles Markdown sources from `docs/`. The generated route tree is not manually authored.
 
 Configuration documentation lists environment **names only**, never credentials. Product network, commitment, priority fee, slippage and public RPC choices are session preferences. Managed integration helpers do not imply a secured production metadata repository. See [API documentation](/docs?article=public-api) and [Architecture](/docs?article=architecture).
 

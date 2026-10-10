@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { WhitepaperPage } from "@/components/qli/whitepaper";
 import { whitepaperSearch } from "@/lib/qli/whitepaper";
-import { metadata } from "@/lib/quantek/data";
+import { metadata } from "@/lib/qli-core/data";
 export const Route = createFileRoute("/whitepaper")({
   validateSearch: whitepaperSearch,
   head: () =>

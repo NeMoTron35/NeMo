@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { DeskWindow } from "./window";
 import { algorithms, runLocal, type Algorithm } from "@/lib/qli/crypto";
 import { QuantumHero } from "./hero";
-import { CopyValue, PageHeading } from "@/components/quantek/controls";
+import { CopyValue, PageHeading } from "@/components/qli-core/controls";
 export function Playground() {
   const [a, setA] = useState<Algorithm>("ML-DSA-65");
   const [message, setMessage] = useState("hello quantum");

@@ -9,9 +9,9 @@
 - [x] Audit current features, API contracts, configuration and security claims for first-party documentation.
 - [x] Add Markdown documentation sources and a searchable desktop help reader with deep links and mobile navigation.
 - [x] Verify documentation interactions and run the complete existing test suite plus documentation tests: 41 tests passed; desktop/mobile search, deep links, sharing, downloads and history verified without page errors; automatic build OK.
-- [ ] Refine full desktop composition: global menus, grouped source list, icon Dock, desktop icons, layered utility console.
-- [ ] Add accessible window focus/movement controls and mobile stacked windows without changing protocol logic.
-- [ ] Verify 35 tests and desktop/mobile interaction, keyboard and overflow checks.
+- [x] Refine full desktop composition: global menus, grouped source list, icon Dock, desktop icons, layered utility console.
+- [x] Add accessible window focus/movement controls and mobile stacked windows without changing protocol logic.
+- [x] Verify retained desktop/mobile composition and core routes: 59 regression tests pass, 1280px/390px route smoke checks have no horizontal overflow or page errors.
 - [x] Inventory all publicly reachable reference pages and interactions.
 - [x] Rebuild public architecture, branding, API playground, guide, market and wallet surfaces; retain stronger console capabilities.
 - [x] Exercise reference and implementation flows across desktop/mobile; fix omissions and run tests.
@@ -38,3 +38,10 @@ Live launch execution and pqc.market-compatible derivation remain explicitly dis
 QA evidence: all ten routes and workflows verified without runtime errors; responsive layouts checked from 320–1920px; 17 regression tests passed; automatic build clean. Live chain execution and production PQ identity derivation remain visibly unavailable rather than fabricated.
 
 - [x] v0.2 expansion: top product nav, Launch two-mode, Identity 4-stage, Quantum Wallets, Verify 3 categories, Docs, RWA quotes — build/test/browser QA clean
+
+## Internal namespace cleanup
+
+- [x] Rename core folders, tests, artwork and contributor-facing references; tracked retired-name paths = 0.
+- [x] Centralize frozen protocol identifiers and prove byte compatibility with pre-refactor vectors; 59 tests pass.
+- [x] Verify frozen install, formatting, lint (0 errors/0 warnings), automatic production build, hygiene, dependency audit (0 advisories) and core-route smoke checks at 1280px/390px. Standalone typecheck is not independently run; validation is managed automatically by the environment.
+- [ ] Remove six external-coordinate content exceptions: blocked on maintainers renaming the actual GitHub repository/account or supplying verified replacement coordinates. No remote settings or links are fabricated.

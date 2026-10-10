@@ -22,8 +22,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Sparkline } from "./geometry";
 import { Panel, PageHeading } from "./controls";
-import { pools } from "@/lib/quantek/data";
-import { useConsole } from "@/lib/quantek/context";
+import { pools } from "@/lib/qli-core/data";
+import { useConsole } from "@/lib/qli-core/context";
 export function Overview() {
   const c = useConsole();
   const [range, setRange] = useState("1W");

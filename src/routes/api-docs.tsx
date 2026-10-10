@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ApiDocs } from "@/components/qli/api-desk";
-import { metadata } from "@/lib/quantek/data";
+import { metadata } from "@/lib/qli-core/data";
 export const Route = createFileRoute("/api-docs")({
   head: () =>
     metadata(

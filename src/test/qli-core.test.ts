@@ -1,13 +1,13 @@
 import { describe, it, expect } from "vitest";
 import { webcrypto } from "node:crypto";
-import { makeDemoProof, verifyDemoProof } from "@/lib/quantek/pq";
-import { strategySchema, rpcSchema } from "@/lib/quantek/validation";
-import { navigation } from "@/lib/quantek/data";
+import { makeDemoProof, verifyDemoProof } from "@/lib/qli-core/pq";
+import { strategySchema, rpcSchema } from "@/lib/qli-core/validation";
+import { navigation } from "@/lib/qli-core/data";
 import { createRouter } from "@tanstack/react-router";
 import { QueryClient } from "@tanstack/react-query";
 import { routeTree } from "@/routeTree.gen";
 Object.defineProperty(globalThis, "crypto", { value: webcrypto, configurable: true });
-describe("QUANTEK security and navigation", () => {
+describe("Quantum QLi security and navigation", () => {
   it("matches every console route", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
     for (const [, url] of navigation) expect(router.matchRoutes(url).at(-1)?.routeId).toBe(url);

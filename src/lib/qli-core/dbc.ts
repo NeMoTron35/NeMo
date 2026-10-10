@@ -1,3 +1,4 @@
+import { DOMAINS } from "./compatibility";
 import {
   Connection,
   PublicKey,
@@ -163,7 +164,7 @@ export function sdkMethodPlan(i: LaunchPlanInput) {
         : "client.creator.createPoolWithPartnerAndCreatorFirstBuy({ createPoolParam, partnerFirstBuyParam, creatorFirstBuyParam })",
   );
   if (i.mode === "quantum")
-    methods.push('metadata.extensions["quantek.network/launch/v1"] = Attestation Seal');
+    methods.push(`metadata.extensions["${DOMAINS.launch}"] = Attestation Seal`);
   const signers = [
     "Partner / config authority wallet",
     "Config keypair (generated at build time)",

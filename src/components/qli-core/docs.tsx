@@ -10,7 +10,7 @@ import {
   articleHeadings,
   headingId,
 } from "@/lib/qli/documentation";
-import { navigation } from "@/lib/quantek/data";
+import { navigation } from "@/lib/qli-core/data";
 export const DOCS = documentation;
 function textOf(children: ReactNode): string {
   if (typeof children === "string" || typeof children === "number") return String(children);

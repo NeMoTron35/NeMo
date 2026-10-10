@@ -1,5 +1,5 @@
-// QUANTEK reference hash-signature primitives. Pure functions; invoked from handlers, never module scope.
-// Encoding: QUANTEK reference v1 (own domain separation). Not an audited production implementation.
+// Quantum QLi reference hash-signature primitives. Pure functions; invoked from handlers, never module scope.
+// Encoding: Quantum QLi reference v1 (own domain separation). Not an audited production implementation.
 import { sha256 as nobleSha256 } from "@noble/hashes/sha256";
 
 export const PQ_PARAMETERS = {
@@ -11,12 +11,8 @@ export const PQ_PARAMETERS = {
   n: 32,
   signatureBytes: 4 + 67 * 32 + 8 * 32,
 } as const;
-export const DOMAINS = {
-  identity: "quantek.network/identity/v1",
-  launch: "quantek.network/launch/v1",
-  proof: "quantek.network/proof/v1",
-  quantumWallet: "quantek.network/quantum-wallet/v1",
-} as const;
+import { DOMAINS, WOTS_PROOF_KIND } from "./compatibility";
+export { DOMAINS } from "./compatibility";
 export type Domain = (typeof DOMAINS)[keyof typeof DOMAINS];
 
 const enc = new TextEncoder();
@@ -87,7 +83,7 @@ export function messageDigest(domain: Domain, message: string) {
 }
 
 export type WotsProof = {
-  kind: "quantek-wots16-merkle-v1";
+  kind: typeof WOTS_PROOF_KIND;
   domain: Domain;
   label: "reference" | "public-demo";
   message: string;
@@ -109,8 +105,7 @@ export type VerifyResult = {
 };
 
 export function verifyWotsProof(proof: WotsProof): VerifyResult {
-  if (!proof || proof.kind !== "quantek-wots16-merkle-v1")
-    throw new Error("Unsupported proof kind.");
+  if (!proof || proof.kind !== WOTS_PROOF_KIND) throw new Error("Unsupported proof kind.");
   if (!Object.values(DOMAINS).includes(proof.domain))
     throw new Error("Unknown Quantum QLi domain separation string.");
   if (!Number.isInteger(proof.leaf) || proof.leaf < 0 || proof.leaf >= PQ_PARAMETERS.leaves)

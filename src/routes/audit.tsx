@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ActivityPage } from "@/components/quantek/operations";
-import { metadata } from "@/lib/quantek/data";
+import { ActivityPage } from "@/components/qli-core/operations";
+import { metadata } from "@/lib/qli-core/data";
 export const Route = createFileRoute("/audit")({
   head: () =>
     metadata(

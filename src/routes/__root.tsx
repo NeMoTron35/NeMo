@@ -12,14 +12,14 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportRuntimeError } from "../lib/error-reporting";
-import { useConsole } from "@/lib/quantek/context";
-import { ConsoleProvider } from "@/lib/quantek/console-provider";
-import { Shell } from "@/components/quantek/shell";
+import { useConsole } from "@/lib/qli-core/context";
+import { ConsoleProvider } from "@/lib/qli-core/console-provider";
+import { Shell } from "@/components/qli-core/shell";
 import { Button } from "@/components/ui/button";
-import { Geometry } from "@/components/quantek/geometry";
+import { Geometry } from "@/components/qli-core/geometry";
 import { VaultProvider } from "@/lib/qli/vault";
 import { WalletProvider } from "@/components/qli/wallet";
-import { ReviewModal } from "@/components/quantek/controls";
+import { ReviewModal } from "@/components/qli-core/controls";
 
 function NotFoundComponent() {
   return (

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { DocsPage } from "@/components/quantek/docs";
-import { metadata } from "@/lib/quantek/data";
+import { DocsPage } from "@/components/qli-core/docs";
+import { metadata } from "@/lib/qli-core/data";
 import { documentationSearch } from "@/lib/qli/documentation";
 export const Route = createFileRoute("/docs")({
   validateSearch: documentationSearch,

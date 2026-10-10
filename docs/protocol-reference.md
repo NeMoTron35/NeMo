@@ -33,42 +33,17 @@ publicSeed = okm[32:64]
 
 ## Versioned namespaces
 
-```text
-identity       quantek.network/identity/v1
-launch         quantek.network/launch/v1
-proof          quantek.network/proof/v1
-quantumWallet  quantek.network/quantum-wallet/v1
-```
-
-The product display name is Quantum QLi. Existing technical identifiers are intentionally retained.
+The exact frozen identifiers live in `src/lib/qli-core/compatibility.ts`: `DOMAINS.identity`, `DOMAINS.launch`, `DOMAINS.proof` and `DOMAINS.quantumWallet`. These bytes are protocol identifiers, not current branding; changing them invalidates existing proofs and identities.
 
 ## Public proof shape
 
-Proof Inspector accepts supported public reference JSON. The following is a shape illustration, not executable valid proof material. Use its valid/tampered loaders to obtain actual reference examples.
-
-```json
-{
-  "kind": "quantek-wots16-merkle-v1",
-  "domain": "quantek.network/proof/v1",
-  "label": "public-demo",
-  "message": "the exact signed challenge",
-  "leaf": 7,
-  "publicSeed": "32 bytes as hexadecimal",
-  "root": "32 bytes as hexadecimal",
-  "signature": ["67 elements, each 32 bytes as hexadecimal"],
-  "authPath": ["8 elements, each 32 bytes as hexadecimal"]
-}
-```
+Proof Inspector accepts supported public reference JSON with `kind` equal to `WOTS_PROOF_KIND`, a supported `domain`, `label`, exact signed `message`, `leaf`, hexadecimal `publicSeed` and `root`, 67 hexadecimal signature elements and eight hexadecimal authentication-path elements. Use its valid/tampered loaders to obtain actual examples; symbolic constant names are not valid wire values.
 
 ## Address and memo
 
 A qtk1 reference address derives from the root and public seed with a truncated identity-domain hash, the implementation's 32-symbol alphabet and a six-hex-character checksum. It is not a spendable Solana address.
 
-```text
-quantek:v1:identity:<qtk1-address>:<root>
-```
-
-This is the SPL Memo payload prepared by the current Anchor path. Signing it locally does not publish it.
+The SPL Memo payload is `IDENTITY_MEMO_PREFIX + address + ":" + root`, using the frozen compatibility constant. Signing it locally does not publish it.
 
 ## Sizes and guardrails
 
