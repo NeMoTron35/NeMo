@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/quantum-qli-banner.webp" alt="Quantum QLi — post-quantum Solana liquidity command desk" width="100%">
+  <img src="docs/quantum-qli-banner.jpg" alt="Quantum QLi — post-quantum Solana liquidity command desk" width="100%">
 </p>
 
 <h1 align="center">Quantum QLi</h1>
