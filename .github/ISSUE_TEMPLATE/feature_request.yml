@@ -1,0 +1,20 @@
+name: Feature request
+description: Propose a focused improvement to Quantum QLi.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and intended users
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior and alternatives
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Security and demo/live implications
+      description: Explain any new signing, persistence, RPC or external-service needs.
