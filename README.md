@@ -16,7 +16,7 @@
   <a href="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/scorecard.yml"><img src="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/scorecard.yml/badge.svg" alt="OpenSSF Scorecard"></a>
   <img src="https://img.shields.io/badge/tests-59%20passing-brightgreen" alt="59 tests passing">
   <img src="https://img.shields.io/badge/dependency%20audit-0%20advisories-brightgreen" alt="0 dependency advisories">
-  <img src="https://img.shields.io/badge/license-no%20grant-lightgrey" alt="No license grant">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" alt="Apache-2.0 license"></a>
 </p>
 
 > [!NOTE]
@@ -169,9 +169,11 @@ The roadmap is directional rather than a delivery promise:
 
 See [roadmap.md](roadmap.md).
 
-## License status
+## License
 
-The repository is publicly visible, but **no source-code license grant is currently provided**. See [LICENSE](LICENSE) and [docs/LICENSING.md](docs/LICENSING.md). Third-party dependencies and artwork remain subject to their respective rights.
+Quantum QLi source code and project documentation are licensed under the **Apache License 2.0**. See [LICENSE](LICENSE) and [docs/LICENSING.md](docs/LICENSING.md).
+
+The Quantum QLi name, logos, trademarks and original visual artwork are **not** granted under Apache-2.0 unless a file explicitly says otherwise. Third-party dependencies and assets remain subject to their respective licenses and rights.
 
 ---
 

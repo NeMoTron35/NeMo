@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "description": "Non-custodial Solana liquidity command desk with Meteora DBC planning and local post-quantum cryptography.",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "author": "Quantum QLi",
   "homepage": "https://github.com/QuantumQLi/QuantumQLi#readme",
   "repository": {
