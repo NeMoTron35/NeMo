@@ -50,7 +50,7 @@ jobs:
       - name: Resolve pinned Solana SBF-compatible crypto dependency
         run: |
           set -euxo pipefail
-          cargo update -p blake3 --precise 1.5.1
+          cargo update -p blake3 --precise 1.5.4
           cargo tree -i blake3
       - name: Check Rust formatting
         run: cargo fmt --all --check
