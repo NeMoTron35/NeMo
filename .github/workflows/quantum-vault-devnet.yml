@@ -53,11 +53,17 @@ jobs:
         run: cargo test -p quantum_vault_policy --locked
       - name: Check program host compilation
         run: cargo check -p quantum_vault --locked
-      - name: Build real SBF and IDL with official Anchor 0.31.1 image
+      - name: Build actual Solana SBF binary with Solana toolchain
         run: |
-          set -euo pipefail
-          docker run --rm --entrypoint /bin/bash -v "$PWD:/workspace" -w /workspace solanafoundation/anchor@sha256:21ab8a16e19df4301a198d7a55ab2988549aa2d996e6b5ad229c1d95b9f2d326 -lc 'set -euo pipefail; anchor --version; anchor build'
+          set -euxo pipefail
+          cargo build-sbf --manifest-path quantum_vault/Cargo.toml --sbf-out-dir target/deploy
           test -s target/deploy/quantum_vault.so
+          sha256sum target/deploy/quantum_vault.so
+      - name: Generate Anchor IDL and diagnose packaging
+        run: |
+          set -euxo pipefail
+          mkdir -p target/idl
+          docker run --rm --entrypoint /bin/bash -v "$PWD:/workspace" -w /workspace solanafoundation/anchor@sha256:21ab8a16e19df4301a198d7a55ab2988549aa2d996e6b5ad229c1d95b9f2d326 -lc 'set -eux; anchor --version; rustc --version; cargo --version; ls -lah; anchor idl build -o target/idl/quantum_vault.json'
           test -s target/idl/quantum_vault.json
       - name: Inspect compiled artifacts
         run: |
