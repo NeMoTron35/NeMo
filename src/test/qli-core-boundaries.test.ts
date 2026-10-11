@@ -55,7 +55,7 @@ function fixture() {
       lamports: 1,
     }),
   );
-  vi.spyOn(connection, "getGenesisHash").mockResolvedValue("EtWTRABZaYq6iMfeYKouRu166VU2xqa1");
+  vi.spyOn(connection, "getGenesisHash").mockResolvedValue("EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG");
   vi.spyOn(connection, "getBlockHeight").mockResolvedValue(10);
   vi.spyOn(connection, "isBlockhashValid").mockResolvedValue({ context: { slot: 1 }, value: true });
   const simulate = vi.spyOn(connection, "simulateTransaction").mockResolvedValue({
@@ -103,6 +103,14 @@ describe("Reviewed wallet boundary", () => {
   it("rejects RPC network mismatch", async () => {
     const f = fixture();
     vi.spyOn(f.args.connection, "getGenesisHash").mockResolvedValue("wrong-network");
+    await expect(signReviewedTransaction(f.args)).rejects.toThrow("RPC network");
+    expect(f.sign).not.toHaveBeenCalled();
+  });
+  it("rejects a legacy truncated devnet genesis hash before signing", async () => {
+    const f = fixture();
+    vi.spyOn(f.args.connection, "getGenesisHash").mockResolvedValue(
+      "EtWTRABZaYq6iMfeYKouRu166VU2xqa1",
+    );
     await expect(signReviewedTransaction(f.args)).rejects.toThrow("RPC network");
     expect(f.sign).not.toHaveBeenCalled();
   });
