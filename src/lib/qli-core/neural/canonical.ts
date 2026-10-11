@@ -1,4 +1,4 @@
-// Canonical, domain-separated JSON hashing for the QLi Proof Engine.
+// Canonical, domain-separated JSON hashing (finite numbers use the spec-fixed shortest form) for the QLi Proof Engine.
 // Tamper-evident ledger records only: NOT a blockchain attestation or on-chain proof.
 
 export type Canon = null | boolean | number | string | Canon[] | { [k: string]: Canon };
@@ -10,7 +10,11 @@ export function canonicalJson(v: unknown): string {
     case "boolean":
       return v ? "true" : "false";
     case "number":
-      if (!Number.isSafeInteger(v)) throw new Error("Canonical JSON accepts safe integers only.");
+      if (!Number.isFinite(v)) throw new Error("Canonical JSON rejects non-finite numbers.");
+      if (Number.isInteger(v) && !Number.isSafeInteger(v))
+        throw new Error("Unsafe integer; encode as a decimal string.");
+      // ECMAScript Number::toString is a spec-fixed shortest round-trip form; -0 normalizes to 0.
+      if (Object.is(v, -0)) return "0";
       return String(v);
     case "string":
       return JSON.stringify(v);
