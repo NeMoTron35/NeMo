@@ -11,8 +11,10 @@
 //! * `Execute` only succeeds when the source token account carries the Token-2022
 //!   `TransferHookAccount` extension with `transferring == true`, i.e. inside a real Token-2022
 //!   transfer CPI. Direct invocation outside a transfer is refused.
-//! * Only the mint's TransferHook authority can create the policy; only the stored authority can
-//!   change it. The only CPI is to the System Program to allocate the two PDAs.
+//! * `qlihk:in`: only the mint's TransferHook authority can create the policy.
+//!   `qlihk:db`: for PDA-held hook authorities (Meteora DBC), the mint keypair itself must sign
+//!   alongside the policy-authority wallet, and the initial policy must be open.
+//!   Only the stored authority can change it. The only CPI is to the System Program.
 //! * No fund movement, no delegates, no fees, no counters. An allowlist can never be empty, and the
 //!   authority can always unpause, so the policy cannot permanently freeze the mint by itself.
 //!   Token-2022 can also remove the hook (TransferHook authority sets program id to none).
@@ -43,6 +45,8 @@ pub const MAX_ALLOW: usize = 8;
 pub const CONFIG_LEN: usize = 8 + 4 + 32 + 32 + 1 + 32 * MAX_ALLOW;
 pub const IX_INIT: [u8; 8] = *b"qlihk:in";
 pub const IX_SET: [u8; 8] = *b"qlihk:sp";
+/// Mint-signer bootstrap for PDA-held hook authorities (Meteora DBC). See `init_dbc`.
+pub const IX_INIT_DBC: [u8; 8] = *b"qlihk:db";
 
 /// Token-2022 extension type ids (spl-token-2022 ExtensionType).
 pub const EXT_TRANSFER_HOOK: u16 = 14;
@@ -212,6 +216,9 @@ pub fn process_instruction(program_id: &Pubkey, accounts: &[AccountInfo], input:
     if input.len() >= 8 && input[..8] == IX_INIT {
         return init(program_id, accounts, &input[8..]);
     }
+    if input.len() >= 8 && input[..8] == IX_INIT_DBC {
+        return init_dbc(program_id, accounts, &input[8..]);
+    }
     if input.len() >= 8 && input[..8] == IX_SET {
         return set_policy(program_id, accounts, &input[8..]);
     }
@@ -246,6 +253,7 @@ fn create_pda<'a>(payer: &AccountInfo<'a>, target: &AccountInfo<'a>, sys: &Accou
     )
 }
 
+/// `qlihk:in`: the mint's TransferHook authority (a wallet) creates the policy.
 fn init(program_id: &Pubkey, accounts: &[AccountInfo], data: &[u8]) -> ProgramResult {
     let it = &mut accounts.iter();
     let authority = next_account_info(it)?;
@@ -256,14 +264,49 @@ fn init(program_id: &Pubkey, accounts: &[AccountInfo], data: &[u8]) -> ProgramRe
     if !authority.is_signer {
         return Err(HookError::Unauthorized.into());
     }
-    if sys.key != &system_program::ID {
-        return Err(ProgramError::IncorrectProgramId);
-    }
     let hook_authority = check_mint(mint, program_id)?;
     if hook_authority != authority.key.to_bytes() {
         return Err(HookError::Unauthorized.into());
     }
     let policy = parse_policy(data)?;
+    write_policy_accounts(program_id, authority, config, mint, metas, sys, &policy)
+}
+
+/// `qlihk:db`: bootstrap for mints whose TransferHook authority is a program PDA (Meteora DBC
+/// pool authority). Consent is proven by the MINT KEYPAIR signing the same transaction, which
+/// only the party that generated the mint (the DBC pool creator) holds. The policy authority is
+/// the separate signing wallet. Initial policy MUST be open (paused=false, allowlist=false), so
+/// pool vaults can trade; the authority can toggle pause later via `qlihk:sp`.
+fn init_dbc(program_id: &Pubkey, accounts: &[AccountInfo], data: &[u8]) -> ProgramResult {
+    let it = &mut accounts.iter();
+    let authority = next_account_info(it)?;
+    let config = next_account_info(it)?;
+    let mint = next_account_info(it)?;
+    let metas = next_account_info(it)?;
+    let sys = next_account_info(it)?;
+    if !authority.is_signer || !mint.is_signer || authority.key == mint.key {
+        return Err(HookError::Unauthorized.into());
+    }
+    check_mint(mint, program_id)?;
+    let policy = parse_policy(data)?;
+    if policy.paused || policy.allowlist || !policy.allowed.is_empty() {
+        return Err(HookError::BadPolicy.into());
+    }
+    write_policy_accounts(program_id, authority, config, mint, metas, sys, &policy)
+}
+
+fn write_policy_accounts<'a>(
+    program_id: &Pubkey,
+    authority: &AccountInfo<'a>,
+    config: &AccountInfo<'a>,
+    mint: &AccountInfo<'a>,
+    metas: &AccountInfo<'a>,
+    sys: &AccountInfo<'a>,
+    policy: &Policy,
+) -> ProgramResult {
+    if sys.key != &system_program::ID {
+        return Err(ProgramError::IncorrectProgramId);
+    }
     let (cfg_addr, cfg_bump) = config_address(mint.key, program_id);
     if config.key != &cfg_addr {
         return Err(HookError::BadConfig.into());
@@ -273,7 +316,7 @@ fn init(program_id: &Pubkey, accounts: &[AccountInfo], data: &[u8]) -> ProgramRe
         return Err(HookError::BadExtraMetas.into());
     }
     create_pda(authority, config, sys, CONFIG_LEN, program_id, &[CONFIG_SEED, mint.key.as_ref(), &[cfg_bump]])?;
-    config.try_borrow_mut_data()?.copy_from_slice(&encode_config(cfg_bump, authority.key, mint.key, &policy));
+    config.try_borrow_mut_data()?.copy_from_slice(&encode_config(cfg_bump, authority.key, mint.key, policy));
     let list = extra_metas()?;
     let len = ExtraAccountMetaList::size_of(list.len())?;
     create_pda(authority, metas, sys, len, program_id, &[b"extra-account-metas", mint.key.as_ref(), &[meta_bump]])?;
