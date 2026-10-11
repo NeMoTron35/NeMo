@@ -1,0 +1,77 @@
+name: Quantum Vault devnet readiness (no deploy)
+
+on:
+  push:
+    branches:
+      - "quantum-vault-devnet-*"
+    paths:
+      - "programs/**"
+      - ".github/workflows/quantum-vault-devnet.yml"
+  pull_request:
+    paths:
+      - "programs/**"
+      - ".github/workflows/quantum-vault-devnet.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quantum-vault-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  solana-program:
+    name: Rust policy, Anchor and Solana SBF build
+    runs-on: ubuntu-22.04
+    timeout-minutes: 55
+    defaults:
+      run:
+        working-directory: programs
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install stable Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - name: Install Anchor 0.31.1 and Solana CLI 2.1.0
+        uses: metadaoproject/setup-anchor@v3.4
+        with:
+          anchor-version: "0.31.1"
+          solana-cli-version: "2.1.0"
+          node-version: "20.19.0"
+      - name: Verify versions
+        run: |
+          rustc --version
+          cargo --version
+          anchor --version
+          solana --version
+          solana-test-validator --version
+      - name: Check Rust formatting
+        run: cargo fmt --all --check
+      - name: Execute Rust policy unit tests
+        run: cargo test -p quantum_vault_policy --locked
+      - name: Check program host compilation
+        run: cargo check -p quantum_vault --locked
+      - name: Build actual Solana SBF program and Anchor IDL
+        run: anchor build
+      - name: Inspect compiled artifacts
+        run: |
+          test -s target/deploy/quantum_vault.so
+          test -s target/idl/quantum_vault.json
+          sha256sum target/deploy/quantum_vault.so
+          ls -lh target/deploy/quantum_vault.so target/idl/quantum_vault.json
+      - name: Save unsigned build artifacts for independent review
+        uses: actions/upload-artifact@v4
+        with:
+          name: quantum-vault-devnet-unsigned-${{ github.sha }}
+          path: |
+            programs/target/deploy/quantum_vault.so
+            programs/target/idl/quantum_vault.json
+          if-no-files-found: error
+          retention-days: 7
+
+# There is intentionally NO deployment or signing step.
+# Source build success does not prove on-chain security. Validator-level integration
+# tests and an independently owned devnet deployment authority are required next.
