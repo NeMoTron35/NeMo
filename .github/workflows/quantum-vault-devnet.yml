@@ -62,6 +62,21 @@ jobs:
           test -s target/idl/quantum_vault.json
           sha256sum target/deploy/quantum_vault.so
           ls -lh target/deploy/quantum_vault.so target/idl/quantum_vault.json
+      - name: Run real Solana local-validator vault security tests
+        run: |
+          set -euo pipefail
+          npm install --no-audit --no-fund
+          solana-keygen new --no-bip39-passphrase --force -o "$RUNNER_TEMP/qli-validator-payer.json" >/dev/null
+          solana-test-validator --reset --quiet --ledger "$RUNNER_TEMP/qli-validator-ledger" --bpf-program 93v9K8ytGDR3BAoxtaVVo7u1oaBv3Pu257eBAPCp7SH5 target/deploy/quantum_vault.so > "$RUNNER_TEMP/qli-validator.log" 2>&1 &
+          VALIDATOR_PID=$!
+          trap 'kill $VALIDATOR_PID || true' EXIT
+          for i in $(seq 1 35); do
+            if solana cluster-version --url http://127.0.0.1:8899 > /dev/null 2>&1; then break; fi
+            sleep 2
+          done
+          solana cluster-version --url http://127.0.0.1:8899 || (cat "$RUNNER_TEMP/qli-validator.log"; exit 1)
+          solana airdrop 20 "$(solana-keygen pubkey "$RUNNER_TEMP/qli-validator-payer.json")" --url http://127.0.0.1:8899
+          ANCHOR_PROVIDER_URL=http://127.0.0.1:8899 ANCHOR_WALLET="$RUNNER_TEMP/qli-validator-payer.json" npm run test:integration
       - name: Save unsigned build artifacts for independent review
         uses: actions/upload-artifact@v4
         with:
