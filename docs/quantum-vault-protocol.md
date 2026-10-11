@@ -16,7 +16,7 @@ An Anchor program in `programs/quantum_vault` where a PDA derived from `["qvault
 ## Enforced on-chain
 
 - Fixed destination token account and mint (set at creation, immutable).
-- Per-withdraw maximum and a 24h spend window (resets when `Clock.unix_timestamp >= window_start + 86400`; validator clock drift applies).
+- Per-withdraw maximum and a **fixed (not rolling) 24h spend window** (resets when `Clock.unix_timestamp >= window_start + 86400`; validator clock drift applies). Withdrawals near the reset boundary can use allowances in adjacent fixed windows; this does not promise a strict sliding 24h total.
 - Optional unlock timestamp, intent expiry at most 600 s ahead.
 - Sequential nonce and policy epoch; replayed or changed intents fail.
 - Immediate pause; unpause only 24h after request, bumping the epoch.
