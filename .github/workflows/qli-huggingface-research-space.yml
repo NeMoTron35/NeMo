@@ -73,7 +73,7 @@ jobs:
           with TemporaryDirectory() as directory:
               for name in safe_files:
                   raw = (folder / name).read_bytes()
-                  if len(raw) > 100_000 or b"-----BEGIN PRIVATE KEY-----" in raw:
+                  if len(raw) > 100_000 or b"PRIVATE KEY" in raw:
                       raise SystemExit("Unsafe or oversized research source")
                   (Path(directory) / name).write_bytes(raw)
               api = HfApi(token=token)
