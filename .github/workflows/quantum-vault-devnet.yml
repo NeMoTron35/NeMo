@@ -53,6 +53,7 @@ jobs:
           cargo update -p blake3 --precise 1.5.4
           cargo update -p proc-macro-crate@3.5.0 --precise 3.3.0
           cargo update -p zeroize@1.9.1 --precise 1.8.2
+          cargo update -p indexmap@2.14.2 --precise 2.2.6
           cargo tree -i blake3
       - name: Check Rust formatting
         run: cargo fmt --all --check
