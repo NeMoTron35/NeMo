@@ -17,6 +17,18 @@ permissions:
   contents: read
 
 jobs:
+  hf-space-offline:
+    name: Hugging Face Space deterministic Python stress tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run offline Python Space math and provenance checks
+        run: python -m unittest discover -s research/qli-intelligence/space -p 'test_*.py' -v
+
   deterministic-reference:
     name: Node.js Shadow + Proof + Graph + HF safety
     runs-on: ubuntu-24.04
