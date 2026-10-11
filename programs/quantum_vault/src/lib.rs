@@ -1,7 +1,7 @@
 //! Quantum Vault Phase 1 — NOT AUDITED, NOT DEPLOYED.
 //! Owner-controlled classic SPL Token vault. The vault PDA owns the escrow ATA; every withdrawal
 //! is checked on-chain against an immutable policy (fixed destination, per-withdraw maximum,
-//! fixed 24h window cap, unlock time, intent expiry, sequential nonce, epoch, pause).
+//! fixed 24-hour window limit, unlock time, intent expiry, sequential nonce, epoch, pause).
 //! Authorization is the ordinary ed25519 owner signature. There is no post-quantum verifier,
 //! no admin, no rescue path, no policy loosening and no arbitrary CPI target.
 use anchor_lang::prelude::*;
@@ -42,6 +42,7 @@ pub mod quantum_vault {
         v.vault_id = vault_id;
         v.decimals = ctx.accounts.mint.decimals;
         v.destination = destination;
+        v.destination_owner = ctx.accounts.destination.owner;
         v.max_per_withdraw = max_per_withdraw;
         v.daily_limit = daily_limit;
         v.unlock_ts = unlock_ts;
@@ -226,6 +227,7 @@ pub struct Vault {
     pub vault_id: u64,
     pub decimals: u8,
     pub destination: Pubkey,
+    pub destination_owner: Pubkey,
     pub max_per_withdraw: u64,
     pub daily_limit: u64,
     pub unlock_ts: i64,
@@ -255,7 +257,10 @@ pub struct CreateVault<'info> {
     )]
     pub escrow: Account<'info, TokenAccount>,
     /// Fixed allowed destination: must be a classic SPL token account for the vault mint.
-    #[account(token::mint = mint, token::token_program = token_program)]
+    #[account(token::mint = mint, token::token_program = token_program,
+        constraint = destination.key() == anchor_spl::associated_token::get_associated_token_address_with_program_id(&destination.owner, &mint.key(), &token_program.key()) @ VaultError::WrongDestination,
+        constraint = destination.key() != escrow.key() @ VaultError::InvalidPolicy,
+        constraint = destination.owner != vault.key() @ VaultError::InvalidPolicy)]
     pub destination: Account<'info, TokenAccount>,
     pub token_program: Program<'info, Token>,
     pub associated_token_program: Program<'info, AssociatedToken>,
@@ -265,7 +270,9 @@ pub struct CreateVault<'info> {
 #[derive(Accounts)]
 pub struct Deposit<'info> {
     pub depositor: Signer<'info>,
-    #[account(has_one = mint, constraint = vault.version == policy::ACCOUNT_VERSION @ VaultError::WrongVersion)]
+    #[account(has_one = mint,
+        seeds = [VAULT_SEED, vault.owner.as_ref(), mint.key().as_ref(), &vault.vault_id.to_le_bytes()], bump = vault.bump,
+        constraint = vault.version == policy::ACCOUNT_VERSION @ VaultError::WrongVersion)]
     pub vault: Account<'info, Vault>,
     pub mint: Account<'info, Mint>,
     #[account(mut, token::mint = mint, token::authority = depositor)]
@@ -290,7 +297,9 @@ pub struct Withdraw<'info> {
     #[account(mut, associated_token::mint = mint, associated_token::authority = vault,
         associated_token::token_program = token_program)]
     pub escrow: Account<'info, TokenAccount>,
-    #[account(mut, address = vault.destination @ VaultError::WrongDestination, token::mint = mint)]
+    #[account(mut, address = vault.destination @ VaultError::WrongDestination,
+        token::mint = mint, token::authority = vault.destination_owner, token::token_program = token_program,
+        constraint = destination.key() == anchor_spl::associated_token::get_associated_token_address_with_program_id(&vault.destination_owner, &mint.key(), &token_program.key()) @ VaultError::WrongDestination)]
     pub destination: Account<'info, TokenAccount>,
     pub token_program: Program<'info, Token>,
 }
@@ -300,7 +309,7 @@ pub struct OwnerOnly<'info> {
     pub owner: Signer<'info>,
     #[account(mut, has_one = owner,
         seeds = [VAULT_SEED, owner.key().as_ref(), vault.mint.as_ref(), &vault.vault_id.to_le_bytes()],
-        bump = vault.bump)]
+        bump = vault.bump, constraint = vault.version == policy::ACCOUNT_VERSION @ VaultError::WrongVersion)]
     pub vault: Account<'info, Vault>,
 }
 
