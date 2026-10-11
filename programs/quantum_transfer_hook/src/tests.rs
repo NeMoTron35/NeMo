@@ -225,3 +225,75 @@ fn extra_metas_list_initializes_for_execute() {
     ExtraAccountMetaList::init::<ExecuteInstruction>(&mut buf, &list).unwrap();
     assert_eq!(ExtraAccountMetaList::size_of(1).unwrap(), buf.len());
 }
+
+fn dbc_accounts(w: &World, signer: Pubkey, signer_signs: bool, mint_signs: bool, hook_prog: Pubkey, mint_owner: Pubkey) -> Vec<Acc> {
+    let (cfg, _) = config_address(&w.mint, &PID);
+    let (metas, _) = get_extra_account_metas_address_and_bump_seed(&w.mint, &PID);
+    let mut s = Acc::new(signer, system_program::ID, vec![]);
+    s.signer = signer_signs;
+    // hook authority is an arbitrary PDA (e.g. DBC pool authority), NOT the signer
+    let mut m = Acc::new(w.mint, mint_owner, mint_data(&w.authority, &hook_prog));
+    m.signer = mint_signs;
+    vec![
+        s,
+        Acc { lamports: 0, ..Acc::new(cfg, system_program::ID, vec![]) },
+        m,
+        Acc { lamports: 0, ..Acc::new(metas, system_program::ID, vec![]) },
+        Acc::new(system_program::ID, Pubkey::default(), vec![]),
+    ]
+}
+fn dbc_ix(policy: &[u8]) -> Vec<u8> {
+    let mut v = IX_INIT_DBC.to_vec();
+    v.extend_from_slice(policy);
+    v
+}
+
+#[test]
+fn dbc_init_requires_mint_signer_and_wallet_signer() {
+    let w = world();
+    let op = Pubkey::new_unique();
+    let open = dbc_ix(&[0, 0, 0]);
+    assert_eq!(run(&mut dbc_accounts(&w, op, true, false, PID, TOKEN_2022), &open), err(HookError::Unauthorized));
+    assert_eq!(run(&mut dbc_accounts(&w, op, false, true, PID, TOKEN_2022), &open), err(HookError::Unauthorized));
+    // the mint cannot be its own policy authority
+    let mut a = dbc_accounts(&w, op, true, true, PID, TOKEN_2022);
+    a[0].key = w.mint;
+    assert_eq!(run(&mut a, &open), err(HookError::Unauthorized));
+}
+
+#[test]
+fn dbc_init_rejects_wrong_mint_program_and_owner() {
+    let w = world();
+    let op = Pubkey::new_unique();
+    let open = dbc_ix(&[0, 0, 0]);
+    assert_eq!(run(&mut dbc_accounts(&w, op, true, true, Pubkey::new_unique(), TOKEN_2022), &open), err(HookError::BadMint));
+    assert_eq!(
+        run(&mut dbc_accounts(&w, op, true, true, PID, pubkey!("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA")), &open),
+        err(HookError::BadMint)
+    );
+    let mut a = dbc_accounts(&w, op, true, true, PID, TOKEN_2022);
+    a[1].key = Pubkey::new_unique();
+    assert_eq!(run(&mut a, &open), err(HookError::BadConfig));
+    let mut a = dbc_accounts(&w, op, true, true, PID, TOKEN_2022);
+    a[4].key = Pubkey::new_unique();
+    assert_eq!(run(&mut a, &open), Err(ProgramError::IncorrectProgramId));
+}
+
+#[test]
+fn dbc_init_requires_open_policy() {
+    let w = world();
+    let op = Pubkey::new_unique();
+    assert_eq!(run(&mut dbc_accounts(&w, op, true, true, PID, TOKEN_2022), &dbc_ix(&[1, 0, 0])), err(HookError::BadPolicy));
+    let al: Vec<u8> = [0u8, 1, 1].iter().copied().chain([7u8; 32]).collect();
+    assert_eq!(run(&mut dbc_accounts(&w, op, true, true, PID, TOKEN_2022), &dbc_ix(&al)), err(HookError::BadPolicy));
+}
+
+#[test]
+fn wallet_init_still_refuses_pda_held_hook_authority() {
+    // qlihk:in is not relaxed: a wallet that is not the hook authority is refused even if the mint signs.
+    let w = world();
+    let mut a = dbc_accounts(&w, Pubkey::new_unique(), true, true, PID, TOKEN_2022);
+    let mut ix = IX_INIT.to_vec();
+    ix.extend_from_slice(&[0, 0, 0]);
+    assert_eq!(run(&mut a, &ix), err(HookError::Unauthorized));
+}
