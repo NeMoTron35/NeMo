@@ -1,0 +1,101 @@
+name: Publish QLi Synthetic Research Space
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_publication:
+        description: "Explicitly approve PUBLIC synthetic-only Hugging Face Space publishing"
+        required: true
+        type: choice
+        options:
+          - NO
+          - PUBLISH
+        default: NO
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qli-huggingface-space-publication
+  cancel-in-progress: false
+
+jobs:
+  publish-synthetic-space:
+    name: Publish approved synthetic-only research Space
+    if: ${{ inputs.confirm_publication == 'PUBLISH' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    environment: hf-research
+    env:
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      HF_SPACE_ID: ${{ vars.HF_SPACE_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check explicit configuration without exposing credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${HF_TOKEN:-}" ]; then
+            echo "::error::HF_TOKEN not present in the hf-research environment or repo secrets."
+            exit 1
+          fi
+          if [ -z "${HF_SPACE_ID:-}" ]; then
+            echo "::error::HF_SPACE_ID is required as an hf-research environment or repository variable."
+            exit 1
+          fi
+      - name: Offline synthetic Python simulation tests
+        run: python -m unittest discover -s research/qli-intelligence/space -p 'test_*.py' -v
+      - name: Install official Hub publishing library
+        run: python -m pip install "huggingface_hub>=1.0,<2.0"
+      - name: Publish strictly allowlisted synthetic files
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+          from tempfile import TemporaryDirectory
+          from huggingface_hub import HfApi
+
+          space_id = os.environ["HF_SPACE_ID"]
+          if not re.fullmatch(r"[A-Za-z0-9][\w.-]{0,63}/[A-Za-z0-9][\w.-]{0,95}", space_id):
+              raise SystemExit("HF_SPACE_ID must be a valid owner/space-name")
+          token = os.environ["HF_TOKEN"]
+          folder = Path("research/qli-intelligence/space")
+          safe_files = ("README.md", "app.py", "engine.py")
+          if any(not (folder / f).is_file() for f in safe_files):
+              raise SystemExit("Missing one of the three approved synthetic Space files")
+          # Deliberately stage an explicit allowlist, never the entire repository.
+          with TemporaryDirectory() as directory:
+              for name in safe_files:
+                  raw = (folder / name).read_bytes()
+                  if len(raw) > 100_000 or b"PRIVATE KEY" in raw:
+                      raise SystemExit("Unsafe or oversized research source")
+                  (Path(directory) / name).write_bytes(raw)
+              api = HfApi(token=token)
+              # Token must authenticate and be permitted to write to this exact owner namespace.
+              api.whoami(token=token)
+              api.create_repo(
+                  repo_id=space_id,
+                  repo_type="space",
+                  space_sdk="gradio",
+                  private=False,
+                  exist_ok=True,
+                  token=token,
+              )
+              commit = api.upload_folder(
+                  folder_path=directory,
+                  path_in_repo="",
+                  repo_id=space_id,
+                  repo_type="space",
+                  commit_message="Publish synthetic-only QLi Shadow Research",
+                  token=token,
+              )
+              print("Space source published: https://huggingface.co/spaces/" + space_id)
+              print("Source commit: " + str(getattr(commit, "oid", "available in Hugging Face history")))
+              print("Research only: no user data, model inference, wallets, trade execution or RPC.")
+          PY
