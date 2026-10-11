@@ -26,7 +26,12 @@ pub mod quantum_vault {
         unlock_ts: i64,
     ) -> Result<()> {
         let destination = ctx.accounts.destination.key();
-        let p = policy::Policy { destination: destination.to_bytes(), max_per_withdraw, daily_limit, unlock_ts };
+        let p = policy::Policy {
+            destination: destination.to_bytes(),
+            max_per_withdraw,
+            daily_limit,
+            unlock_ts,
+        };
         policy::validate_policy(&p).map_err(map_err)?;
         let now = Clock::get()?.unix_timestamp;
         let v = &mut ctx.accounts.vault;
@@ -46,7 +51,13 @@ pub mod quantum_vault {
         v.epoch = 0;
         v.paused = false;
         v.unpause_at = 0;
-        emit!(VaultCreated { vault: v.key(), owner: v.owner, mint: v.mint, vault_id, destination });
+        emit!(VaultCreated {
+            vault: v.key(),
+            owner: v.owner,
+            mint: v.mint,
+            vault_id,
+            destination
+        });
         Ok(())
     }
 
@@ -66,11 +77,21 @@ pub mod quantum_vault {
             amount,
             decimals,
         )?;
-        emit!(Deposited { vault: ctx.accounts.vault.key(), depositor: ctx.accounts.depositor.key(), amount });
+        emit!(Deposited {
+            vault: ctx.accounts.vault.key(),
+            depositor: ctx.accounts.depositor.key(),
+            amount
+        });
         Ok(())
     }
 
-    pub fn withdraw(ctx: Context<Withdraw>, amount: u64, nonce: u64, epoch: u32, expires_at: i64) -> Result<()> {
+    pub fn withdraw(
+        ctx: Context<Withdraw>,
+        amount: u64,
+        nonce: u64,
+        epoch: u32,
+        expires_at: i64,
+    ) -> Result<()> {
         let now = Clock::get()?.unix_timestamp;
         let v = &ctx.accounts.vault;
         let p = policy::Policy {
@@ -87,7 +108,8 @@ pub mod quantum_vault {
             epoch,
             expires_at,
         };
-        let next = policy::check_withdraw(&p, &s, &intent, ctx.accounts.escrow.amount, now).map_err(map_err)?;
+        let next = policy::check_withdraw(&p, &s, &intent, ctx.accounts.escrow.amount, now)
+            .map_err(map_err)?;
 
         let owner = v.owner;
         let mint = v.mint;
@@ -111,7 +133,12 @@ pub mod quantum_vault {
         )?;
         let v = &mut ctx.accounts.vault;
         apply(v, &next);
-        emit!(Withdrawn { vault: v.key(), destination: v.destination, amount, nonce });
+        emit!(Withdrawn {
+            vault: v.key(),
+            destination: v.destination,
+            amount,
+            nonce
+        });
         Ok(())
     }
 
@@ -128,7 +155,10 @@ pub mod quantum_vault {
         let v = &mut ctx.accounts.vault;
         let next = policy::request_unpause(&state_of(v), now).map_err(map_err)?;
         apply(v, &next);
-        emit!(UnpauseRequested { vault: v.key(), unpause_at: v.unpause_at });
+        emit!(UnpauseRequested {
+            vault: v.key(),
+            unpause_at: v.unpause_at
+        });
         Ok(())
     }
 
@@ -137,7 +167,10 @@ pub mod quantum_vault {
         let v = &mut ctx.accounts.vault;
         let next = policy::unpause(&state_of(v), now).map_err(map_err)?;
         apply(v, &next);
-        emit!(Unpaused { vault: v.key(), epoch: v.epoch });
+        emit!(Unpaused {
+            vault: v.key(),
+            epoch: v.epoch
+        });
         Ok(())
     }
 }
@@ -272,21 +305,58 @@ pub struct OwnerOnly<'info> {
 }
 
 #[event]
-pub struct VaultCreated { pub vault: Pubkey, pub owner: Pubkey, pub mint: Pubkey, pub vault_id: u64, pub destination: Pubkey }
+pub struct VaultCreated {
+    pub vault: Pubkey,
+    pub owner: Pubkey,
+    pub mint: Pubkey,
+    pub vault_id: u64,
+    pub destination: Pubkey,
+}
 #[event]
-pub struct Deposited { pub vault: Pubkey, pub depositor: Pubkey, pub amount: u64 }
+pub struct Deposited {
+    pub vault: Pubkey,
+    pub depositor: Pubkey,
+    pub amount: u64,
+}
 #[event]
-pub struct Withdrawn { pub vault: Pubkey, pub destination: Pubkey, pub amount: u64, pub nonce: u64 }
+pub struct Withdrawn {
+    pub vault: Pubkey,
+    pub destination: Pubkey,
+    pub amount: u64,
+    pub nonce: u64,
+}
 #[event]
-pub struct Paused { pub vault: Pubkey }
+pub struct Paused {
+    pub vault: Pubkey,
+}
 #[event]
-pub struct UnpauseRequested { pub vault: Pubkey, pub unpause_at: i64 }
+pub struct UnpauseRequested {
+    pub vault: Pubkey,
+    pub unpause_at: i64,
+}
 #[event]
-pub struct Unpaused { pub vault: Pubkey, pub epoch: u32 }
+pub struct Unpaused {
+    pub vault: Pubkey,
+    pub epoch: u32,
+}
 
 #[error_code]
 pub enum VaultError {
-    InvalidPolicy, ZeroAmount, Paused, Locked, Expired, ExpiryTooFar, WrongNonce, WrongEpoch,
-    WrongDestination, OverPerWithdraw, OverDailyLimit, InsufficientEscrow, Overflow,
-    UnpauseNotRequested, UnpauseDelayActive, NotPaused, WrongVersion,
+    InvalidPolicy,
+    ZeroAmount,
+    Paused,
+    Locked,
+    Expired,
+    ExpiryTooFar,
+    WrongNonce,
+    WrongEpoch,
+    WrongDestination,
+    OverPerWithdraw,
+    OverDailyLimit,
+    InsufficientEscrow,
+    Overflow,
+    UnpauseNotRequested,
+    UnpauseDelayActive,
+    NotPaused,
+    WrongVersion,
 }
