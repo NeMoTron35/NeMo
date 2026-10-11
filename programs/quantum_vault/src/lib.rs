@@ -1,7 +1,7 @@
 //! Quantum Vault Phase 1 — NOT AUDITED, NOT DEPLOYED.
 //! Owner-controlled classic SPL Token vault. The vault PDA owns the escrow ATA; every withdrawal
 //! is checked on-chain against an immutable policy (fixed destination, per-withdraw maximum,
-//! rolling 24h limit, unlock time, intent expiry, sequential nonce, epoch, pause).
+//! fixed 24h window cap, unlock time, intent expiry, sequential nonce, epoch, pause).
 //! Authorization is the ordinary ed25519 owner signature. There is no post-quantum verifier,
 //! no admin, no rescue path, no policy loosening and no arbitrary CPI target.
 use anchor_lang::prelude::*;
