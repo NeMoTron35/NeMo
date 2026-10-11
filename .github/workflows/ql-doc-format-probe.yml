@@ -1,0 +1,21 @@
+name: Temporary markdown formatting probe
+on:
+  push:
+    branches: ["quantum-vault-devnet-readiness-20261011"]
+permissions:
+  contents: read
+jobs:
+  format-probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.3.3"
+      - run: bun install --frozen-lockfile
+      - name: Generate Markdown formatting patch for review
+        run: |
+          set -euo pipefail
+          bunx prettier --write docs/QUANTUM_IDENTITY_V2.md docs/QUANTUM_VAULT_DEVNET_READINESS.md
+          git --no-pager diff --no-ext-diff --unified=2 -- docs/QUANTUM_IDENTITY_V2.md docs/QUANTUM_VAULT_DEVNET_READINESS.md
