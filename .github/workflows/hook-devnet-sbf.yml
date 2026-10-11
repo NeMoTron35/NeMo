@@ -49,7 +49,7 @@ jobs:
         run: |
           export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
           solana --version
-          cargo build-sbf --manifest-path programs/quantum_transfer_hook/Cargo.toml
+          cargo build-sbf --tools-version v1.53 --manifest-path programs/quantum_transfer_hook/Cargo.toml
       - name: Hash and verify compiled artifact exists
         run: |
           set -euo pipefail
