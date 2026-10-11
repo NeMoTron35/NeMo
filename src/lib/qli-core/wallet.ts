@@ -8,8 +8,8 @@ function equal(a: Uint8Array, b: Uint8Array) {
   return a.length === b.length && a.every((value, index) => value === b[index]);
 }
 const genesis = {
-  "mainnet-beta": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
-  devnet: "EtWTRABZaYq6iMfeYKouRu166VU2xqa1",
+  "mainnet-beta": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+  devnet: "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
 };
 /** Explicit confirmation only; validates a frozen copy, simulates and returns signed bytes, never submits. */
 export async function signReviewedTransaction({
@@ -45,7 +45,10 @@ export async function signReviewedTransaction({
     throw new Error("A fresh blockhash and validity height are required.");
   const chain = network === "devnet" ? "solana:devnet" : "solana:mainnet";
   if (
-    !account.chains.includes(chain) ||
+    !(
+      account.chains.includes(chain) ||
+      (account.chains.length === 0 && wallet.chains.includes(chain))
+    ) ||
     !wallet.accounts.some((a) => a.address === account.address)
   )
     throw new Error("Connected wallet account does not support the selected network.");
@@ -86,7 +89,7 @@ export async function signReviewedTransaction({
   if (!equal(signed.serializeMessage(), expected))
     throw new Error("Wallet changed the reviewed transaction. Signed bytes rejected.");
   const signature = signed.signatures.find((s) => s.publicKey.equals(payer))?.signature;
-  if (!signature || !signed.verifySignatures(false))
+  if (!signature || !signed.verifySignatures(true))
     throw new Error("Wallet returned an invalid or missing signature.");
   return new Uint8Array(output.signedTransaction);
 }
