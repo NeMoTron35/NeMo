@@ -33,7 +33,8 @@ describe("canonical JSON", () => {
   it("sorts keys and is stable", () =>
     expect(canonicalJson({ b: 1, a: [true, null, "x"] })).toBe('{"a":[true,null,"x"],"b":1}'));
   it("rejects floats, NaN, bigint, functions", () => {
-    expect(() => canonicalJson(1.5)).toThrow();
+    expect(canonicalJson(12.5)).toBe("12.5");
+    expect(() => canonicalJson(2 ** 60)).toThrow();
     expect(() => canonicalJson(NaN)).toThrow();
     expect(() => canonicalJson(1n)).toThrow();
     expect(() => canonicalJson(() => 1)).toThrow();
