@@ -45,7 +45,10 @@ export async function signReviewedTransaction({
     throw new Error("A fresh blockhash and validity height are required.");
   const chain = network === "devnet" ? "solana:devnet" : "solana:mainnet";
   if (
-    !(account.chains.includes(chain) || (account.chains.length === 0 && wallet.chains.includes(chain))) ||
+    !(
+      account.chains.includes(chain) ||
+      (account.chains.length === 0 && wallet.chains.includes(chain))
+    ) ||
     !wallet.accounts.some((a) => a.address === account.address)
   )
     throw new Error("Connected wallet account does not support the selected network.");
