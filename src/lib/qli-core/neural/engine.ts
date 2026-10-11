@@ -143,8 +143,11 @@ export type Topic = "fees" | "migration" | "reserve" | "freshness" | "unauthoriz
 const UNAUTHORIZED =
   /\b(sign|send|transfer|withdraw|swap|buy|sell|execute|approve|drain|private key|seed|mnemonic)\b/i;
 
+const SECRETISH =
+  /[1-9A-HJ-NP-Za-km-z]{32,}|\b(password|passphrase|api[ _-]?key|hf_[A-Za-z0-9]{8,}|bearer|cookie|session)\b|(\b[a-z]{3,8}\b[\s,]+){11,}/i;
+
 export function classify(question: string): Topic {
-  if (UNAUTHORIZED.test(question)) return "unauthorized";
+  if (UNAUTHORIZED.test(question) || SECRETISH.test(question)) return "unauthorized";
   if (/fee|claim|revenue/i.test(question)) return "fees";
   if (/migrat|progress|graduat/i.test(question)) return "migration";
   if (/reserve|liquid|depth/i.test(question)) return "reserve";
@@ -271,4 +274,10 @@ export function policyVerdict(s: Snapshot): Verdict {
   if (p?.kind === "ratio" && p.value >= 90) return "owner-review";
   if (f?.kind === "amount" && Number(f.value) >= 0.1) return "owner-review";
   return "no-action";
+}
+
+/** Local-only mapping of free text to a fixed task. null = never call a hosted model. */
+export function safeTask(question: string): "fees" | "migration" | "reserve" | "freshness" | null {
+  const t = classify(question);
+  return t === "fees" || t === "migration" || t === "reserve" || t === "freshness" ? t : null;
 }
