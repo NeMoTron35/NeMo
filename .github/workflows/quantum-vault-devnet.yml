@@ -41,14 +41,15 @@ jobs:
           anchor-version: "0.31.1"
           solana-cli-version: "2.1.0"
           node-version: "20.19.0"
-      - name: Verify executable Anchor CLI (fail closed)
+      - name: Install patched Anchor CLI 0.31.2 and verify executable
         run: |
           set -euo pipefail
+          npm install --global --no-audit --no-fund @coral-xyz/anchor-cli@0.31.2
           ANCHOR_BIN="$(npm root -g)/@coral-xyz/anchor-cli/anchor"
           test -f "$ANCHOR_BIN"
           chmod 755 "$ANCHOR_BIN"
           "$ANCHOR_BIN" --version | tee /tmp/qli-anchor-version.txt
-          grep -q "0.31.1" /tmp/qli-anchor-version.txt
+          grep -q "0.31.2" /tmp/qli-anchor-version.txt
           solana --version
           solana-test-validator --version
           rustc --version
