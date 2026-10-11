@@ -6,6 +6,12 @@ on:
       - 'programs/quantum_transfer_hook/**'
       - 'programs/quantum_transfer_hook_cpi_test/**'
       - '.github/workflows/hook-devnet-sbf.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'programs/quantum_transfer_hook/**'
+      - 'programs/quantum_transfer_hook_cpi_test/**'
+      - '.github/workflows/hook-devnet-sbf.yml'
   workflow_dispatch:
 permissions:
   contents: read
