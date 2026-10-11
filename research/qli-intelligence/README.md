@@ -75,3 +75,33 @@ of frontend settings.
    enabling public production features.
 
 **No network deployment or wallet signature is included in this branch.**
+
+## Publish the synthetic Space (operator-only)
+
+The GitHub workflow [Publish QLi Synthetic Research Space](../../.github/workflows/qli-huggingface-research-space.yml)
+is manually triggered from GitHub Actions. It **never** runs on push and does
+not access any user's wallet or pool. It publishes only three allowlisted files:
+the Space card, UI and synthetic deterministic engine.
+
+To activate it, an authorized operator must:
+
+1. Configure a GitHub Actions `HF_TOKEN` **secret** with permissions to
+   write a Space in the intended Hugging Face namespace. Never commit the token.
+2. Configure the GitHub Actions `HF_SPACE_ID` **variable** as
+   `your-own-huggingface-account/qli-shadow-research` (replace the account
+   with the owner's actual namespace). The job uses the `hf-research`
+   environment if additional approvals are required.
+3. Run **Publish QLi Synthetic Research Space** manually and deliberately
+   select `PUBLISH`. The default choice `NO` prevents an accidental release.
+4. Open the URL reported by the action and verify the Space has completed its
+   Gradio build. This workflow does not guarantee hosting availability or
+   bypass the Hugging Face account's hardware / eligibility requirements.
+
+The separate **live QLi Neural Engine** also requires `HF_TOKEN` and
+`HF_MODEL_ALLOWLIST` configured as **server-only** secrets on the app's
+production hosting environment. Those hosting settings are independent of
+the GitHub publication workflow. Publishing this offline Space does not
+activate the live model bridge.
+
+No mainnet or devnet Solana program is deployed by this workflow. Even a
+successful Space publication cannot grant authority to trade or withdraw.
