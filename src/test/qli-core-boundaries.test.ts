@@ -55,7 +55,9 @@ function fixture() {
       lamports: 1,
     }),
   );
-  vi.spyOn(connection, "getGenesisHash").mockResolvedValue("EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG");
+  vi.spyOn(connection, "getGenesisHash").mockResolvedValue(
+    "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+  );
   vi.spyOn(connection, "getBlockHeight").mockResolvedValue(10);
   vi.spyOn(connection, "isBlockhashValid").mockResolvedValue({ context: { slot: 1 }, value: true });
   const simulate = vi.spyOn(connection, "simulateTransaction").mockResolvedValue({
