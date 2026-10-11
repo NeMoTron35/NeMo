@@ -34,4 +34,5 @@ Use an owner-controlled signer locally to align the public program ID, rebuild/r
 Source HEAD observed after the verified full suite: `6b26ac88fa679968bf03eece9aafb221d726ef9d`. This evidence document was added afterward; platform-managed commits may advance the final HEAD. No manual Git commit/deployment was performed.
 
 ## Deploy & Verify panel (added)
+
 `/quantum-vault` now includes an owner-only devnet runbook (pinned Agave 2.2.20, SBF platform-tools v1.57, Anchor 0.31.1, nightly-2025-11-01 IDL) ending at **OWNER SIGNATURE REQUIRED**, and a read-only Program Verifier (`src/lib/qli-core/vault-verifier.ts`) that checks devnet genesis, executable upgradeable-loader program, canonical ProgramData, upgrade authority vs your expected key, artifact-prefix SHA-256 plus zero padding (distinct from a whole-ProgramData hash), and IDL address/name/version. A pass never enables writes (`writesEnabled: false`); config must be committed to source after owner review. Rebuilding after `anchor keys sync` changes the artifact hash — re-attest your own bytes. Later, move upgrade authority to a multisig with `solana program set-upgrade-authority`.
