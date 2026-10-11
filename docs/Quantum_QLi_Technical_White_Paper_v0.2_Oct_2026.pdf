@@ -1,0 +1,1109 @@
+%PDF-1.4
+% Quantum QLi technical white paper v0.2 - GitHub edition
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R 27 0 R 29 0 R 31 0 R 33 0 R 35 0 R 37 0 R 39 0 R 41 0 R] /Count 19 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 1548 >>
+stream
+0.028 0.052 0.085 rg 0 0 595 842 re f
+0.12 0.66 0.57 rg 0 0 20 842 re f
+0.16 0.67 0.62 rg 22 772 530 2 re f
+0.25 0.55 0.68 RG 0.7 w 280 470 m 410 495 430 595 500 625 c S
+0.30 0.57 0.68 RG 0.7 w 293 488 m 423 513 443 613 513 643 c S
+0.35 0.59 0.68 RG 0.7 w 306 506 m 436 531 456 631 526 661 c S
+0.40 0.61 0.68 RG 0.7 w 319 524 m 449 549 469 649 539 679 c S
+0.45 0.63 0.68 RG 0.7 w 332 542 m 462 567 482 667 552 697 c S
+0.50 0.65 0.68 RG 0.7 w 345 560 m 475 585 495 685 565 715 c S
+0.55 0.67 0.68 RG 0.7 w 358 578 m 488 603 508 703 578 733 c S
+0.60 0.69 0.68 RG 0.7 w 371 596 m 501 621 521 721 591 751 c S
+0.65 0.71 0.68 RG 0.7 w 384 614 m 514 639 534 739 604 769 c S
+BT /F2 15.0 Tf 0.55 0.96 0.84 rg 1 0 0 1 56.0 745.0 Tm (QUANTUM QLi) Tj ET
+BT /F2 49.0 Tf 0.95 0.98 0.99 rg 1 0 0 1 56.0 618.0 Tm (QUANTUM) Tj ET
+BT /F2 65.0 Tf 0.95 0.98 0.99 rg 1 0 0 1 56.0 556.0 Tm (QLi) Tj ET
+2 w 0.25 0.80 0.67 RG 56 533 m 534 533 l S
+BT /F2 20.0 Tf 0.68 0.92 0.88 rg 1 0 0 1 56.0 479.0 Tm (TECHNICAL WHITE PAPER) Tj ET
+BT /F1 12.0 Tf 0.84 0.89 0.92 rg 1 0 0 1 56.0 429.0 Tm (Launch infrastructure  /  Flywheel operations) Tj ET
+BT /F1 12.0 Tf 0.84 0.89 0.92 rg 1 0 0 1 56.0 406.0 Tm (Cryptographic identity  /  Authorization) Tj ET
+BT /F2 9.0 Tf 0.63 0.88 0.82 rg 1 0 0 1 56.0 185.0 Tm (IMPLEMENTED CAPABILITIES  |  VERIFIED BOUNDARIES  |  ROADMAP) Tj ET
+BT /F2 10.0 Tf 0.98 0.98 0.98 rg 1 0 0 1 56.0 126.0 Tm (VERSION 0.2  -  11 OCTOBER 2026) Tj ET
+BT /F1 9.0 Tf 0.70 0.75 0.78 rg 1 0 0 1 56.0 94.0 Tm (github.com/QuantumQLi/QLi    -    quantumqli.app) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 4530 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (02) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 757.0 Tm (EDITION NOTES) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 732.4 Tm (What this paper covers) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 717.4 Tm (Quantum QLi is an inspectable, non-custodial toolkit for Solana token launches, liquidity) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 705.3 Tm (workflows, identity proofs, and transaction-specific authorization. This edition brings) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 693.1 Tm (together) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 681.0 Tm (the public repository's foundational technical white paper and the more recent) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 668.8 Tm (application) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 656.7 Tm (implementation reviewed on 11 October 2026.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 640.9 Tm (A PRECISE DISTINCTION) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 625.2 Tm (A post-quantum proof can be authentic without being enforced by the blockchain. Quantum) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 613.0 Tm (QLi currently) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 600.9 Tm (verifies identity-linked authorization inside the application. The network still enforces) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 588.8 Tm (its native transaction and) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 576.6 Tm (program rules. No deployed QLi post-quantum treasury verifier is claimed.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 557.9 Tm (Evidence labels used throughout) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 536.3 Tm (LABEL INTERPRETATION) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 517.7 Tm (IMPLEMENTED Application code or cryptographic operation exists; end-user or network) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 505.5 Tm (acceptance may still) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 493.4 Tm (depend on external services.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 477.6 Tm (NETWORK PATH Code builds, signs, broadcasts and confirms real transactions subject to) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 465.5 Tm (wallet/RPC readiness; not) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 453.4 Tm (the same as a demonstrated funded public-mainnet execution.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 437.6 Tm (LOCAL / REFERENCE Executed in the browser or locally, with no automatic public registry,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 425.5 Tm (custody, or enforcement.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 409.7 Tm (PLANNED A proposed design milestone, not deployed functionality or a delivery commitment.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 394.0 Tm (The GitHub main branch still presents an earlier white paper \(v0.1\) and some older) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 381.8 Tm (planning-only descriptions. The latest project source) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 369.7 Tm (includes newer launch execution, Flywheel and Quantum Authorization components. Where) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 357.5 Tm (source vintages differ, this edition describes) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 345.4 Tm (the newer implementation and calls out missing public-chain verification.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 329.7 Tm (Scope: technology, architecture, threat model, current status, research roadmap and) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 317.5 Tm (operational caveats. This document is not a token) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 305.4 Tm (offering, audit certificate, investment recommendation or financial forecast.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 286.6 Tm (Repository: github.com/QuantumQLi/QLi . Product:) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 268.6 Tm (quantumqli.app) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 5809 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (03) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 757.0 Tm (CONTENTS) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 732.4 Tm (Inside this edition) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 717.4 Tm (A source-aligned explanation of the system as it exists today, the boundaries of its) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 705.3 Tm (cryptographic) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 693.1 Tm (security, and the next conditions required for program-enforced authorization.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 677.4 Tm (What this paper covers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 665.2 Tm (. . . . . . . . . . . . . . . . . . . . . 2) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 649.5 Tm (Executive summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 637.3 Tm (. . . . . . . . . . . . . . . . . . . . 5) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 621.6 Tm (Problem, design principles and system boundaries . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 609.4 Tm (. . . . . . . . . . . . . . . . . 5) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 593.7 Tm (Product surface and operational modules . . . . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 581.6 Tm (. . . . . . . . . . . . . . . . . . 6) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 565.8 Tm (Launch Forge: transaction path . . . . . . . . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 553.7 Tm (. . . . . . . . . . . . . . . . . . . . 7) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 537.9 Tm (Quantum Launch: provenance, not chain authority . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 525.8 Tm (. . . . . . . . . . . . . . . . 8) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 510.0 Tm (Flywheel Engine: claim, buyback and burn . . . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 497.9 Tm (. . . . . . . . . . . . . . . . . . 8) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 482.2 Tm (Quantum Identity and hash-based proofs . . . . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 470.0 Tm (. . . . . . . . . . . . . . . . . . 9) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 454.3 Tm (Quantum Authorization v1: signed transaction intent . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 442.1 Tm (. . . . . . . . . . . . . . . . 10) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 426.4 Tm (Authorization versus enforcement . . . . . . . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 414.2 Tm (. . . . . . . . . . . . . . . . . . 11) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 398.5 Tm (Standardized post-quantum primitives . . . . . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 386.3 Tm (. . . . . . . . . . . . . . . . . . 12) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 370.6 Tm (Wallet lifecycle and transaction integrity . . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 358.5 Tm (. . . . . . . . . . . . . . . . . . . 13) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 342.7 Tm (Vaults, key recovery and missing custody . . . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 330.6 Tm (. . . . . . . . . . . . . . . . . . 13) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 314.8 Tm (API, data model and software architecture . . . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 302.7 Tm (. . . . . . . . . . . . . . . . . 14) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 286.9 Tm (Roadmap: the on-chain treasury rejection demo . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 274.8 Tm (. . . . . . . . . . . . . . . . 15) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 259.0 Tm (Testing, evidence and release criteria . . . . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 246.9 Tm (. . . . . . . . . . . . . . . . . . . 16) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 231.2 Tm (Risk disclosures, governance and tokenomics scope . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 219.0 Tm (. . . . . . . . . . . . . . . . 17) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 203.3 Tm (Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 191.1 Tm (. . . . . . . . . . . . . . . . . . . . . 17) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 175.4 Tm (Glossary and source register . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 163.2 Tm (. . . . . . . . . . . . . . . . . . . . 18) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 12 0 R >>
+endobj
+12 0 obj
+<< /Length 1141 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (04) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 756.0 Tm (READING GUIDE) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 737.4 Tm (Chapters 4 - 7 describe currently implemented launch, Flywheel and proof flows. Chapters) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 725.3 Tm (8 - 10 distinguish) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 713.1 Tm (cryptographic authenticity from protocol enforcement. Chapter 14 defines a concrete) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 701.0 Tm (on-chain rejection) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 688.8 Tm (demonstration that has not yet been delivered.) Tj ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 14 0 R >>
+endobj
+14 0 obj
+<< /Length 6341 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (05) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 757.0 Tm (CHAPTER 01) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 732.4 Tm (Executive summary) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 717.4 Tm (Quantum QLi combines non-custodial Solana operations with locally generated cryptographic) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 706.0 Tm (identity and explicit) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 694.7 Tm (transaction review. Its ambition is to help creators move from launching an asset toward) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 683.3 Tm (governing how that asset is) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 672.0 Tm (managed, verified, and eventually protected by enforceable authorization policies.) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 657.0 Tm (Three advances distinguish the October 2026 implementation from the repository's original v0.1) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 645.7 Tm (white paper: a real) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 634.3 Tm (SDK-backed Meteora DBC launch transaction path; a wallet-approved Flywheel sequence for) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 623.0 Tm (creator-fee claims,) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 611.6 Tm (buybacks and burns; and Quantum Authorization v1, which attaches one-time identity proofs to) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 600.3 Tm (exact Flywheel) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 588.9 Tm (transaction intents before wallet approval. [R1 - R3, U1 - U3]) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 571.0 Tm (What is working, and what remains a boundary) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 549.4 Tm (AREA STATE AS OF 11 OCT 2026) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 530.8 Tm (Launch Forge SDK-backed DBC config-and-pool construction, preflight checks, wallet-signing,) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 519.4 Tm (submission and) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 508.1 Tm (account re-reads are implemented. No funded public-mainnet launch was independently) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 496.7 Tm (demonstrated in reviewed evidence.) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 481.8 Tm (Flywheel Live Creator fee claim, same-pool SOL buyback and token burn transaction paths are) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 470.4 Tm (implemented as) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 459.1 Tm (separate wallet-approved steps. Scenario fee allocations are not automatic on-chain routing.) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 444.1 Tm (Quantum Identity Real local reference WOTS/Merkle proof derivation, signing and verification) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 432.8 Tm (with 256 one-time) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 421.4 Tm (leaves. Local reuse ledger only.) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 406.5 Tm (Quantum Authorization v1 Opt-in application policy binding a WOTS/Merkle proof to reviewed) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 395.1 Tm (transaction context. Browser) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 383.8 Tm (verification before signing; bypassable by other clients.) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 368.8 Tm (Post-quantum workbench Library-backed browser operations for ML-DSA-65, SLH-DSA-SHA2-128s and) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 357.4 Tm (ML-KEM-768.) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 342.5 Tm (Quantum Vault / verifier No deployed on-chain post-quantum custody verifier; deposit/withdrawal) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 331.1 Tm (prototypes do not move) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 319.8 Tm (protected assets.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 301.8 Tm (CORE THESIS) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 283.2 Tm (The immediate product value lies in explicit wallet-authorized operations plus inspectable) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 271.9 Tm (proof provenance. The) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 260.5 Tm (proposed next security milestone is a Solana program that rejects an unauthorized vault action) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 249.2 Tm (on-chain, even) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 237.8 Tm (when called outside the Quantum QLi interface.) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 220.9 Tm (CHAPTER 02) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 196.3 Tm (Problem, design principles and system boundaries) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 181.3 Tm (Token creation, liquidity deployment, fee accrual, treasury actions and security policy are) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 169.9 Tm (often spread across multiple) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 158.6 Tm (interfaces. In that setting, the user can lose track of what was configured, what was) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 147.2 Tm (cryptographically authenticated,) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 135.9 Tm (what was merely simulated, and what was actually settled.) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 120.9 Tm (Quantum QLi addresses this with a common review surface and explicit evidence tiers. It does) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 109.6 Tm (not assume that adding a) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 98.2 Tm (hash or proof to an interface makes the underlying asset secure. A valid identity proof) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 86.9 Tm (demonstrates only what its signed) Tj ET
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 16 0 R >>
+endobj
+16 0 obj
+<< /Length 5277 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (06) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 759.0 Tm (message, key material and trust context actually establish.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 740.3 Tm (Non-custodial layered architecture) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 718.7 Tm (01 INTERFACE / INTENT) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 703.7 Tm (Launch Forge . Flywheel . Quantum Authorization) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 684.9 Tm (02 LOCAL CRYPTO / POLICY) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 669.9 Tm (WOTS/Merkle identity . canonical proofs . client guard) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 651.2 Tm (03 WALLET AUTHORIZATION) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 636.2 Tm (Independent approval of the reviewed transaction) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 617.4 Tm (04 NETWORK / PROGRAMS) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 602.4 Tm (Solana and Meteora rule enforcement + account state) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 590.3 Tm (- Human authorization: a compatible wallet approves each real transaction; the) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 578.1 Tm (application does not maintain an) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 566.0 Tm (unattended signer.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 553.8 Tm (- Immutable intent during review: changes to important parameters invalidate prepared) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 541.7 Tm (transactions or identity proofs.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 529.6 Tm (- Public verification: committed proof material can be checked without access to the) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 517.4 Tm (original signing secret.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 505.3 Tm (- Honest failure modes: errors, expired blocks, absent RPC access and unsupported) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 493.1 Tm (settings stop execution rather than) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 481.0 Tm (silently downgrade configuration.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 468.8 Tm (- Separation of models and settlement: forecasts, demos and fee-allocation proposals are) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 456.7 Tm (not chain receipts.) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 439.0 Tm (CHAPTER 03) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 414.4 Tm (Product surface and operational modules) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 399.4 Tm (The application uses a desktop-inspired interface and a set of specialized modules. Not) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 387.2 Tm (every module has identical) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 375.1 Tm (security or persistence properties: some execute real cryptographic operations, some read) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 362.9 Tm (RPC state, some prepare) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 350.8 Tm (reviewed transactions, and others remain illustrative.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 332.0 Tm (MODULE PRIMARY ROLE EVIDENCE CLASS) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 313.4 Tm (Launch Forge Seven-stage asset, curve, fees, migration, quote, first-buy and review) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 301.3 Tm (Network path \(limited\)) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 289.1 Tm (workflow.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 273.4 Tm (Quantum Identity Wallet-bound local reference derivation; registration, challenge proofs,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 261.3 Tm (Local / reference) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 249.1 Tm (and memo preparation.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 233.4 Tm (Proof Inspector Parse and independently verify supported identity and launch proof Local) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 221.2 Tm (verifier) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 209.1 Tm (data.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 193.3 Tm (Quantum Opt-in operation-policy settings, proof creation, verification and Application) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 181.2 Tm (policy) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 169.0 Tm (Authorization authorization records.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 153.3 Tm (Flywheel Live Claim creator fees; buy back through own eligible DBC pool; burn held) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 141.2 Tm (Network path \(limited\)) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 129.0 Tm (tokens.) Tj ET
+endstream
+endobj
+17 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 18 0 R >>
+endobj
+18 0 obj
+<< /Length 5775 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (07) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 756.0 Tm (MODULE PRIMARY ROLE EVIDENCE CLASS) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 737.4 Tm (Flywheel Scenarios Fee allocation sliders, revenue forecasts, digest/proposal generation.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 725.3 Tm (Hypothetical model) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 709.5 Tm (Portfolio / Activity Read wallet/RPC state where available. Connected-wallet read) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 693.8 Tm (Vault Desk / Prototype ML-DSA key, signing, recovery and undeployed WOTS vault Research /) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 681.6 Tm (local) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 669.5 Tm (Quantum Wallets concept.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 653.7 Tm (QLi Operator / Strategy previews and illustrative liquidity datasets; no autonomous Demo) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 641.6 Tm (/ planning) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 629.4 Tm (Markets signer.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 613.7 Tm (A separate public API exposes bounded, public cryptographic operations rather than a) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 601.6 Tm (custodial signing service. The) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 589.4 Tm (private-key operations, on-chain vault and globally synchronized identity registry needed) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 577.3 Tm (for fully enforced) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 565.1 Tm (post-quantum custody do not exist in this snapshot. [R1, R8, U1]) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 547.4 Tm (CHAPTER 04) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 522.8 Tm (Launch Forge: transaction path) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 507.8 Tm (Launch Forge begins with a seven-stage configuration wizard. Although a broad set of) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 495.6 Tm (parameters is presented for) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 483.5 Tm (planning, the executable subset deliberately narrows real deployment to a DBC) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 471.4 Tm (config-and-pool transaction where the) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 459.2 Tm (selected properties can be applied precisely.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 440.5 Tm (Four-stage launch execution) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 418.9 Tm (BUILD SIMULATE APPROVE CONFIRM) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 403.9 Tm (SDK + account checks Frozen message Wallet signatures Chain state re-read) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 388.1 Tm (The current live construction uses the Meteora Dynamic Bonding Curve SDK, including) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 376.0 Tm (createConfigAndPool, against) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 363.8 Tm (program dbcij3LWUppWqq96dh6gJWwBifmcGfLSB5D4DuSMaqN. The user's wallet is payer, fee) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 351.7 Tm (claimer, leftover) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 339.5 Tm (receiver and pool creator. It requires wrapped SOL as the quote asset, immutable token) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 327.4 Tm (authority and DAMM v2 as) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 315.3 Tm (migration target. Unsupported first-buy, vesting, fee-scheduler, non-SOL quote, vanity) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 303.1 Tm (mint and Token-2022 launch) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 291.0 Tm (settings block execution rather than being omitted silently. [U1]) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 272.2 Tm (Preflight and execution invariants) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 257.2 Tm (- RPC genesis hash and invoked program allowlist are checked; the DBC program and quote) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 245.1 Tm (mint must exist on the) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 232.9 Tm (selected network.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 220.8 Tm (- Hosted metadata JSON must agree with the proposed token name and symbol and provide an) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 208.6 Tm (HTTPS image; metadata) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 196.5 Tm (immutability is not guaranteed by ordinary web hosting.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 184.4 Tm (- The reviewed signer set must consist of the wallet payer plus fresh config and mint) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 172.2 Tm (keys; required signatures are) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 160.1 Tm (verified before broadcast.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 147.9 Tm (- Pre-wallet simulation, expiry and signer checks, reviewed message-byte integrity,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 135.8 Tm (single-submission handling and) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 123.6 Tm (post-confirmation account ownership checks are implemented.) Tj ET
+endstream
+endobj
+19 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 20 0 R >>
+endobj
+20 0 obj
+<< /Length 5923 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (08) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 759.0 Tm (- Mainnet includes a separate risk acknowledgement and a 0.1 SOL application preflight) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 746.9 Tm (threshold. This is not an) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 734.7 Tm (on-chain spending limit or final wallet fee guarantee.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 716.0 Tm (Verification status) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 701.0 Tm (The launch path was tested against a local validator with DBC and Metaplex programs) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 688.8 Tm (cloned from devnet, producing a) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 676.7 Tm (confirmed config and pool. Public mainnet/devnet RPC dry runs also checked program,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 664.5 Tm (genesis and signer assumptions) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 652.4 Tm (but stopped before funding/signing. The reviewed project checklist records no funded) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 640.2 Tm (public-mainnet transaction, and) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 628.1 Tm (no physical Phantom extension/mobile wallet confirmation. These are readiness) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 616.0 Tm (limitations, not evidence that a funded) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 603.8 Tm (mainnet transaction occurred. [U1]) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 586.1 Tm (CHAPTER 05) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 561.5 Tm (Quantum Launch: provenance, not chain authority) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 546.5 Tm (Quantum Launch adds a reference WOTS/Merkle Attestation Seal to the standard DBC launch) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 534.3 Tm (process. The metadata) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 522.2 Tm (JSON must contain a proof that verifies against the open Quantum Identity and the) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 510.0 Tm (canonical launch data. Public-demo) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 497.9 Tm (secrets are refused for real attribution.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 482.2 Tm (The v1 launch digest commits to version, mode, name, symbol, metadata URI, decimals,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 470.0 Tm (supply, quote mint, DBC) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 457.9 Tm (program and DAMM v2 migration selection. It does not commit to every curve, fee,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 445.7 Tm (liquidity, social-link or first-buy) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 433.6 Tm (setting. Therefore a verified seal must not be interpreted as endorsement of the complete) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 421.4 Tm (economic configuration. [R5,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 409.3 Tm (U1]) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 390.5 Tm (ATTESTATION MEANING) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 371.9 Tm (Successful WOTS/Merkle verification says the specified signed launch fields match the) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 359.8 Tm (proof and identity root. It) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 347.7 Tm (does not make the token immutable, prove token ownership at some later date, guarantee a) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 335.5 Tm (pool was deployed,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 323.4 Tm (or replace Solana authorization.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 304.6 Tm (Metadata integrity risks) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 289.6 Tm (A token metadata URI may point to a mutable HTTPS host. The signed canonical fields can) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 277.5 Tm (establish consistency at) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 265.3 Tm (signing time, but changes to remotely hosted data or omitted configuration fields may) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 253.2 Tm (fall outside that commitment. A) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 241.0 Tm (stronger future design would include immutable/content-addressed metadata, complete) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 228.9 Tm (economic-field commitment) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 216.8 Tm (and independent confirmation of on-chain ownership and state.) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 199.0 Tm (CHAPTER 06) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 174.4 Tm (Flywheel Engine: claim, buyback and burn) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 159.4 Tm (The Flywheel Engine connects three eligible creator-controlled operations to the asset's) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 147.3 Tm (own Meteora DBC pool. It is a) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 135.1 Tm (manual, wallet-approved cycle: no recurring worker, background signer or automatic) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 123.0 Tm (treasury automation is present. The) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 110.8 Tm (live operations are distinct from the adjacent allocation and forecasting models. [U2]) Tj ET
+endstream
+endobj
+21 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 22 0 R >>
+endobj
+22 0 obj
+<< /Length 4615 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (09) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 756.0 Tm (01 CLAIM 02 BUY BACK 03 BURN) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 741.0 Tm (Creator trading fees SOL to pool token SPL BurnChecked) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 722.3 Tm (Supported live-step rules) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 700.7 Tm (STEP PROTOCOL ACTION OPERATIONAL GUARD) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 682.1 Tm (Claim SDK creator trading-fee claim for a pool created by On-chain pool/creator read,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 669.9 Tm (reviewed account set and) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 657.8 Tm (the connected wallet. wallet approval.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 642.0 Tm (Buyback Same-pool SOL swap with an on-chain quote. Minimum-out slippage floor;) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 629.9 Tm (configurable cap with 10) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 617.7 Tm (SOL hard application ceiling; migrated and non-SOL) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 605.6 Tm (pools blocked.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 589.8 Tm (Burn SPL Token BurnChecked from user-owned token Token balance constraint; irreversible) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 577.7 Tm (supply reduction) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 565.6 Tm (account. on successful settlement.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 549.8 Tm (Each transaction is simulated, signed independently, broadcast with single-send) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 537.7 Tm (safeguards and checked after) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 525.5 Tm (confirmation. The interface re-reads relevant balances, supply and claimable fee state;) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 513.4 Tm (only observed confirmations are) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 501.2 Tm (labelled "Verified on-chain." Burns reduce supply but do not guarantee price effects or) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 489.1 Tm (economic returns.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 470.4 Tm (What the Flywheel does not automate) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 455.4 Tm (Revenue projections, allocation percentages, proposed buyback shares and SHA-256 proposal) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 443.2 Tm (digests are local scenario) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 431.1 Tm (tools. No contract automatically redistributes creator fees according to these) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 418.9 Tm (percentages. A proposed allocation does) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 406.8 Tm (not create an on-chain accounting obligation. Pool migration to DAMM v2 currently blocks) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 394.6 Tm (the live same-pool buyback) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 382.5 Tm (path pending a separate swap integration.) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 364.7 Tm (CHAPTER 07) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 340.1 Tm (Quantum Identity and hash-based proofs) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 325.1 Tm (Quantum Identity is a reference identity mechanism derived locally after wallet message) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 313.0 Tm (signing. It binds an address and) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 300.9 Tm (selected network to a signed derivation message, then uses HKDF-SHA256 for local) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 288.7 Tm (expansion. An optional passphrase) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 276.6 Tm (path uses NFKC normalization and scrypt \(N = 2^15, r = 8, p = 1\). Deterministic) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 264.4 Tm (re-derivation depends on a stable signing) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 252.3 Tm (response and identical inputs. [R4]) Tj ET
+endstream
+endobj
+23 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 24 0 R >>
+endobj
+24 0 obj
+<< /Length 4240 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (10) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 756.0 Tm (WOTS/Merkle reference construction) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 734.4 Tm (PROPERTY CURRENT REFERENCE PARAMETER) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 712.8 Tm (Underlying digest SHA-256) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 691.2 Tm (Winternitz base w = 16) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 669.6 Tm (Signature chains 67 chains x 32-byte elements) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 648.0 Tm (Merkle depth 8, allowing 256 leaves) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 629.4 Tm (Raw reference proof 4-byte leaf index + 2,144-byte signature + 256-byte path = 2,404) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 617.3 Tm (bytes) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 601.5 Tm (Domain separation Versioned proof/launch domains and explicit authorization intent prefix) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 585.8 Tm (Registering an identity reserves the first leaf for a binding message; later possession) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 573.6 Tm (or authorization proofs reserve the) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 561.5 Tm (next unused leaf before signing. Verification recomputes the WOTS leaf and follows the) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 549.3 Tm (Merkle authentication path to) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 537.2 Tm (the public root. One-time keys must never be reused: exhausted or corrupted key history) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 525.0 Tm (is a security failure, not a) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 512.9 Tm (condition to silently reset.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 494.2 Tm (Where persistence stops) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 479.2 Tm (The consumed-leaf ledger stores indexes and purpose labels in the browser. It is neither) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 467.0 Tm (globally synchronized nor) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 454.9 Tm (atomic across devices; clearing storage, using multiple tabs or losing recovery data can) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 442.7 Tm (permit unsafe reuse. No) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 430.6 Tm (production-grade identity registry or certified XMSS-compatible implementation is) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 418.4 Tm (claimed. Session secret handling also) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 406.3 Tm (cannot guarantee full JavaScript memory erasure.) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 388.6 Tm (CHAPTER 08) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 364.0 Tm (Quantum Authorization v1: signed transaction) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 349.0 Tm (intent) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 336.8 Tm (Quantum Authorization extends the reference identity mechanism to a concrete Flywheel) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 324.7 Tm (transaction prepared for user) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 312.5 Tm (review. When policy is enabled for that operation, the application asks the identity) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 300.4 Tm (holder to sign a canonical, versioned) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 288.2 Tm (authorization intent with an unused WOTS leaf. A verifier must accept the proof before) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 276.1 Tm (the wallet-sign prompt becomes) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 263.9 Tm (available. [U3]) Tj ET
+endstream
+endobj
+25 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 26 0 R >>
+endobj
+26 0 obj
+<< /Length 5998 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (11) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 756.0 Tm (Fields committed by the intent) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 734.4 Tm (DOMAIN / IDENTITY OPERATION / TRANSACTION) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 712.8 Tm (Version and operation type Pool, creator, mint and) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 694.8 Tm (recipient) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 673.2 Tm (Network and genesis hash Amount in base units; maximum) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 655.2 Tm (spend) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 636.6 Tm (Wallet account and identity address/root Slippage and minimum output, as applicable) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 618.6 Tm (Issued-at and expiry timestamps SHA-256 of the) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 600.6 Tm (reviewed message) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 579.0 Tm (Random 32-byte nonce Recent blockhash and last valid) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 561.0 Tm (block height) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 542.4 Tm (The intent is canonicalized using a fixed key order and deterministic string values, prefixed) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 531.1 Tm (with the versioned) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 519.7 Tm (authorization domain, hashed using SHA-256 and signed under the reference identity proof) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 508.4 Tm (domain. The verifier checks) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 497.0 Tm (proof kind, domain, root match, exact signed message, current operation fields, timestamps,) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 485.7 Tm (identity context and) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 474.3 Tm (in-session nonce use.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 456.4 Tm (Application-level policy and record lifecycle) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 441.4 Tm (- Policy is opt-in, with individual coverage of creator-fee claim, buyback and burn. For) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 430.0 Tm (buybacks, a threshold may trigger) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 418.7 Tm (identity approval at or above the chosen amount.) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 407.3 Tm (- Authorization expiry may be set from 30 to 900 seconds; a different wallet, quote, RPC,) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 396.0 Tm (policy, network, blockhash,) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 384.6 Tm (identity or reviewed message invalidates the prior approval.) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 373.3 Tm (- Proof is rechecked immediately before wallet signing. Public-demo identities, missing proofs,) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 361.9 Tm (stale proofs and) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 350.6 Tm (tampered/mismatched transaction data are rejected by the QLi application.) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 339.2 Tm (- Authorization records distinguish Created, Verified locally, Expired, Invalidated, Rejected) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 327.9 Tm (and Executed on-chain. The) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 316.5 Tm (last status requires the separate wallet transaction to be confirmed and on-chain state to be) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 305.2 Tm (re-read.) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 293.8 Tm (- Public proof export contains verification material, not the private leaf seeds. Records are) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 282.5 Tm (session-scoped; settings are) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 271.1 Tm (browser-local and mutable.) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 256.2 Tm (THE HARD BOUNDARY) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 241.2 Tm (Quantum Authorization v1 is NOT a Solana program rule. A wallet owner or attacker with the) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 229.8 Tm (relevant) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 218.5 Tm (conventional authority can bypass this additional proof check by calling the network outside) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 207.1 Tm (Quantum QLi. It is) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 195.8 Tm (an application-level usability and review safeguard, not quantum-safe custody.) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 178.8 Tm (CHAPTER 09) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 154.2 Tm (Authorization versus enforcement) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 139.2 Tm (Security architecture must distinguish three statements that can sound similar but have) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 127.9 Tm (different consequences. \(1\) "A) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 116.5 Tm (signature is valid" is a cryptographic claim about a message and key. \(2\) "The app refuses an) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 105.2 Tm (action" is a client-side policy) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 93.8 Tm (behavior. \(3\) "The program rejects an action" is a blockchain settlement rule, independently) Tj ET
+BT /F1 8.6 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 82.5 Tm (enforced across clients.) Tj ET
+endstream
+endobj
+27 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 28 0 R >>
+endobj
+28 0 obj
+<< /Length 5889 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (12) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 756.0 Tm (SECURITY QUESTION CURRENT ENFORCER BYPASS / LIMITATION) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 737.4 Tm (Who approves the Solana transaction? Wallet signature + native Conventional Solana) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 725.8 Tm (authorization remains) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 714.2 Tm (programs decisive.) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 699.0 Tm (Does this WOTS proof match the signed Local verifier Valid proof does not force any on-chain) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 687.3 Tm (rule.) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 675.7 Tm (intent?) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 660.5 Tm (Can Flywheel sign without an enabled QLi application gate Another client can bypass) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 648.9 Tm (application UI) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 637.3 Tm (proof? checks.) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 622.1 Tm (Does a spend cap bind all transaction QLi client for stated operations Program-level cap not) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 610.4 Tm (deployed by QLi.) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 598.8 Tm (clients?) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 583.6 Tm (Can funds leave a post-quantum protected No current QLi verifier/vault No such protected) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 572.0 Tm (custody path exists.) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 560.4 Tm (QLi vault?) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 545.2 Tm (Can a treasury reject missing PQ proof Not implemented Requires deployed, tested, auditable) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 533.5 Tm (program) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 521.9 Tm (on-chain? logic.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 503.7 Tm (Why hybrid authorization is the probable near-term) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 485.7 Tm (route) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 470.7 Tm (An on-chain enforcement design could preserve ordinary wallet approval while adding a second,) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 459.1 Tm (program-verified) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 447.5 Tm (cryptographic condition for assets held under a purpose-built vault authority. That is more) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 435.9 Tm (realistic than suggesting a) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 424.2 Tm (local identity proof upgrades every existing Solana account. The new verifier must bind the) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 412.6 Tm (proof to an exact instruction,) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 401.0 Tm (not merely to an account or arbitrary statement.) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 385.8 Tm (This is a proposed architecture only. Choice of post-quantum scheme, computational) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 374.2 Tm (feasibility, signature transport,) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 362.6 Tm (chain-time expiry, gas/compute budget, recovery and key rotation require engineering and) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 351.0 Tm (external security review.) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 333.7 Tm (CHAPTER 10) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 309.1 Tm (Standardized post-quantum primitives) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 294.1 Tm (Quantum QLi includes a browser-local cryptographic workbench built on @noble/post-quantum.) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 282.5 Tm (These operations are) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 270.9 Tm (separate from the reference WOTS identity system and from the account signatures that) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 259.3 Tm (authorize ordinary Solana) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 247.7 Tm (transfers. Algorithm presence is not evidence of certified implementation security or) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 236.1 Tm (deployed quantum-resistant) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 224.4 Tm (custody. [R3]) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 206.2 Tm (SCHEME REFERENCE CURRENT ROLE) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 187.6 Tm (ML-DSA-65 FIPS 204 Local post-quantum digital-signature operations; public verification API.) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 172.4 Tm (SLH-DSA-SHA2-128s FIPS 205 Local stateless hash-based signature operations; public) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 160.8 Tm (verification API.) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 145.6 Tm (ML-KEM-768 FIPS 203 Local encapsulation/decapsulation and public encapsulation API.) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 130.4 Tm (Custom WOTS/Merkle Reference, not One-time identity possession, launch and authorization) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 118.7 Tm (attestations.) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 107.1 Tm (FIPS-certified as) Tj ET
+BT /F1 8.8 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 95.5 Tm (implemented) Tj ET
+endstream
+endobj
+29 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 30 0 R >>
+endobj
+30 0 obj
+<< /Length 5305 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (13) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 756.0 Tm (SCHEME REFERENCE CURRENT ROLE) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 737.4 Tm (FN-DSA / Falcon Experimental Not a deployed launch certification or custody signer.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 725.3 Tm (exploration) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 709.5 Tm (Hybrid Ed25519 + ML-DSA Research direction No deployed on-chain enforcement integration.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 690.8 Tm (Interpreting "post-quantum" correctly) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 675.8 Tm ("Post-quantum" describes the cryptographic hardness assumptions and algorithm families) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 663.6 Tm (targeted against certain) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 651.5 Tm (quantum attacks. It does not imply that browsers, wallets, RPC nodes, smart contracts,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 639.3 Tm (key storage, metadata hosts or) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 627.2 Tm (governance are secure. In particular, user funds in ordinary Solana accounts remain) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 615.0 Tm (governed by the network's normal) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 602.9 Tm (authorization model.) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 585.2 Tm (CHAPTER 11) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 560.6 Tm (Wallet lifecycle and transaction integrity) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 545.6 Tm (Real transaction submission uses an explicit separation of preparation, simulation,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 533.4 Tm (wallet authorization, broadcast and) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 521.3 Tm (confirmation. This makes the difference between a user-approved intent and an observed) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 509.1 Tm (state transition visible in the) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 497.0 Tm (interface.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 478.2 Tm (STATE WHAT IT ACTUALLY MEANS) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 459.6 Tm (Built A transaction message and account set were constructed.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 443.9 Tm (Simulated The selected RPC evaluated the candidate transaction. Not network settlement.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 428.2 Tm (Awaiting wallet User has not yet signed; the application cannot presume approval.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 412.4 Tm (Submitted Signed bytes were broadcast; confirmation not yet established.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 396.7 Tm (Confirmed A signature was observed with the configured commitment and account state was) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 384.5 Tm (re-read.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 368.8 Tm (Failed / expired There is no successful confirmed state to report; a new reviewed) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 356.6 Tm (transaction may be required.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 340.9 Tm (Safety mechanisms include payer and signer validation, full-genesis RPC checks,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 328.7 Tm (byte-for-byte review matching,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 316.6 Tm (expired-blockhash rejection, single-submission handling and post-signature) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 304.5 Tm (re-verification. A confirmation still does not) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 292.3 Tm (establish that the transaction was economically wise or immune to market risk. [U1 - U2]) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 274.6 Tm (CHAPTER 12) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 250.0 Tm (Vaults, key recovery and missing custody) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 235.0 Tm (The Vault Desk exposes browser-local ML-DSA-65 key creation and public fingerprints.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 222.8 Tm (Explicit offline seed backup and) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 210.7 Tm (restore are provided; local withdrawal proof generation can be demonstrated. However,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 198.5 Tm (neither the current vault) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 186.4 Tm (screens nor the reference WOTS wallet-chain staging move funds out of an enforceable QLi) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 174.2 Tm (post-quantum-controlled) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 162.1 Tm (vault. [R7, U4]) Tj ET
+endstream
+endobj
+31 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 32 0 R >>
+endobj
+32 0 obj
+<< /Length 5828 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (14) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 759.0 Tm (NO DEPOSITED VAULT ASSETS) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 743.3 Tm (The current Quantum Wallet program identifier is unset; vault creation, deposit,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 731.1 Tm (withdrawal and independent) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 719.0 Tm (post-quantum settlement checks are unavailable. A locally valid withdrawal signature must) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 706.8 Tm (not be mistaken for) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 694.7 Tm (permission granted by a deployed Solana program.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 675.9 Tm (Operational key-management concerns) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 660.9 Tm (- Offline recovery of deterministic reference identities depends on exact derivation) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 648.8 Tm (inputs, signing behavior and an intact) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 636.6 Tm (consumed-leaf history.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 624.5 Tm (- The prototype ML-DSA backup seed is sensitive; never paste it into support, cloud) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 612.4 Tm (chats, public issues or logs.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 600.2 Tm (- Clearing local memory does not prove that browser heap copies, extensions or the host) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 588.1 Tm (operating system cannot retain) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 575.9 Tm (data.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 563.8 Tm (- A future production vault requires formalized key rotation, loss handling, replay) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 551.6 Tm (storage, multi-party policy and) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 539.5 Tm (emergency response - without introducing bypassable administrator backdoors.) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 521.8 Tm (CHAPTER 13) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 497.2 Tm (API, data model and software architecture) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 482.2 Tm (The TypeScript application uses React and TanStack routing with domain service modules) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 470.0 Tm (for DBC transaction) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 457.9 Tm (preparation, local identity, proof checking and explicit wallet adapters. Application) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 445.7 Tm (session state is not an on-chain) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 433.6 Tm (database, and no public private-key signing endpoint is exposed. [R1, R8]) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 417.8 Tm (Public cryptographic API) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 399.1 Tm (HTTP PATH SUFFIX \(under /api/public/v1\) BEHAVIOR) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 380.5 Tm (GET algorithms, health Advertises cryptographic capabilities and self-tests.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 364.7 Tm (GET health/history Volatile worker history, not an uptime guarantee.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 349.0 Tm (POST signatures/verify Public ML-DSA or SLH-DSA signature verification.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 333.3 Tm (POST kem/encapsulate ML-KEM ciphertext and a fingerprint, not a disclosed shared) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 321.1 Tm (secret.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 305.4 Tm (501 keys, signatures/sign, kem/decapsulate, usage No server private-key) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 293.2 Tm (generation/signing/decapsulation or) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 281.1 Tm (per-project usage.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 265.3 Tm (Public JSON requests are bounded to 65,536 bytes. Cryptographic public endpoints are) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 253.2 Tm (intentionally narrower than local) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 241.0 Tm (workbench operations. Worker history and some strategy/event records are volatile and not) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 228.9 Tm (a durable event-indexer,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 216.8 Tm (compliance system or confidential key service.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 198.0 Tm (Data classes and storage) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 183.0 Tm (- On-chain: pool/program accounts, mints, transactions, confirmed signatures and balances) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 170.9 Tm (read through RPC.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 158.7 Tm (- Public cryptographic material: signature proofs, roots, public seeds, authentication) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 146.6 Tm (paths and canonical signed fields.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 134.4 Tm (- Browser-local: policy preferences, consumed leaf indexes, ephemeral proof records and) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 122.3 Tm (tab/session state.) Tj ET
+endstream
+endobj
+33 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 34 0 R >>
+endobj
+34 0 obj
+<< /Length 4940 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (15) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 759.0 Tm (- Private local: wallet approvals, WOTS secrets, passphrases and prototype ML-DSA) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 746.9 Tm (material. The product has no) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 734.7 Tm (general-purpose remote secret escrow.) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 717.0 Tm (CHAPTER 14) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 692.4 Tm (Roadmap: the on-chain treasury rejection demo) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 677.4 Tm (The most meaningful next security milestone is not another dashboard: it is an) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 665.2 Tm (independently repeatable demonstration) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 653.1 Tm (that a protected Solana treasury refuses unauthorized movement inside the on-chain) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 640.9 Tm (program, even if an attacker uses a) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 628.8 Tm (different client. No such QLi verifier is deployed at this time.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 610.0 Tm (Proposed acceptance criteria) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 588.4 Tm (VAULT VERIFY SETTLE) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 573.4 Tm (Program-held authority Exact signed action Atomic CPI + nonce) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 557.7 Tm (- Custody boundary: put test assets under a program-derived authority so a generic wallet) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 545.6 Tm (transfer alone cannot bypass) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 533.4 Tm (the vault's policy.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 521.3 Tm (- Canonical authorization: bind the proof to program ID, vault address, network/genesis,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 509.1 Tm (mint, recipient, amount,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 497.0 Tm (operation, expiry and unique nonce. Define a stable, auditable serialization.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 484.8 Tm (- On-chain decision: verify approved cryptographic proof and all relevant policy fields) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 472.7 Tm (before SPL Token cross-program) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 460.6 Tm (invocation. Store consumed nonces in chain state, atomically preventing replays.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 448.4 Tm (- Negative tests: missing proof, forged signature, wrong recipient, changed amount, wrong) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 436.3 Tm (network, expired) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 424.1 Tm (authorization, reused nonce and stale/rotated key must all be rejected by the program.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 412.0 Tm (- Independent demonstration: run local-validator tests, deploy a strictly limited devnet) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 399.8 Tm (test vault, publish program ID,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 387.7 Tm (instruction schema, code, negative transaction logs and externally reproducible steps.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 375.5 Tm (- Production gate: benchmark proof footprint and compute cost, complete independent) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 363.4 Tm (security review, publish upgrade) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 351.3 Tm (authority policy, and only then consider mainnet value-bearing deployment.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 332.5 Tm (PROTOCOL ENGINEERING CONSTRAINT) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 313.9 Tm (A reference WOTS proof carries about 2,404 raw bytes before encoding. Solana transaction) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 301.8 Tm (and compute) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 289.6 Tm (constraints mean an on-chain verifier design cannot simply assume it fits into one) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 277.5 Tm (ordinary instruction. The) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 265.3 Tm (verifier, proof transport, scheme selection and replay architecture require measured) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 253.2 Tm (engineering.) Tj ET
+endstream
+endobj
+35 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 36 0 R >>
+endobj
+36 0 obj
+<< /Length 5614 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (16) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 756.0 Tm (Progression, not guarantees) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 734.4 Tm (PHASE MILESTONE STATUS) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 715.8 Tm (I Complete current application intent, verifier, policy, proof export and negative tests.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 703.7 Tm (Implemented, app-level) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 687.9 Tm (II Design program-owned vault, shared instruction schema and on-chain replay state.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 675.8 Tm (Planned) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 660.0 Tm (III Produce reject/accept tests on local validator and public devnet; publish evidence.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 647.9 Tm (Planned) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 632.1 Tm (IV External audit, operational recovery policy, governance, then limited mainnet rollout.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 620.0 Tm (Conditional / future) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 602.2 Tm (CHAPTER 15) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 577.6 Tm (Testing, evidence and release criteria) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 562.6 Tm (The project includes regression coverage for core Solana transaction boundaries, proof) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 550.5 Tm (verification and navigation. The) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 538.4 Tm (reviewed October 2026 authorization update reports a build with 113 passing tests and six) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 526.2 Tm (skipped tests, plus) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 514.1 Tm (successful typecheck, lint, production build and desktop/mobile route checks. These are) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 501.9 Tm (developer-run checks, not an) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 489.8 Tm (independent security certification. [U3]) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 471.0 Tm (Observed versus not yet demonstrated) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 449.4 Tm (EVIDENCE WHAT IT SUPPORTS) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 430.8 Tm (Local-validator DBC launch Real account creation, signing/confirmation and ownership) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 418.7 Tm (checks in controlled conditions.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 403.0 Tm (Public RPC dry runs Program availability, genesis and signer assumptions with unfunded) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 390.8 Tm (address; no funded) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 378.7 Tm (broadcast.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 362.9 Tm (Authorization negative unit tests Tampered intent, expiry, nonce replay in session,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 350.8 Tm (identity mismatch, policy bounds and leaf) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 338.6 Tm (reuse refusal.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 322.9 Tm (Desktop/mobile smoke checks Basic routes render without reported page errors or overflow.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 307.1 Tm (No physical Phantom funded test Cannot claim end-to-end funded wallet workflow is) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 295.0 Tm (independently demonstrated.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 279.3 Tm (No separate completed security audit Cannot claim audited production treasury or) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 267.1 Tm (quantum-safe custody.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 248.4 Tm (Release checklist before reliance on value-bearing) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 230.4 Tm (operations) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 215.4 Tm (- Run a fresh funded-wallet transaction with the intended RPC, wallet extension and pool) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 203.2 Tm (conditions; independently) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 191.1 Tm (verify signature and on-chain account state.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 178.9 Tm (- Reproduce failed-path tests for wallet cancellation, changed signed bytes, stale) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 166.8 Tm (blockhash, wrong genesis, quote) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 154.6 Tm (change, double broadcast and confirmation timeout.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 142.5 Tm (- Document the operator's security model, supported networks, exact fee recipients and) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 130.4 Tm (program authorities.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 118.2 Tm (- Publish cryptographic test vectors and full reproducibility information for identity) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 106.1 Tm (and authorization proof formats.) Tj ET
+endstream
+endobj
+37 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 38 0 R >>
+endobj
+38 0 obj
+<< /Length 6788 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (17) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 759.0 Tm (- Perform a dedicated dependency review, external code audit and security disclosure process before) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 748.2 Tm (custody or) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 737.4 Tm (automated treasury controls.) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 720.9 Tm (CHAPTER 16) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 696.3 Tm (Risk disclosures, governance and tokenomics scope) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 681.3 Tm (Quantum QLi is a technical infrastructure project, not a representation that any token appreciates) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 670.5 Tm (in value or generates) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 659.7 Tm (guaranteed yield. Creator trading fees, buybacks and burns are network operations subject to market) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 648.9 Tm (conditions, price) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 638.0 Tm (impact, slippage, liquidity and third-party protocol risk. Burning tokens changes recorded supply;) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 627.2 Tm (it does not guarantee a) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 616.4 Tm (price outcome.) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 602.0 Tm (The proposed post-quantum treasury system is not live. An app-enforced proof gate can be bypassed) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 591.1 Tm (by clients that do) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 580.3 Tm (not call it; a standard wallet compromise may still authorize assets outside future) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 569.5 Tm (program-controlled vaults. Mutable) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 558.7 Tm (metadata, browser-local key ledgers, wallet extensions, RPC exposure, protocol upgrades and) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 547.8 Tm (governance errors remain) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 537.0 Tm (meaningful attack surfaces.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 519.6 Tm (Governance / token economics) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 504.6 Tm (The available source does not establish a universal QLi token supply, public fee share, emissions) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 493.8 Tm (schedule, investor) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 482.9 Tm (allocation, treasury reserves or protocol-governed revenue split. This paper intentionally invents) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 472.1 Tm (none. Economic policies) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 461.3 Tm (shown in the Flywheel scenario interface are hypotheses until a real on-chain authority, explicit) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 450.5 Tm (instructions and) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 439.6 Tm (independent state inspection demonstrate enforcement.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 422.2 Tm (Licensing and intellectual property) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 407.2 Tm (The public repository states Apache License 2.0 for source code and documentation. Quantum QLi) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 396.4 Tm (names, marks and) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 385.6 Tm (original artwork are excluded from that general source-code grant unless separately licensed.) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 374.8 Tm (Third-party software) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 363.9 Tm (remains subject to its own licensing terms. [R9]) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 347.5 Tm (CHAPTER 17) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 322.9 Tm (Conclusion) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 307.9 Tm (Quantum QLi's present architecture is most useful when each layer is interpreted for what it can) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 297.1 Tm (actually enforce. The) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 286.3 Tm (SDK-backed Launch Forge and Flywheel transaction paths give creators explicit, reviewable network) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 275.4 Tm (operations.) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 264.6 Tm (Quantum Identity provides locally generated, independently verifiable reference cryptographic) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 253.8 Tm (proofs. Quantum) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 243.0 Tm (Authorization ties those proofs to precisely reviewed operations - today as an additional) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 232.1 Tm (application gate, not as a) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 221.3 Tm (network permission rule.) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 206.9 Tm (The next step is architectural, not cosmetic: demonstrate a program-controlled vault that rejects) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 196.1 Tm (an unauthorized) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 185.2 Tm (instruction on-chain, with complete negative tests and verifiable public evidence. Until that) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 174.4 Tm (milestone exists and is) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 163.6 Tm (independently evaluated, no claim of quantum-safe asset custody or blockchain-native post-quantum) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 152.8 Tm (settlement should) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 141.9 Tm (be made.) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 127.5 Tm (THE QUANTUM QLI POSITION) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 113.1 Tm (Build useful operations now. Make signed intent independently inspectable. Advance toward on-chain) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 102.3 Tm (enforcement through demonstrable programs and negative tests - without confusing an application) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 91.4 Tm (check with a) Tj ET
+BT /F1 8.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 80.6 Tm (consensus rule.) Tj ET
+endstream
+endobj
+39 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 40 0 R >>
+endobj
+40 0 obj
+<< /Length 5081 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (18) Tj ET
+BT /F2 9.0 Tf 0.07 0.59 0.48 rg 1 0 0 1 48.0 757.0 Tm (CHAPTER 18) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 732.4 Tm (Glossary and source register) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 717.4 Tm (Selected terminology) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 698.7 Tm (TERM MEANING) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 680.1 Tm (Attestation Seal WOTS/Merkle reference proof over a limited canonical set of launch) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 667.9 Tm (fields.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 652.2 Tm (Authorization intent Versioned signed representation of the requested operation and its) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 640.0 Tm (exact review context.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 624.3 Tm (Application gate Client-side rule checked before wallet approval; bypassable by other) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 612.1 Tm (clients.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 596.4 Tm (DBC Meteora Dynamic Bonding Curve pool and configuration workflow.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 580.6 Tm (DAMM v2 Supported target for the current DBC pool migration setting.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 564.9 Tm (Ed25519 Conventional signature scheme used by ordinary Solana wallet authorization.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 549.2 Tm (WOTS leaf One-time signature slot; reuse can undermine security.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 533.4 Tm (Nonce Unique challenge/replay guard; current app protection is session-local.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 517.7 Tm (Program-enforced Rule checked during a Solana instruction execution, independent of QLi) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 505.5 Tm (UI.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 489.8 Tm (Verified on-chain Label reserved for confirmed transaction plus relevant re-read of) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 477.6 Tm (account state.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 461.9 Tm (Public GitHub sources \(baseline\)) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 449.8 Tm ([R1] Repository README. View source.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 434.0 Tm ([R2] Original technical white paper \(v0.1\). View source.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 418.3 Tm ([R3] Post-quantum algorithms and reference WOTS. View source.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 402.5 Tm ([R4] Quantum Identity derivation and proof model. View source.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 386.8 Tm ([R5] Launch Forge configuration and seal scope. View source.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 371.0 Tm ([R6] Solana and Meteora protocol background. View source.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 355.3 Tm ([R7] Security and custody boundaries. View source.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 339.5 Tm ([R8] Public API description. View source.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 323.8 Tm ([R9] Code, documents and brand licensing. View source.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 305.1 Tm (Updated implementation evidence) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 290.1 Tm ([U1] Updated launch execution source and deployment checklist reviewed 11 October 2026.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 277.9 Tm ([U2] Current Flywheel Live implementation,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 265.8 Tm (tests and docs reviewed 11 October 2026. [U3] Quantum Authorization v1 code, verifier,) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 253.6 Tm (integration and test report reviewed 11 October) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 241.5 Tm (2026. [U4] Current vault prototype and limitations docs. These newer implementation) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 229.3 Tm (snapshots may not yet be mirrored in the public) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 217.2 Tm (GitHub main branch.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 201.4 Tm (Readers should reconcile current code, deployed application behavior, RPC status and the) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 189.3 Tm (public repository history before treating any) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 177.2 Tm (feature as production-ready. Source retrieval date: 11 October 2026.) Tj ET
+endstream
+endobj
+41 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 42 0 R >>
+endobj
+42 0 obj
+<< /Length 1879 >>
+stream
+0.985 0.989 0.990 rg 0 0 595 842 re f
+0.12 0.57 0.51 rg 0 0 10 842 re f
+0.73 0.81 0.82 rg 42 783 514 1 re f
+BT /F2 12.0 Tf 0.04 0.21 0.22 rg 1 0 0 1 48.0 803.0 Tm (QUANTUM QLi) Tj ET
+BT /F1 8.0 Tf 0.32 0.43 0.48 rg 1 0 0 1 350.0 804.0 Tm (TECHNICAL WHITE PAPER  /  OCTOBER 2026) Tj ET
+0.7 w 0.67 0.78 0.78 RG 48 56 m 548 56 l S
+BT /F2 7.5 Tf 0.28 0.46 0.45 rg 1 0 0 1 48.0 39.0 Tm (V0.2  /  SOURCE-ALIGNED TECHNICAL EDITION) Tj ET
+BT /F2 9.0 Tf 0.11 0.56 0.51 rg 1 0 0 1 517.0 39.0 Tm (19) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 756.0 Tm (Standards and technical context) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 741.0 Tm (NIST FIPS 203 - ML-KEM.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 725.3 Tm (NIST FIPS 204 - ML-DSA.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 709.5 Tm (NIST FIPS 205 - SLH-DSA.) Tj ET
+BT /F2 12.5 Tf 0.07 0.19 0.23 rg 1 0 0 1 48.0 690.8 Tm (BUILD ATTRIBUTION) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 672.2 Tm (Builder credit \(project-provided\): Nous Hermes Agent. This attribution does not establish) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 660.0 Tm (that Nous Research) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 647.9 Tm (operates QLi infrastructure, co-developed a deployed verifier, formally partners with the) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 635.7 Tm (project, or audited its) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 623.6 Tm (cryptography.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 607.8 Tm (Copyright and rights in original artwork and marks remain with their respective holders.) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 595.7 Tm (This publication is a technical description and may be revised as) Tj ET
+BT /F1 9.2 Tf 0.18 0.24 0.29 rg 1 0 0 1 49.0 583.6 Tm (protocol implementations and independent evidence evolve.) Tj ET
+endstream
+endobj
+xref
+0 43
+0000000000 65535 f 
+0000000067 00000 n 
+0000000116 00000 n 
+0000000298 00000 n 
+0000000395 00000 n 
+0000000497 00000 n 
+0000000633 00000 n 
+0000002232 00000 n 
+0000002368 00000 n 
+0000006949 00000 n 
+0000007086 00000 n 
+0000012947 00000 n 
+0000013085 00000 n 
+0000014278 00000 n 
+0000014416 00000 n 
+0000020809 00000 n 
+0000020947 00000 n 
+0000026276 00000 n 
+0000026414 00000 n 
+0000032241 00000 n 
+0000032379 00000 n 
+0000038354 00000 n 
+0000038492 00000 n 
+0000043159 00000 n 
+0000043297 00000 n 
+0000047589 00000 n 
+0000047727 00000 n 
+0000053777 00000 n 
+0000053915 00000 n 
+0000059856 00000 n 
+0000059994 00000 n 
+0000065351 00000 n 
+0000065489 00000 n 
+0000071369 00000 n 
+0000071507 00000 n 
+0000076499 00000 n 
+0000076637 00000 n 
+0000082303 00000 n 
+0000082441 00000 n 
+0000089281 00000 n 
+0000089419 00000 n 
+0000094552 00000 n 
+0000094690 00000 n 
+trailer
+<< /Size 43 /Root 1 0 R >>
+startxref
+96621
+%%EOF

@@ -2,6 +2,8 @@
 
 Quantum liquidity, under control.
 
+> **Current edition (v0.2, 11 October 2026):** [Read the updated Technical White Paper PDF](../Quantum_QLi_Technical_White_Paper_v0.2_Oct_2026.pdf) covering Flywheel Live, Quantum Authorization and launch execution. The remainder of this Markdown document is the historical v0.1 text.
+
 Version 0.1 — October 2026
 
 ## Executive Summary

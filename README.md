@@ -22,6 +22,14 @@
 > [!NOTE]
 > **Status:** active development, pre-1.0. The current verified snapshot passes 59 tests, type checking, production build, repository-hygiene checks, lint with 0 errors / 0 warnings, and a dependency audit with 0 advisories at any severity.
 
+## Latest Technical White Paper - v0.2 (11 October 2026)
+
+**[Read or download the Quantum QLi Technical White Paper (PDF)](docs/Quantum_QLi_Technical_White_Paper_v0.2_Oct_2026.pdf)**
+
+Version 0.2 covers the newer application implementation: SDK-backed Launch Forge transactions, wallet-approved Flywheel fee claims/buybacks/burns, Quantum Identity, transaction-specific Quantum Authorization v1, trust boundaries, testing evidence, and a roadmap for program-enforced treasury authorization. Its reported implementation is distinct from a demonstrated funded public-mainnet transaction. Cryptographic authorization is application-enforced at present, not an on-chain vault security control.
+
+The repository's earlier technical documents and test counts describe an older source snapshot and may not match all later application changes. Consult the dated PDF's evidence labels and referenced source material for precise status.
+
 ## Why Quantum QLi
 
 Liquidity tooling often splits launch configuration, wallet review, market context, cryptographic verification and operational documentation across unrelated interfaces. Quantum QLi brings those workflows into a single inspectable desktop-style environment with explicit trust boundaries.
