@@ -1,0 +1,20 @@
+[package]
+name = "quantum_vault"
+version = "0.1.0"
+edition = "2021"
+description = "Quantum Vault Phase 1: owner-controlled classic SPL Token escrow with on-chain withdrawal policy."
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "quantum_vault"
+
+[features]
+default = []
+no-entrypoint = []
+cpi = ["no-entrypoint"]
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+
+[dependencies]
+anchor-lang = "0.31.1"
+anchor-spl = { version = "0.31.1", default-features = false, features = ["token", "associated_token"] }
+quantum_vault_policy = { path = "../quantum_vault_policy" }
