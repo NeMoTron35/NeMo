@@ -41,28 +41,22 @@ jobs:
           anchor-version: "0.31.1"
           solana-cli-version: "2.1.0"
           node-version: "20.19.0"
-      - name: Install patched Anchor CLI 0.31.2 and verify executable
+      - name: Verify Solana local CLI and validator
         run: |
           set -euo pipefail
-          npm install --global --no-audit --no-fund @coral-xyz/anchor-cli@0.31.2
-          ANCHOR_BIN="$(npm root -g)/@coral-xyz/anchor-cli/anchor"
-          test -f "$ANCHOR_BIN"
-          chmod 755 "$ANCHOR_BIN"
-          "$ANCHOR_BIN" --version | tee /tmp/qli-anchor-version.txt
-          grep -q "0.31.2" /tmp/qli-anchor-version.txt
           solana --version
           solana-test-validator --version
-          rustc --version
+          cargo --version
       - name: Check Rust formatting
         run: cargo fmt --all --check
       - name: Execute Rust policy unit tests
         run: cargo test -p quantum_vault_policy --locked
       - name: Check program host compilation
         run: cargo check -p quantum_vault --locked
-      - name: Build actual Solana SBF program and Anchor IDL
+      - name: Build real SBF and IDL with official Anchor 0.31.1 image
         run: |
           set -euo pipefail
-          anchor build
+          docker run --rm --entrypoint /bin/bash -v "$PWD:/workspace" -w /workspace solanafoundation/anchor:0.31.1 -lc 'set -euo pipefail; anchor --version; anchor build'
           test -s target/deploy/quantum_vault.so
           test -s target/idl/quantum_vault.json
       - name: Inspect compiled artifacts
