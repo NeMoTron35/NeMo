@@ -48,6 +48,7 @@ jobs:
           cargo +stable update -p zeroize --precise 1.8.2 --manifest-path programs/quantum_transfer_hook/Cargo.toml
           cargo +stable update -p zeroize_derive --precise 1.4.3 --manifest-path programs/quantum_transfer_hook/Cargo.toml
           cargo +stable update -p proc-macro-crate@3.5.0 --precise 3.2.0 --manifest-path programs/quantum_transfer_hook/Cargo.toml
+          cargo +stable update -p indexmap --precise 2.11.4 --manifest-path programs/quantum_transfer_hook/Cargo.toml
       - name: Build program for SBF (no signing or deployment)
         run: |
           export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
