@@ -1,0 +1,33 @@
+name: One-time research formatter
+on:
+  push:
+    branches: ["qli-neural-shadow-proof-threat-arena-20261011"]
+    paths: [".github/workflows/qli-format-once.yml"]
+permissions:
+  contents: write
+jobs:
+  format:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: qli-neural-shadow-proof-threat-arena-20261011
+          persist-credentials: true
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.3.3"
+      - run: bun install --frozen-lockfile
+      - name: Format only intelligence reference code and tests
+        run: |
+          set -euo pipefail
+          bunx prettier --write research/qli-intelligence
+          git diff --check
+          git status --short
+          if ! git diff --quiet -- research/qli-intelligence; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add research/qli-intelligence
+            git commit -m "Apply repository Prettier formatting to intelligence reference suite"
+            git push origin HEAD:qli-neural-shadow-proof-threat-arena-20261011
+          fi
