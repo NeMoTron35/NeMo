@@ -1,0 +1,56 @@
+name: QLi Intelligence deterministic security suite
+
+on:
+  push:
+    branches:
+      - "qli-neural-shadow-proof-threat-arena-*"
+    paths:
+      - "research/qli-intelligence/**"
+      - ".github/workflows/qli-intelligence.yml"
+  pull_request:
+    paths:
+      - "research/qli-intelligence/**"
+      - ".github/workflows/qli-intelligence.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hf-space-offline:
+    name: Hugging Face Space deterministic Python stress tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run offline Python Space math and provenance checks
+        run: python -m unittest discover -s research/qli-intelligence/space -p 'test_*.py' -v
+
+  deterministic-reference:
+    name: Node.js Shadow + Proof + Graph + HF safety
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify no secrets or blockchain signers are needed
+        run: |
+          set -euo pipefail
+          test -f research/qli-intelligence/core.mjs
+          test -f research/qli-intelligence/huggingface.mjs
+          echo "Reference tests run OFFLINE: no RPC, no HF_TOKEN, no deploy key, no wallets."
+      - name: Deterministic, adversarial reference tests
+        run: node --test research/qli-intelligence/*.test.mjs
+      - name: Check source module syntax
+        run: |
+          node --check research/qli-intelligence/core.mjs
+          node --check research/qli-intelligence/huggingface.mjs
+
+# Tests establish reference correctness of the documented model only.
+# This is not verification of a Meteora DBC pool quote, a cryptographic signature,
+# a Solana program or an on-chain upgrade authority.
