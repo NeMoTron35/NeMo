@@ -1,0 +1,60 @@
+name: Hook Forge research SBF compile (no deployment)
+on:
+  push:
+    branches: [hook-forge-devnet-build]
+    paths:
+      - 'programs/quantum_transfer_hook/**'
+      - 'programs/quantum_transfer_hook_cpi_test/**'
+      - '.github/workflows/hook-devnet-sbf.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rust-unit:
+    name: Rust unit tests
+    runs-on: ubuntu-22.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: programs/quantum_transfer_hook
+      - name: Unit tests (native only)
+        run: cargo test --manifest-path programs/quantum_transfer_hook/Cargo.toml --features no-entrypoint
+  build-sbf:
+    name: Compile Solana SBF artifact
+    runs-on: ubuntu-22.04
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install build prerequisites
+        run: sudo apt-get update && sudo apt-get install -y pkg-config libssl-dev libudev-dev protobuf-compiler
+      - name: Install Agave 2.2.20 CLI and SBF builder
+        run: |
+          curl -sSfL https://release.anza.xyz/v2.2.20/install -o /tmp/anza-install.sh
+          sh /tmp/anza-install.sh
+          echo "$HOME/.local/share/solana/install/active_release/bin" >> "$GITHUB_PATH"
+      - name: Build program for SBF (no signing or deployment)
+        run: |
+          export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+          solana --version
+          cargo build-sbf --manifest-path programs/quantum_transfer_hook/Cargo.toml
+      - name: Hash and verify compiled artifact exists
+        run: |
+          set -euo pipefail
+          test -s programs/quantum_transfer_hook/target/deploy/quantum_transfer_hook.so || test -s target/deploy/quantum_transfer_hook.so
+          if test -s programs/quantum_transfer_hook/target/deploy/quantum_transfer_hook.so; then
+            cp programs/quantum_transfer_hook/target/deploy/quantum_transfer_hook.so ./quantum_transfer_hook.so
+          else
+            cp target/deploy/quantum_transfer_hook.so ./quantum_transfer_hook.so
+          fi
+          sha256sum quantum_transfer_hook.so | tee quantum_transfer_hook.sha256
+      - name: Upload unsigned research build (NOT audited or deployed)
+        uses: actions/upload-artifact@v4
+        with:
+          name: quantum-transfer-hook-research-sbf
+          path: |
+            quantum_transfer_hook.so
+            quantum_transfer_hook.sha256
+          if-no-files-found: error
