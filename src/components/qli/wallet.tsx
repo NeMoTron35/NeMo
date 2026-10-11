@@ -1,4 +1,9 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import {
+  phantomBrowseLink,
+  walletEnvironment,
+  type WalletEnvironment,
+} from "@/lib/qli-core/wallet-accounts";
 import { Wallet, ArrowUpRight, LoaderCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -7,6 +12,13 @@ import { WalletDialogContext as Context } from "./wallet-dialog-context";
 export function WalletProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const c = useConsole();
+  const [env, setEnv] = useState<WalletEnvironment | "checking">("checking");
+  useEffect(() => {
+    if (!open) return;
+    // Wallet Standard registration is asynchronous; give injected wallets time to register.
+    const t = setTimeout(() => setEnv(walletEnvironment(window, c.wallets.length)), 600);
+    return () => clearTimeout(t);
+  }, [open, c.wallets.length]);
   return (
     <Context.Provider value={() => setOpen(true)}>
       {children}
@@ -20,6 +32,9 @@ export function WalletProvider({ children }: { children: ReactNode }) {
           {c.account ? (
             <>
               <pre className="code-block">{c.account.address}</pre>
+              <p className="notice">
+                {c.wallet?.name} · Solana {c.network}
+              </p>
               <Button
                 disabled={c.walletBusy}
                 variant="outline"
@@ -51,10 +66,21 @@ export function WalletProvider({ children }: { children: ReactNode }) {
                 ))
               ) : (
                 <>
-                  <div className="empty-state">
+                  <div className="empty-state" role="status">
                     <Wallet />
-                    No compatible browser wallet detected.
+                    {env === "checking"
+                      ? "Looking for Phantom and other Solana wallets…"
+                      : env === "framed"
+                        ? "Wallets cannot connect inside an embedded preview. Open quantumqli.app in its own tab."
+                        : env === "mobile-no-wallet"
+                          ? "Mobile Safari and Chrome cannot reach Phantom. Open this page inside the Phantom app's browser."
+                          : "No Solana wallet detected. Install or enable the Phantom extension, then reload."}
                   </div>
+                  {env === "mobile-no-wallet" && (
+                    <a href={phantomBrowseLink(window.location.href)} className="desk-link">
+                      Open in Phantom ↗
+                    </a>
+                  )}
                   <a
                     href="https://phantom.com/download"
                     target="_blank"
@@ -62,14 +88,6 @@ export function WalletProvider({ children }: { children: ReactNode }) {
                     className="desk-link"
                   >
                     Get Phantom ↗
-                  </a>
-                  <a
-                    href="https://solflare.com/download"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="desk-link"
-                  >
-                    Get Solflare ↗
                   </a>
                 </>
               )}
@@ -81,8 +99,8 @@ export function WalletProvider({ children }: { children: ReactNode }) {
             </p>
           )}
           <p className="notice">
-            Local demonstrations stay simulated after connection. Wallet rejection and unavailable
-            RPC never imply success.
+            Connecting shares only your public address. Every transaction needs a separate approval
+            in your wallet.
           </p>
         </DialogContent>
       </Dialog>

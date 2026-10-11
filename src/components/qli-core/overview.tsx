@@ -47,12 +47,21 @@ export function Overview() {
         title="QLi Desk"
         description="Liquidity, reserves and execution guardrails. Simulated until a verified live connection is available."
         action={
-          <Button asChild>
-            <Link to="/launch">
-              Open Launch Forge
-              <ArrowUpRight />
-            </Link>
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            <Button asChild>
+              <Link to="/launch">
+                Open Launch Forge
+                <ArrowUpRight />
+              </Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link to="/meteora-intelligence">DBC Lifecycle Intelligence</Link>
+              {" · "}
+              <Link to="/creator-studio">Creator Studio</Link>
+              {" · "}
+              <Link to="/hook-forge">Hook Forge</Link>
+            </Button>
+          </div>
         }
       />
       <div className="metrics-heading">

@@ -3,15 +3,16 @@ import {
   SolanaSignTransaction,
   type SolanaSignTransactionFeature,
 } from "@solana/wallet-standard-features";
+import { accountSupportsChain } from "./wallet-accounts";
 import { PublicKey, Transaction, VersionedTransaction, type Connection } from "@solana/web3.js";
 function equal(a: Uint8Array, b: Uint8Array) {
   return a.length === b.length && a.every((value, index) => value === b[index]);
 }
 const genesis = {
-  "mainnet-beta": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
-  devnet: "EtWTRABZaYq6iMfeYKouRu166VU2xqa1",
+  "mainnet-beta": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+  devnet: "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
 };
-/** Explicit confirmation only; validates a frozen copy, simulates and returns signed bytes, never submits. */
+/** Explicit confirmation only; validates a frozen copy, simulates and returns signed bytes; submission is a separate explicit step (dbc-launch.ts). */
 export async function signReviewedTransaction({
   wallet,
   account,
@@ -26,7 +27,8 @@ export async function signReviewedTransaction({
   connection: Connection;
   transaction: Transaction;
   lastValidBlockHeight: number;
-  network: "mainnet-beta" | "devnet";
+  /** "localnet" is for local-validator tests only; the UI never offers it. */
+  network: "mainnet-beta" | "devnet" | "localnet";
   reviewedMessage: Uint8Array;
 }) {
   const expected = new Uint8Array(reviewedMessage);
@@ -43,16 +45,21 @@ export async function signReviewedTransaction({
     lastValidBlockHeight < 0
   )
     throw new Error("A fresh blockhash and validity height are required.");
-  const chain = network === "devnet" ? "solana:devnet" : "solana:mainnet";
+  const chain =
+    network === "devnet"
+      ? "solana:devnet"
+      : network === "localnet"
+        ? "solana:localnet"
+        : "solana:mainnet";
   if (
-    !account.chains.includes(chain) ||
+    !accountSupportsChain(wallet, account, chain) ||
     !wallet.accounts.some((a) => a.address === account.address)
   )
     throw new Error("Connected wallet account does not support the selected network.");
   const feature = wallet.features[SolanaSignTransaction] as
     SolanaSignTransactionFeature[typeof SolanaSignTransaction] | undefined;
   if (!feature) throw new Error("Wallet does not support transaction signing.");
-  if ((await connection.getGenesisHash()) !== genesis[network])
+  if (network !== "localnet" && (await connection.getGenesisHash()) !== genesis[network])
     throw new Error("RPC network differs from the reviewed network.");
   if ((await connection.getBlockHeight()) > lastValidBlockHeight)
     throw new Error("Blockhash expired. Rebuild and review the transaction.");
@@ -83,10 +90,20 @@ export async function signReviewedTransaction({
   if (outputs.length !== 1 || !output)
     throw new Error("Wallet returned no unique signed transaction.");
   const signed = Transaction.from(output.signedTransaction);
+  // Every required signer must be present and valid; pre-signed config/mint entries must be
+  // returned unchanged (their one-time keys are gone, so they can never be re-signed here).
+  for (const before of frozen.signatures) {
+    if (before.publicKey.equals(payer) || !before.signature) continue;
+    const after = signed.signatures.find((s) => s.publicKey.equals(before.publicKey))?.signature;
+    if (!after || !equal(new Uint8Array(after), new Uint8Array(before.signature)))
+      throw new Error(
+        "Wallet dropped or altered a required launch signature. Signed bytes rejected.",
+      );
+  }
   if (!equal(signed.serializeMessage(), expected))
     throw new Error("Wallet changed the reviewed transaction. Signed bytes rejected.");
   const signature = signed.signatures.find((s) => s.publicKey.equals(payer))?.signature;
-  if (!signature || !signed.verifySignatures(false))
+  if (!signature || !signed.verifySignatures(true))
     throw new Error("Wallet returned an invalid or missing signature.");
   return new Uint8Array(output.signedTransaction);
 }

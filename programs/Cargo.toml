@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+members = ["quantum_vault_policy", "quantum_vault"]
+exclude = ["quantum_identity_verifier", "quantum_transfer_hook", "quantum_transfer_hook_cpi_test"]
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1

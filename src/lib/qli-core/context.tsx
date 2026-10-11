@@ -23,6 +23,7 @@ import { initialEvents, type AuditEvent } from "./data";
 import { createSessionStrategyRepository, type StrategyRepository } from "./repository";
 import { rpcSchema } from "./validation";
 import type { Plan } from "@/components/qli-core/controls";
+import type { AuthorizationPolicy, AuthorizationRecord } from "./authorization";
 export type SessionSettings = {
   commitment: Commitment;
   priority: number;
@@ -51,7 +52,7 @@ export type ConsoleState = {
   walletError: string;
   walletBusy: boolean;
   events: AuditEvent[];
-  log: (title: string, type?: string, pool?: string) => void;
+  log: (title: string, type?: string, pool?: string, detail?: string) => void;
   mode: string;
   setMode: (v: string) => void;
   plan: Plan | null;
@@ -71,6 +72,21 @@ export type ConsoleState = {
   nextLeaf: () => number;
   anchor: { signature: string | null; status: "none" | "prepared" | "signed" };
   setAnchor: (a: { signature: string | null; status: "none" | "prepared" | "signed" }) => void;
+  authzPolicy: AuthorizationPolicy;
+  authzPolicyReady: boolean;
+  authzPolicyError: string | null;
+  saveAuthzPolicy: (p: AuthorizationPolicy) => void;
+  authorizations: AuthorizationRecord[];
+  upsertAuthorization: (r: AuthorizationRecord) => void;
+  markAuthorization: (
+    id: string,
+    patch: Partial<Pick<AuthorizationRecord, "status" | "reason" | "signature">>,
+  ) => void;
+  usedNonces: ReadonlySet<string>;
+  consumeNonce: (nonce: string) => void;
+  /** In-memory, untrusted QLi Agent suggestion; Flywheel re-validates and rebuilds. */
+  agentHandoff: unknown;
+  setAgentHandoff: (p: unknown) => void;
 };
 export const ConsoleContext = createContext<ConsoleState | undefined>(undefined);
 export function useConsole() {

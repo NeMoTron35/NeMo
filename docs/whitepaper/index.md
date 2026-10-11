@@ -2,8 +2,6 @@
 
 Quantum liquidity, under control.
 
-> **Current edition (v0.2, 11 October 2026):** [Read the updated Technical White Paper PDF](../Quantum_QLi_Technical_White_Paper_v0.2_Oct_2026.pdf) covering Flywheel Live, Quantum Authorization and launch execution. The remainder of this Markdown document is the historical v0.1 text.
-
 Version 0.1 — October 2026
 
 ## Executive Summary
@@ -76,7 +74,7 @@ Quote selection supports crypto, custom mint entry and 61 xStocks presets labell
 
 > **Seal scope:** The current launch digest binds version, mode, asset name/symbol, metadata URI, decimals, supply, quote mint, DBC program and DAMM v2 target. It does **not** commit to every economic input: curve, fee, social-link and first-buy settings are not all bound. A valid seal must not be interpreted as approval of those settings.
 
-Launch review is **not token deployment**. General review handles demo/simulation plans and does not broadcast a token launch, migration or fee claim. See [Launch Forge documentation](/docs?article=launch-forge).
+General plan review is **not token deployment**. Only the Launch Forge Review step's on-chain launch panel can create a Meteora DBC config and pool, on devnet, after the user approves the reviewed transaction in their wallet; mainnet is locked until a devnet launch is verified with a physical wallet. Migration and fee claims are not broadcast. See [Launch Forge documentation](/docs?article=launch-forge).
 
 ## 7. Wallet and Transaction Model
 

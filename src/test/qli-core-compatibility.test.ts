@@ -98,7 +98,7 @@ describe("QLi core frozen v1 compatibility", () => {
       ).digest,
     ).toBe(vector.withdrawalDigest);
   });
-  it("rejects retired names outside exact reviewed protocol lines", () => {
+  it("rejects retired names outside exact reviewed protocol and external-coordinate lines", () => {
     expect(auditBrand()).toEqual([]);
     expect(brandViolations(`src/lib/${retiredName}/other.ts`, "")).toHaveLength(1);
     expect(brandViolations("src/new.ts", `// ${retiredName}`)).toHaveLength(1);

@@ -1,0 +1,55 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791683692230,
+      "tag": "0000_qli_agent_v2",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791706243340,
+      "tag": "0001_qli_vault_sentinel",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791720022592,
+      "tag": "0002_qli_neural_runs",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791720813489,
+      "tag": "0003_qli_model_call_budget",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1791726158978,
+      "tag": "0004_harden_model_budget_inputs",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1791726478047,
+      "tag": "0005_operator_hosted_consent",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1791739109527,
+      "tag": "0006_qli_creator_studio",
+      "breakpoints": true
+    }
+  ]
+}

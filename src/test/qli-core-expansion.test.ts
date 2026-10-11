@@ -141,7 +141,11 @@ describe("Quantum QLi v0.2", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
     expect(productNavigation.map((n) => n[0])).toEqual([
       "Launch Forge",
+      "DBC Lifecycle Intelligence",
       "Quantum Identity",
+      "Quantum Authorization",
+      "Quantum Vault",
+      "Identity 2.0 / Experimental",
       "Quantum Wallets",
       "Proof Inspector",
       "Docs",

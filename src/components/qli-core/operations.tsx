@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Download,
@@ -160,10 +161,15 @@ export function SettingsPage() {
         title="System"
         description="Network, execution policy and provenance parameters. No private keys, ever."
         action={
-          <Button onClick={save}>
-            {saved ? <Check /> : <Save />}
-            {saved ? "Saved this session" : "Apply settings"}
-          </Button>
+          <span>
+            <Link to="/network-lab" className="desk-link">
+              Network Test Centre
+            </Link>{" "}
+            <Button onClick={save}>
+              {saved ? <Check /> : <Save />}
+              {saved ? "Saved this session" : "Apply settings"}
+            </Button>
+          </span>
         }
       />
       <div className="settings-stack">

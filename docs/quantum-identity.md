@@ -30,3 +30,7 @@ Generate a random nonce, reserve the next unused leaf and sign a possession chal
 Reference ledgers persist root, consumed indexes and purpose labels under the existing `LEAF_LEDGER_PREFIX` from `src/lib/qli-core/compatibility.ts` storage namespace. Public-demo ledgers are session-only. This local guard is not a synchronized cross-device lock: clearing/corrupting storage or using multiple tabs/devices can defeat reuse protection. Never treat it as production key-management enforcement.
 
 Closing an identity drops references to its tree. JavaScript cannot guarantee secure erasure; this identity close path does not explicitly zero every WOTS seed buffer. See [Security](/docs?article=security).
+
+## Authorization intents
+
+`/authorization` uses this identity to sign versioned authorization intents (prefix `qli:v1:authorization-intent:`, frozen `proof` domain) for Flywheel steps. Each intent consumes one leaf from the same local ledger; that ledger is not cross-device and is not an on-chain replay lock. Public-demo identities cannot authorize live actions. This is application-level only and not on-chain enforced.

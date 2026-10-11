@@ -24,3 +24,7 @@ Restore validates the 64-hex seed and regenerates the same public fingerprint. R
 ## Recovery and loss
 
 There is no administrator recovery, server key store or custody backdoor. Without the offline ML-DSA seed, the prototype key cannot be restored. No deployed Quantum QLi vault receives funds in this build, so prototype key loss does not strand a Quantum QLi vault deposit.
+
+## Quantum Vault Protocol (separate)
+
+`/quantum-vault` describes a distinct Phase 1 Solana program with on-chain withdrawal limits. It is unaudited and not deployed, so its deposit/withdraw controls are disabled. The prototypes on this page are not connected to it.

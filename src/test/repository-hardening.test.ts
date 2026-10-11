@@ -58,6 +58,8 @@ describe("First-party repository runtime boundaries", () => {
     expect(config).toContain('entry: "server"');
     expect(config).toContain("cloudflare-module");
     expect(config).toContain("rpc-websockets");
+    expect(config).toContain("./node_modules/buffer/index.js");
+    expect(config).toContain("replacement: bufferBrowser");
     const middleware = readFileSync("src/start.ts", "utf8");
     expect(middleware).toContain("attachSessionAuth");
     expect(middleware).toContain("csrfMiddleware");

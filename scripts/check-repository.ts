@@ -7,7 +7,7 @@ import { execFileSync } from "node:child_process";
 const denied = String.fromCharCode(108, 111, 118, 97, 98, 108, 101);
 const failures = new Set<string>();
 const root = process.cwd();
-const excluded = new Set([".git", "node_modules", ".workspace", ".tanstack"]);
+const excluded = new Set([".git", "node_modules", ".workspace", ".tanstack", "target"]);
 function inspect(path: string) {
   const name = relative(root, path);
   if (name.toLowerCase().includes(denied)) failures.add(`Non-neutral path: ${name}`);
