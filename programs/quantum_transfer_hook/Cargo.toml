@@ -1,0 +1,20 @@
+[package]
+name = "quantum_transfer_hook"
+version = "0.0.1"
+edition = "2021"
+description = "RESEARCH Solana Transfer Hook Interface program: mint-scoped pause / receiver allowlist. NOT DEPLOYED, NOT AUDITED."
+publish = false
+
+[workspace]
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[features]
+default = []
+no-entrypoint = []
+
+[dependencies]
+solana-program = "2.2"
+spl-transfer-hook-interface = "0.10"
+spl-tlv-account-resolution = "0.10"
