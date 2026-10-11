@@ -51,6 +51,7 @@ jobs:
         run: |
           set -euxo pipefail
           cargo update -p blake3 --precise 1.5.4
+          cargo update -p proc-macro-crate@3.5.0 --precise 3.3.0
           cargo tree -i blake3
       - name: Check Rust formatting
         run: cargo fmt --all --check
