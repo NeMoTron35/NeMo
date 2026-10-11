@@ -41,10 +41,6 @@ jobs:
           curl -sSfL https://release.anza.xyz/v2.2.20/install -o /tmp/anza-install.sh
           sh /tmp/anza-install.sh
           echo "$HOME/.local/share/solana/install/active_release/bin" >> "$GITHUB_PATH"
-      - name: Diagnose incompatible edition-2024 dependencies
-        run: |
-          cargo +stable tree -i block-buffer@0.12.1 --manifest-path programs/quantum_transfer_hook/Cargo.toml || true
-          cargo +stable tree -i digest@0.11.0 --manifest-path programs/quantum_transfer_hook/Cargo.toml || true
       - name: Lock pre-edition-2024 transitive dependencies for Agave 2.2 SBF Cargo
         run: |
           cargo +stable generate-lockfile --manifest-path programs/quantum_transfer_hook/Cargo.toml
@@ -52,9 +48,6 @@ jobs:
           cargo +stable update -p zeroize --precise 1.8.2 --manifest-path programs/quantum_transfer_hook/Cargo.toml
           cargo +stable update -p zeroize_derive --precise 1.4.3 --manifest-path programs/quantum_transfer_hook/Cargo.toml
           cargo +stable update -p proc-macro-crate@3.5.0 --precise 3.2.0 --manifest-path programs/quantum_transfer_hook/Cargo.toml
-          cargo +stable update -p base64ct --precise 1.7.3 --manifest-path programs/quantum_transfer_hook/Cargo.toml || true
-          cargo +stable update -p indexmap --precise 2.11.4 --manifest-path programs/quantum_transfer_hook/Cargo.toml || true
-          cargo +stable tree -i blake3@1.8.2 --manifest-path programs/quantum_transfer_hook/Cargo.toml
       - name: Build program for SBF (no signing or deployment)
         run: |
           export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
@@ -70,6 +63,7 @@ jobs:
             cp target/deploy/quantum_transfer_hook.so ./quantum_transfer_hook.so
           fi
           sha256sum quantum_transfer_hook.so | tee quantum_transfer_hook.sha256
+          cp programs/quantum_transfer_hook/Cargo.lock ./quantum_transfer_hook.Cargo.lock
       - name: Upload unsigned research build (NOT audited or deployed)
         uses: actions/upload-artifact@v4
         with:
@@ -77,4 +71,5 @@ jobs:
           path: |
             quantum_transfer_hook.so
             quantum_transfer_hook.sha256
+            quantum_transfer_hook.Cargo.lock
           if-no-files-found: error
