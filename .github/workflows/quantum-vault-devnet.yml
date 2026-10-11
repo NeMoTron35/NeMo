@@ -1,12 +1,9 @@
-name: Quantum Vault devnet readiness (no deploy)
+name: Quantum Vault verified SBF + Bankrun (no deploy)
 
 on:
   push:
     branches:
       - "quantum-vault-devnet-*"
-    paths:
-      - "programs/**"
-      - ".github/workflows/quantum-vault-devnet.yml"
   pull_request:
     paths:
       - "programs/**"
@@ -17,92 +14,71 @@ permissions:
   contents: read
 
 concurrency:
-  group: quantum-vault-check-${{ github.ref }}
+  group: vault-devnet-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  solana-program:
-    name: Rust, Anchor SBF build and local validator
+  compiled-program-tests:
+    name: Agave SBF + real SPL Bankrun tests
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 55
     defaults:
       run:
-        working-directory: programs
         shell: bash
     steps:
-      - uses: actions/checkout@v4
-      - name: Install stable Rust
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.3.3"
+      - name: Install Rust and formatting
         uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt, clippy
-      - name: Install Anchor 0.31.1 and Solana CLI 2.1.0
-        uses: metadaoproject/setup-anchor@v3.4
-        with:
-          anchor-version: "0.31.1"
-          solana-cli-version: "2.1.0"
-          node-version: "20.19.0"
-      - name: Verify Solana local CLI and validator
+      - name: Install pinned Agave 2.2.20 toolchain
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 https://github.com/anza-xyz/agave/releases/download/v2.2.20/solana-release-x86_64-unknown-linux-gnu.tar.bz2 -o /tmp/qli-agave.tar.bz2
+          tar -xjf /tmp/qli-agave.tar.bz2 -C /tmp
+          echo "/tmp/solana-release/bin" >> "$GITHUB_PATH"
+      - name: Verify version and formatting
         run: |
           set -euo pipefail
           solana --version
-          solana-test-validator --version
-          cargo --version
-      - name: Resolve pinned Solana SBF-compatible crypto dependency
-        run: |
-          set -euxo pipefail
-          cargo update -p blake3 --precise 1.5.4
-          cargo update -p proc-macro-crate@3.5.0 --precise 3.3.0
-          cargo update -p zeroize@1.9.1 --precise 1.8.2
-          cargo update -p indexmap@2.14.2 --precise 2.2.6
-          cargo tree -i blake3
-      - name: Check Rust formatting
-        run: cargo fmt --all --check
-      - name: Execute Rust policy unit tests
-        run: cargo test -p quantum_vault_policy --locked
-      - name: Check program host compilation
-        run: cargo check -p quantum_vault --locked
-      - name: Build actual Solana SBF binary with Solana toolchain
-        run: |
-          set -euxo pipefail
-          cargo build-sbf --manifest-path quantum_vault/Cargo.toml --sbf-out-dir target/deploy
-          test -s target/deploy/quantum_vault.so
-          sha256sum target/deploy/quantum_vault.so
-      - name: Generate Anchor IDL and diagnose packaging
-        run: |
-          set -euxo pipefail
-          mkdir -p target/idl
-          docker run --rm --entrypoint /bin/bash -v "$PWD:/workspace" -w /workspace solanafoundation/anchor@sha256:21ab8a16e19df4301a198d7a55ab2988549aa2d996e6b5ad229c1d95b9f2d326 -lc 'set -eux; anchor --version; rustc --version; cargo --version; ls -lah; anchor idl build -o target/idl/quantum_vault.json'
-          test -s target/idl/quantum_vault.json
-      - name: Inspect compiled artifacts
-        run: |
-          test -s target/deploy/quantum_vault.so
-          test -s target/idl/quantum_vault.json
-          sha256sum target/deploy/quantum_vault.so
-          ls -lh target/deploy/quantum_vault.so target/idl/quantum_vault.json
-      - name: Run real Solana local-validator vault security tests
+          cargo fmt --manifest-path programs/Cargo.toml --all --check
+      - name: Rust policy tests and program host compilation
         run: |
           set -euo pipefail
-          npm install --no-audit --no-fund
-          solana-keygen new --no-bip39-passphrase --force -o "$RUNNER_TEMP/qli-validator-payer.json" >/dev/null
-          solana-test-validator --reset --quiet --ledger "$RUNNER_TEMP/qli-validator-ledger" --bpf-program 93v9K8ytGDR3BAoxtaVVo7u1oaBv3Pu257eBAPCp7SH5 target/deploy/quantum_vault.so > "$RUNNER_TEMP/qli-validator.log" 2>&1 &
-          VALIDATOR_PID=$!
-          trap 'kill $VALIDATOR_PID || true' EXIT
-          for i in $(seq 1 35); do
-            if solana cluster-version --url http://127.0.0.1:8899 > /dev/null 2>&1; then break; fi
-            sleep 2
-          done
-          solana cluster-version --url http://127.0.0.1:8899 || (cat "$RUNNER_TEMP/qli-validator.log"; exit 1)
-          solana airdrop 20 "$(solana-keygen pubkey "$RUNNER_TEMP/qli-validator-payer.json")" --url http://127.0.0.1:8899
-          ANCHOR_PROVIDER_URL=http://127.0.0.1:8899 ANCHOR_WALLET="$RUNNER_TEMP/qli-validator-payer.json" npm run test:integration
-      - name: Save unsigned build artifacts for independent review
+          cargo test --manifest-path programs/Cargo.toml -p quantum_vault_policy --locked
+          cargo check --manifest-path programs/quantum_vault/Cargo.toml --locked
+      - name: Compile genuine SBF program using v1.57 platform tools
+        env:
+          CARGO_TARGET_DIR: /tmp/qli-vault-target
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/qli-vault-artifacts
+          cargo-build-sbf --manifest-path programs/quantum_vault/Cargo.toml --tools-version v1.57 --sbf-out-dir /tmp/qli-vault-artifacts
+          test -s /tmp/qli-vault-artifacts/quantum_vault.so
+          sha256sum /tmp/qli-vault-artifacts/quantum_vault.so
+      - name: Install Bankrun test dependencies
+        working-directory: programs
+        run: bun install --no-save
+      - name: Test compiled SBF with real classic SPL token transactions
+        working-directory: programs
+        env:
+          QLI_VAULT_SBF: "1"
+          BPF_OUT_DIR: /tmp/qli-vault-artifacts
+        run: bunx vitest run tests/qli-vault-bankrun.test.ts
+      - name: Upload review artifact (binary + IDL; no key)
         uses: actions/upload-artifact@v4
         with:
           name: quantum-vault-devnet-unsigned-${{ github.sha }}
           path: |
-            programs/target/deploy/quantum_vault.so
-            programs/target/idl/quantum_vault.json
+            /tmp/qli-vault-artifacts/quantum_vault.so
+            programs/idl/quantum_vault.json
           if-no-files-found: error
           retention-days: 7
 
-# No deployment, wallet signing, or mainnet step.
-# Validator tests + verified owner-managed deployment authority are prerequisites.
+# No wallet key generation, signer, deployment, custodial funds or mainnet action.
+# Public-network devnet deployment needs separate owner-held upgrade authority.
