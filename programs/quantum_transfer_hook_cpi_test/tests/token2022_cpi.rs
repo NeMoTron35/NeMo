@@ -1,6 +1,6 @@
 //! Real Token-2022 transfer CPI into the research hook, inside solana-program-test BanksServer.
 //! The hook runs as a native processor; Token-2022 is the bundled program. Local only, no network.
-use quantum_transfer_hook::{config_address, process_instruction, IX_INIT, IX_SET};
+use quantum_transfer_hook::{config_address, process_instruction, IX_INIT, IX_INIT_DBC, IX_SET};
 use solana_program_test::{processor, tokio, ProgramTest, ProgramTestContext};
 #[allow(deprecated)]
 use solana_sdk::{
@@ -47,7 +47,14 @@ fn policy(paused: bool, allow: &[Pubkey]) -> Vec<u8> {
 
 async fn setup() -> Env {
     let hook = Pubkey::new_unique(); // local test id only, NOT a deployed program
-    let pt = ProgramTest::new("quantum_transfer_hook", hook, processor!(process_instruction));
+    // QLI_HOOK_SBF=1 loads the compiled SBF binary from SBF_OUT_DIR instead of the native processor.
+    let sbf = std::env::var("QLI_HOOK_SBF").as_deref() == Ok("1");
+    let mut pt = if sbf {
+        ProgramTest::new("quantum_transfer_hook", hook, None)
+    } else {
+        ProgramTest::new("quantum_transfer_hook", hook, processor!(process_instruction))
+    };
+    pt.prefer_bpf(sbf);
     let mut ctx = pt.start_with_context().await;
     let (mint, authority, src, dst, dst_owner) = (Keypair::new(), Keypair::new(), Keypair::new(), Keypair::new(), Keypair::new());
     let t22 = spl_token_2022::id();
@@ -147,4 +154,81 @@ async fn token2022_cpi_enforces_policy() {
     let mut ix = transfer_ix(&e, 1);
     ix.accounts.truncate(4);
     assert!(send(&mut e.ctx, &[ix], &[&a]).await.is_err());
+}
+
+/// DBC-style bootstrap: TransferHook authority is an arbitrary PDA (stand-in for the Meteora DBC
+/// pool authority), so the wallet cannot use qlihk:in. qlihk:db is appended AFTER mint
+/// initialization in the SAME transaction, signed by the mint keypair + policy wallet.
+#[tokio::test]
+async fn token2022_cpi_dbc_mint_signer_bootstrap() {
+    let hook = Pubkey::new_unique();
+    let sbf = std::env::var("QLI_HOOK_SBF").as_deref() == Ok("1");
+    let mut pt = if sbf { ProgramTest::new("quantum_transfer_hook", hook, None) } else { ProgramTest::new("quantum_transfer_hook", hook, processor!(process_instruction)) };
+    pt.prefer_bpf(sbf);
+    let mut ctx = pt.start_with_context().await;
+    let (pda_auth, _) = Pubkey::find_program_address(&[b"pool_authority"], &Pubkey::new_unique());
+    let (mint, operator, src, dst, dst_owner) = (Keypair::new(), Keypair::new(), Keypair::new(), Keypair::new(), Keypair::new());
+    let t22 = spl_token_2022::id();
+    let rent = ctx.banks_client.get_rent().await.unwrap();
+    let mint_len = ExtensionType::try_calculate_account_len::<Mint>(&[ExtensionType::TransferHook]).unwrap();
+    let acct_len = ExtensionType::try_calculate_account_len::<Account>(&[ExtensionType::TransferHookAccount]).unwrap();
+    let payer = ctx.payer.pubkey();
+    send(&mut ctx, &[system_instruction::transfer(&payer, &operator.pubkey(), 1_000_000_000)], &[]).await.unwrap();
+    let (cfg, _) = config_address(&mint.pubkey(), &hook);
+    let metas = get_extra_account_metas_address(&mint.pubkey(), &hook);
+    let db = |p: Vec<u8>, mint_signs: bool| {
+        let mut d = IX_INIT_DBC.to_vec();
+        d.extend(p);
+        Instruction::new_with_bytes(hook, &d, vec![
+            AccountMeta::new(operator.pubkey(), true),
+            AccountMeta::new(cfg, false),
+            AccountMeta::new_readonly(mint.pubkey(), mint_signs),
+            AccountMeta::new(metas, false),
+            AccountMeta::new_readonly(system_program::ID, false),
+        ])
+    };
+    let create = vec![
+        system_instruction::create_account(&payer, &mint.pubkey(), rent.minimum_balance(mint_len), mint_len as u64, &t22),
+        transfer_hook::instruction::initialize(&t22, &mint.pubkey(), Some(pda_auth), Some(hook)).unwrap(),
+        tix::initialize_mint2(&t22, &mint.pubkey(), &operator.pubkey(), None, DECIMALS).unwrap(),
+    ];
+    // wallet-style init is refused: operator is not the hook authority
+    let mut wrong = create.clone();
+    let mut d = IX_INIT.to_vec();
+    d.extend(policy(false, &[]));
+    wrong.push(Instruction::new_with_bytes(hook, &d, vec![
+        AccountMeta::new(operator.pubkey(), true), AccountMeta::new(cfg, false),
+        AccountMeta::new_readonly(mint.pubkey(), false), AccountMeta::new(metas, false),
+        AccountMeta::new_readonly(system_program::ID, false),
+    ]));
+    assert_eq!(custom(send(&mut ctx, &wrong, &[&mint, &operator]).await), Some(0x5108));
+    // paused initial policy refused (BadPolicy = 0x5109)
+    let mut bad = create.clone();
+    bad.push(db(policy(true, &[]), true));
+    assert_eq!(custom(send(&mut ctx, &bad, &[&mint, &operator]).await), Some(0x5109));
+    // NOTE: a key that signs the transaction is a signer for every instruction in it, so the
+    // "mint did not sign" case is covered in the hook unit tests (dbc_init_requires_mint_signer...).
+    // correct: mint + operator sign, qlihk:db after mint init, same tx
+    let mut ok = create.clone();
+    ok.push(db(policy(false, &[]), true));
+    send(&mut ctx, &ok, &[&mint, &operator]).await.expect("dbc bootstrap");
+    // second init refused (already initialized)
+    assert!(send(&mut ctx, &[db(policy(false, &[]), true)], &[&mint, &operator]).await.is_err());
+    for (acc, owner) in [(&src, operator.pubkey()), (&dst, dst_owner.pubkey())] {
+        send(&mut ctx, &[
+            system_instruction::create_account(&payer, &acc.pubkey(), rent.minimum_balance(acct_len), acct_len as u64, &t22),
+            tix::initialize_account3(&t22, &acc.pubkey(), &mint.pubkey(), &owner).unwrap(),
+        ], &[acc]).await.unwrap();
+    }
+    send(&mut ctx, &[tix::mint_to(&t22, &mint.pubkey(), &src.pubkey(), &operator.pubkey(), &[], 100).unwrap()], &[&operator]).await.unwrap();
+    let mut e = Env { ctx, hook, mint, authority: operator, src, dst, dst_owner };
+    let a = e.authority.insecure_clone();
+    let ix = transfer_ix(&e, 1);
+    send(&mut e.ctx, &[ix], &[&a]).await.expect("open transfer");
+    set(&mut e, true, policy(true, &[])).await.unwrap();
+    let ix = transfer_ix(&e, 1);
+    assert_eq!(custom(send(&mut e.ctx, &[ix], &[&a]).await), Some(0x5100));
+    set(&mut e, true, policy(false, &[])).await.unwrap();
+    let ix = transfer_ix(&e, 1);
+    send(&mut e.ctx, &[ix], &[&a]).await.expect("unpaused transfer");
 }
