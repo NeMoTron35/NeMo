@@ -3,7 +3,7 @@
 **Status: executable offline reference, not a deployed trading agent, hosted model, or mainnet custody system.**
 
 This directory contains testable, dependency-free Node.js components for the next QLi
-intelligence release. The production Lovable application has its own TS/server
+intelligence release. The production application builder application has its own TS/server
 integration; this reference provides independently reproducible checks to compare against
 its business logic. Passing these tests **does not prove the live app is connected.**
 
@@ -27,7 +27,7 @@ its business logic. Passing these tests **does not prove the live app is connect
 - Never send raw RPC account structures, pool addresses, vault addresses,
   transaction history, wallet identifiers, user text containing secrets, or private
   keys to an external model. Only send the allowlisted numeric observations.
-- Configure `HF_TOKEN` as a **server secret in Lovable**. Do not store it in
+- Configure `HF_TOKEN` as a **server secret in application builder**. Do not store it in
   GitHub, browser bundles, SQL rows, or public Spaces. Models incur possible cost;
   restrict production calls using per-wallet quotas and abuse controls.
 - Hashes prove that *a particular local receipt has not changed since its digest
