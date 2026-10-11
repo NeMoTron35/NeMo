@@ -1,0 +1,8 @@
+[workspace]
+resolver = "2"
+members = ["quantum_vault_policy", "quantum_vault"]
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
