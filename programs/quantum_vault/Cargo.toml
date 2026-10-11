@@ -18,3 +18,5 @@ idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
 anchor-lang = "0.31.1"
 anchor-spl = { version = "0.31.1", default-features = false, features = ["token", "associated_token"] }
 quantum_vault_policy = { path = "../quantum_vault_policy" }
+# Pin Solana 2.1 SBF-compatible BLAKE3. Recent versions pull Rust-2024 crypto-common.
+blake3 = { version = "=1.5.1", default-features = false }
