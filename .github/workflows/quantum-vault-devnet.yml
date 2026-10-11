@@ -23,7 +23,7 @@ concurrency:
 jobs:
   solana-program:
     name: Rust policy, Anchor and Solana SBF build
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 55
     defaults:
       run:
@@ -41,6 +41,67 @@ jobs:
           anchor-version: "0.31.1"
           solana-cli-version: "2.1.0"
           node-version: "20.19.0"
+      - name: Verify executable Anchor CLI (fail closed)
+        run: |
+          set -euo pipefail
+          ANCHOR_BIN="$(npm root -g)/@coral-xyz/anchor-cli/anchor"
+          test -f "$ANCHOR_BIN"
+          chmod 755 "$ANCHOR_BIN"
+          "$ANCHOR_BIN" --version | tee /tmp/qli-anchor-version.txt
+          grep -q "0.31.1" /tmp/qli-anchor-version.txt
+          test "$(ldd --version | head -1 | grep -oE '[0-9]+\\.[0-9]+        run: |
+          rustc --version
+          cargo --version
+          anchor --version
+          solana --version
+          solana-test-validator --version
+      - name: Check Rust formatting
+        run: cargo fmt --all --check
+      - name: Execute Rust policy unit tests
+        run: cargo test -p quantum_vault_policy --locked
+      - name: Check program host compilation
+        run: cargo check -p quantum_vault --locked
+      - name: Build actual Solana SBF program and Anchor IDL
+        run: |
+          set -euo pipefail
+          anchor build
+          test -s target/deploy/quantum_vault.so
+          test -s target/idl/quantum_vault.json
+      - name: Inspect compiled artifacts
+        run: |
+          test -s target/deploy/quantum_vault.so
+          test -s target/idl/quantum_vault.json
+          sha256sum target/deploy/quantum_vault.so
+          ls -lh target/deploy/quantum_vault.so target/idl/quantum_vault.json
+      - name: Run real Solana local-validator vault security tests
+        run: |
+          set -euo pipefail
+          npm install --no-audit --no-fund
+          solana-keygen new --no-bip39-passphrase --force -o "$RUNNER_TEMP/qli-validator-payer.json" >/dev/null
+          solana-test-validator --reset --quiet --ledger "$RUNNER_TEMP/qli-validator-ledger" --bpf-program 93v9K8ytGDR3BAoxtaVVo7u1oaBv3Pu257eBAPCp7SH5 target/deploy/quantum_vault.so > "$RUNNER_TEMP/qli-validator.log" 2>&1 &
+          VALIDATOR_PID=$!
+          trap 'kill $VALIDATOR_PID || true' EXIT
+          for i in $(seq 1 35); do
+            if solana cluster-version --url http://127.0.0.1:8899 > /dev/null 2>&1; then break; fi
+            sleep 2
+          done
+          solana cluster-version --url http://127.0.0.1:8899 || (cat "$RUNNER_TEMP/qli-validator.log"; exit 1)
+          solana airdrop 20 "$(solana-keygen pubkey "$RUNNER_TEMP/qli-validator-payer.json")" --url http://127.0.0.1:8899
+          ANCHOR_PROVIDER_URL=http://127.0.0.1:8899 ANCHOR_WALLET="$RUNNER_TEMP/qli-validator-payer.json" npm run test:integration
+      - name: Save unsigned build artifacts for independent review
+        uses: actions/upload-artifact@v4
+        with:
+          name: quantum-vault-devnet-unsigned-${{ github.sha }}
+          path: |
+            programs/target/deploy/quantum_vault.so
+            programs/target/idl/quantum_vault.json
+          if-no-files-found: error
+          retention-days: 7
+
+# There is intentionally NO deployment or signing step.
+# Source build success does not prove on-chain security. Validator-level integration
+# tests and an independently owned devnet deployment authority are required next.
+)" != ""
       - name: Verify versions
         run: |
           rustc --version
