@@ -1,0 +1,23 @@
+[package]
+name = "quantum_pq_first_buy_vault"
+version = "0.0.1"
+edition = "2021"
+description = "Mode B research program: WOTS/Merkle-authorized classic SPL first-buy vault. NOT AUDITED, NOT DEPLOYED. Devnet build by default; Mainnet build via --features mainnet."
+publish = false
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "quantum_pq_first_buy_vault"
+
+[features]
+default = []
+no-entrypoint = []
+cpi = ["no-entrypoint"]
+# Separate Mainnet build: freezes MAINNET_GENESIS. Needs its own owner-attested deployment.
+mainnet = ["quantum_pq_vault/mainnet"]
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+
+[dependencies]
+anchor-lang = "0.31.1"
+anchor-spl = { version = "0.31.1", default-features = false, features = ["token", "associated_token"] }
+quantum_pq_vault = { path = "../quantum_pq_vault" }

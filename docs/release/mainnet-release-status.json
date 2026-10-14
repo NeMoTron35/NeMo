@@ -1,0 +1,163 @@
+{
+  "schema": "qli.mainnet-release-status/v1",
+  "deployment": "prepared-not-deployed",
+  "governancePlan": {
+    "model": "temporary-owner-wallet",
+    "phantomAddress": "DT1BNZbFw4AjR2JxaEdArT9FWLuaV7iAmoMLrZ55sAkR",
+    "ownershipVerified": false,
+    "transferred": false,
+    "riskResolved": false,
+    "migrationTarget": "squads-v4-multisig"
+  },
+  "overall": "NOT LIVE",
+  "nextStep": "E9 finalized FAILED Devnet replay of the consumed leaf (on-chain, not simulation): Only app simulations rejected the replay. The acceptance verifier requires a finalized failing transaction (6002/6016 at open_session or 6112/6115 at withdraw) on the same vault; a simulation is never substituted. Needs separate explicit owner approval to broadcast.",
+  "publicDepositsAndWithdrawals": "closed",
+  "devnetEvidence": {
+    "programId": "AjVH3bHVN6ypjjXK1udYUKDVheeQ7SivC1TCFdAZeShK",
+    "mint": "995yiWn8wi7eJuKYiX2DL7hKY7PmuZgXRFHwWZUuqLW5",
+    "vault": "Ecv5jntsgEBr6UbRNXDAwnf6sEQh2hEhRFerkj4nz44T",
+    "withdrawSignature": "2298eNCoagR2Dc5mCLijajvWw7DMxKj2p857cCPrP8yyJkc12DqoCyFYtcdgKwzQXZLFr7TjrWk4jqtY8FQhNf3R",
+    "amountBaseUnits": "1000000000",
+    "nonce": 2,
+    "leaf": 2,
+    "verifiedAt": "2026-10-14T12:40:57Z",
+    "checks": "24/24 VERIFIED, scripts/verify-mode-b-devnet-withdrawal.ts",
+    "replay": "simulation-only",
+    "ownerReview": "pending"
+  },
+  "builds": {
+    "toolchain": {
+      "agave": "2.2.20",
+      "platformTools": "v1.57"
+    },
+    "devnet": {
+      "programId": "9EqcFT8B8NTkTZCXRFTEZxr7zUz3zXHrWgGZYJvViJ4T",
+      "sha256": "026fd785d95da1ba392dbb96a4c6a78acd59caa4f5c9592e643779a93890e196",
+      "length": 284344,
+      "provisional": true
+    },
+    "mainnet-beta": {
+      "programId": "6P39VXXxxRHoCX7eJCKC5Tkaf4SUxdJDAeJvzykA8q7Z",
+      "sha256": null,
+      "length": null,
+      "provisional": true,
+      "status": "build-needed",
+      "supersededPlaceholderBuild": {
+        "programId": "QLiMainnetProgramUNSET111111111111111111111",
+        "sha256": "1974248e4321afa8a29c760f76b63a532f3fb88c11fa12d48ab74ed83736eacc",
+        "length": 284344,
+        "validity": "INVALID: built for the UNSET placeholder id; NOT a build of the configured id"
+      }
+    }
+  },
+  "cloudBuild": {
+    "status": "PENDING",
+    "workflow": ".github/workflows/qli-pq-mainnet-audit-candidate.yml",
+    "workflowName": "Mainnet SBF Audit Candidate",
+    "githubSourceParity": "blocked: GitHub main is stale; needs an owner-reviewed source-parity PR",
+    "workflowOnGithub": false,
+    "runs": null,
+    "verified": false,
+    "auditCandidateOnly": true
+  },
+  "gates": [
+    {
+      "id": "devnet-e8-withdrawal",
+      "label": "E8 Devnet withdrawal (open_session → 3 chunks → withdraw) on registered program",
+      "status": "done",
+      "owner": "owner",
+      "detail": "Independently verified from finalized public Devnet RPC 2026-10-14T12:40:57Z (24/24 VERIFIED, scripts/verify-mode-b-devnet-withdrawal.ts): program AjVH3bHVN6ypjjXK1udYUKDVheeQ7SivC1TCFdAZeShK, mint 995yiWn8wi7eJuKYiX2DL7hKY7PmuZgXRFHwWZUuqLW5, 1000000000 base units escrow → creator token account, nonce 2, leaf 2. Devnet evidence only; not an acceptance record."
+    },
+    {
+      "id": "devnet-e9-replay",
+      "label": "E9 finalized FAILED Devnet replay of the consumed leaf (on-chain, not simulation)",
+      "status": "blocked-external",
+      "owner": "owner",
+      "detail": "Only app simulations rejected the replay. The acceptance verifier requires a finalized failing transaction (6002/6016 at open_session or 6112/6115 at withdraw) on the same vault; a simulation is never substituted. Needs separate explicit owner approval to broadcast."
+    },
+    {
+      "id": "devnet-e10-owner-review",
+      "label": "E10 owner review of E8 + E9",
+      "status": "open",
+      "owner": "owner",
+      "detail": "Pending; cannot start until E9 exists. Never set automatically."
+    },
+    {
+      "id": "devnet-e2e",
+      "label": "Public Devnet end-to-end receipt (DBC launch → vault → withdrawal → replay rejected)",
+      "status": "blocked-external",
+      "owner": "owner",
+      "detail": "Launch (E2–E5) and withdrawal (E8) independently verified on Devnet; replay rejection (E9) is simulation-only and owner review (E10) pending, so PQ_WITHDRAWAL_ACCEPTANCE.devnetEndToEnd stays null."
+    },
+    {
+      "id": "independent-audit",
+      "label": "Independent audit report (program + WOTS key lifecycle)",
+      "status": "blocked-external",
+      "owner": "auditor",
+      "detail": "Internal review only. Never self-certified."
+    },
+    {
+      "id": "F-03",
+      "label": "F-03 WOTS leaf reuse across reloads/devices",
+      "status": "internal-pass-pending-audit",
+      "owner": "owner+auditor",
+      "detail": "Program change: open_session (creator-only) burns the leaf on chain before any proof byte is revealed and never releases it; chunk 0 and withdraw must match the reserved leaf. A rolled-back journal or second device can no longer publish a second signature for a leaf. Compiled-SBF tested locally; on the registered Devnet program leaf 2 was reserved at open_session and is consumed in the live bitmap after the E8 withdrawal (Devnet behaviour only; Mainnet bytes not built with a real id, not independently audited). Residual: a compromised creator wallet can burn leaves (liveness, not custody)."
+    },
+    {
+      "id": "F-05",
+      "label": "F-05 upgrade authority governance (temporary owner wallet → multisig later)",
+      "status": "temporary-single-signer-planned",
+      "owner": "owner+auditor",
+      "detail": "Temporary single signer planned, upgrade risk acknowledged but UNRESOLVED: one owner Phantom wallet could upgrade the program and potentially drain all user vaults. Verifier accepts it only as the declared temporary-owner-wallet with exact on-chain match, unexpired review-by date and planned Squads v4 migration. Owner-supplied temporary authority DT1BNZbFw4AjR2JxaEdArT9FWLuaV7iAmoMLrZ55sAkR (public, on-curve; ownership NOT cryptographically verified). No transfer done; on-chain match unchecked."
+    },
+    {
+      "id": "F-08",
+      "label": "F-08 session spam / rent",
+      "status": "internal-pass-pending-audit",
+      "owner": "auditor",
+      "detail": "Compiled bank test: attacker sessions never change vault data or lamports, TTL ≤ 900 s, only the payer can reclaim after expiry with exact rent refund."
+    },
+    {
+      "id": "F-09",
+      "label": "F-09 DBC mint freeze authority",
+      "status": "blocked-external",
+      "owner": "owner",
+      "detail": "A real Devnet DBC first-buy launch exists (mint 995yiWn8…qLW5), but its freeze authority is not yet asserted by any verifier. Not faked."
+    },
+    {
+      "id": "program-id",
+      "label": "Owner-held program keypair and public program id synced",
+      "status": "configured-owner-reported",
+      "owner": "owner",
+      "detail": "Public id 6P39VXXxxRHoCX7eJCKC5Tkaf4SUxdJDAeJvzykA8q7Z synced into the Mainnet-tagged declare_id! and Anchor.toml [programs.mainnet]. Keypair backup locally verified OWNER-REPORTED (not independently checked). Configured is not deployed; upgrade authority/fee wallet unresolved."
+    },
+    {
+      "id": "pinned-build",
+      "label": "Pinned final build (Agave 2.2.20, platform-tools v1.57) for the synced id",
+      "status": "build-needed",
+      "owner": "owner",
+      "detail": "No build exists for the configured id. The earlier artifact 1974248e4321… was built for the UNSET placeholder and is SUPERSEDED/INVALID. Rebuild with bash scripts/build-pq-vault-sbf.sh mainnet-beta (pinned toolchain; --features mainnet), then independent reproduction and audit."
+    },
+    {
+      "id": "rpc-verified",
+      "label": "RPC-verified ProgramData hash, padding and governance authority",
+      "status": "open",
+      "owner": "owner",
+      "detail": "Registry is null; run the read-only verifier after deployment and source-review its record."
+    },
+    {
+      "id": "first-launch",
+      "label": "Wallet-approved first Mainnet Mode B launch",
+      "status": "open",
+      "owner": "owner",
+      "detail": "Only after every gate above."
+    },
+    {
+      "id": "first-withdrawal",
+      "label": "Wallet-approved first Mainnet withdrawal",
+      "status": "open",
+      "owner": "owner",
+      "detail": "Withdrawal send is disabled in this build."
+    }
+  ]
+}
