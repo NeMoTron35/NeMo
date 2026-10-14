@@ -10,7 +10,7 @@ import {
 import { DOMAINS } from "@/lib/qli-core/pq";
 describe("Quantum QLi first-party documentation", () => {
   it("bundles every required topic from Markdown with unique stable ids", () => {
-    expect(documentation.length).toBe(27);
+    expect(documentation.length).toBe(31);
     expect(new Set(documentation.map((d) => d.id)).size).toBe(documentation.length);
     for (const d of documentation) {
       expect(d.body).toContain(`# ${d.title}`);

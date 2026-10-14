@@ -14,18 +14,32 @@ import { Route as ActivityRouteImport } from './routes/activity'
 import { Route as AgentRouteImport } from './routes/agent'
 import { Route as ApiDocsRouteImport } from './routes/api-docs'
 import { Route as AuditRouteImport } from './routes/audit'
+import { Route as AuthorizationRouteImport } from './routes/authorization'
+import { Route as CreatorStudioRouteImport } from './routes/creator-studio'
 import { Route as DepositRouteImport } from './routes/deposit'
 import { Route as DocsRouteImport } from './routes/docs'
 import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as FeesRouteImport } from './routes/fees'
+import { Route as FlywheelRouteImport } from './routes/flywheel'
+import { Route as HackathonPitchRouteImport } from './routes/hackathon-pitch'
+import { Route as HookDevnetRouteImport } from './routes/hook-devnet'
+import { Route as HookForgeRouteImport } from './routes/hook-forge'
+import { Route as HookProofsRouteImport } from './routes/hook-proofs'
 import { Route as IdentityRouteImport } from './routes/identity'
+import { Route as IdentityV2RouteImport } from './routes/identity-v2'
 import { Route as LaunchRouteImport } from './routes/launch'
 import { Route as LaunchesRouteImport } from './routes/launches'
 import { Route as MarketsRouteImport } from './routes/markets'
+import { Route as MeteoraIntelligenceRouteImport } from './routes/meteora-intelligence'
+import { Route as NetworkLabRouteImport } from './routes/network-lab'
+import { Route as NetworkTestRouteImport } from './routes/network-test'
+import { Route as NeuralEngineRouteImport } from './routes/neural-engine'
 import { Route as OverviewRouteImport } from './routes/overview'
 import { Route as PoolsRouteImport } from './routes/pools'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PositionsRouteImport } from './routes/positions'
+import { Route as QliAgentRouteImport } from './routes/qli-agent'
+import { Route as QuantumVaultRouteImport } from './routes/quantum-vault'
 import { Route as QuantumWalletsRouteImport } from './routes/quantum-wallets'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SettingsRouteImport } from './routes/settings'
@@ -36,7 +50,12 @@ import { Route as VaultsRouteImport } from './routes/vaults'
 import { Route as VerifyRouteImport } from './routes/verify'
 import { Route as WhitepaperRouteImport } from './routes/whitepaper'
 import { Route as WithdrawRouteImport } from './routes/withdraw'
+import { Route as LaunchProofsIndexRouteImport } from './routes/launch-proofs.index'
+import { Route as ApiPublicNeuralStatusRouteImport } from './routes/api/public/neural-status'
+import { Route as LaunchProofsNetworkSignatureRouteImport } from './routes/launch-proofs.$network.$signature'
+import { Route as ApiPublicQliAgentWorkerRouteImport } from './routes/api/public/qli-agent/worker'
 import { Route as ApiPublicV1SplatRouteImport } from './routes/api/public/v1/$'
+import { Route as ApiPublicMeteoraV1PoolsNetworkPoolRouteImport } from './routes/api/public/meteora/v1/pools/$network/$pool'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -63,6 +82,16 @@ const AuditRoute = AuditRouteImport.update({
   path: '/audit',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthorizationRoute = AuthorizationRouteImport.update({
+  id: '/authorization',
+  path: '/authorization',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreatorStudioRoute = CreatorStudioRouteImport.update({
+  id: '/creator-studio',
+  path: '/creator-studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DepositRoute = DepositRouteImport.update({
   id: '/deposit',
   path: '/deposit',
@@ -83,9 +112,39 @@ const FeesRoute = FeesRouteImport.update({
   path: '/fees',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FlywheelRoute = FlywheelRouteImport.update({
+  id: '/flywheel',
+  path: '/flywheel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HackathonPitchRoute = HackathonPitchRouteImport.update({
+  id: '/hackathon-pitch',
+  path: '/hackathon-pitch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HookDevnetRoute = HookDevnetRouteImport.update({
+  id: '/hook-devnet',
+  path: '/hook-devnet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HookForgeRoute = HookForgeRouteImport.update({
+  id: '/hook-forge',
+  path: '/hook-forge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HookProofsRoute = HookProofsRouteImport.update({
+  id: '/hook-proofs',
+  path: '/hook-proofs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IdentityRoute = IdentityRouteImport.update({
   id: '/identity',
   path: '/identity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IdentityV2Route = IdentityV2RouteImport.update({
+  id: '/identity-v2',
+  path: '/identity-v2',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LaunchRoute = LaunchRouteImport.update({
@@ -101,6 +160,26 @@ const LaunchesRoute = LaunchesRouteImport.update({
 const MarketsRoute = MarketsRouteImport.update({
   id: '/markets',
   path: '/markets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeteoraIntelligenceRoute = MeteoraIntelligenceRouteImport.update({
+  id: '/meteora-intelligence',
+  path: '/meteora-intelligence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NetworkLabRoute = NetworkLabRouteImport.update({
+  id: '/network-lab',
+  path: '/network-lab',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NetworkTestRoute = NetworkTestRouteImport.update({
+  id: '/network-test',
+  path: '/network-test',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NeuralEngineRoute = NeuralEngineRouteImport.update({
+  id: '/neural-engine',
+  path: '/neural-engine',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OverviewRoute = OverviewRouteImport.update({
@@ -121,6 +200,16 @@ const PortfolioRoute = PortfolioRouteImport.update({
 const PositionsRoute = PositionsRouteImport.update({
   id: '/positions',
   path: '/positions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QliAgentRoute = QliAgentRouteImport.update({
+  id: '/qli-agent',
+  path: '/qli-agent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuantumVaultRoute = QuantumVaultRouteImport.update({
+  id: '/quantum-vault',
+  path: '/quantum-vault',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuantumWalletsRoute = QuantumWalletsRouteImport.update({
@@ -173,11 +262,38 @@ const WithdrawRoute = WithdrawRouteImport.update({
   path: '/withdraw',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LaunchProofsIndexRoute = LaunchProofsIndexRouteImport.update({
+  id: '/launch-proofs/',
+  path: '/launch-proofs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicNeuralStatusRoute = ApiPublicNeuralStatusRouteImport.update({
+  id: '/api/public/neural-status',
+  path: '/api/public/neural-status',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LaunchProofsNetworkSignatureRoute =
+  LaunchProofsNetworkSignatureRouteImport.update({
+    id: '/launch-proofs/$network/$signature',
+    path: '/launch-proofs/$network/$signature',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicQliAgentWorkerRoute = ApiPublicQliAgentWorkerRouteImport.update({
+  id: '/api/public/qli-agent/worker',
+  path: '/api/public/qli-agent/worker',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicV1SplatRoute = ApiPublicV1SplatRouteImport.update({
   id: '/api/public/v1/$',
   path: '/api/public/v1/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicMeteoraV1PoolsNetworkPoolRoute =
+  ApiPublicMeteoraV1PoolsNetworkPoolRouteImport.update({
+    id: '/api/public/meteora/v1/pools/$network/$pool',
+    path: '/api/public/meteora/v1/pools/$network/$pool',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -185,18 +301,32 @@ export interface FileRoutesByFullPath {
   '/agent': typeof AgentRoute
   '/api-docs': typeof ApiDocsRoute
   '/audit': typeof AuditRoute
+  '/authorization': typeof AuthorizationRoute
+  '/creator-studio': typeof CreatorStudioRoute
   '/deposit': typeof DepositRoute
   '/docs': typeof DocsRoute
   '/explore': typeof ExploreRoute
   '/fees': typeof FeesRoute
+  '/flywheel': typeof FlywheelRoute
+  '/hackathon-pitch': typeof HackathonPitchRoute
+  '/hook-devnet': typeof HookDevnetRoute
+  '/hook-forge': typeof HookForgeRoute
+  '/hook-proofs': typeof HookProofsRoute
   '/identity': typeof IdentityRoute
+  '/identity-v2': typeof IdentityV2Route
   '/launch': typeof LaunchRoute
   '/launches': typeof LaunchesRoute
   '/markets': typeof MarketsRoute
+  '/meteora-intelligence': typeof MeteoraIntelligenceRoute
+  '/network-lab': typeof NetworkLabRoute
+  '/network-test': typeof NetworkTestRoute
+  '/neural-engine': typeof NeuralEngineRoute
   '/overview': typeof OverviewRoute
   '/pools': typeof PoolsRoute
   '/portfolio': typeof PortfolioRoute
   '/positions': typeof PositionsRoute
+  '/qli-agent': typeof QliAgentRoute
+  '/quantum-vault': typeof QuantumVaultRoute
   '/quantum-wallets': typeof QuantumWalletsRoute
   '/security': typeof SecurityRoute
   '/settings': typeof SettingsRoute
@@ -207,7 +337,12 @@ export interface FileRoutesByFullPath {
   '/verify': typeof VerifyRoute
   '/whitepaper': typeof WhitepaperRoute
   '/withdraw': typeof WithdrawRoute
+  '/launch-proofs/': typeof LaunchProofsIndexRoute
+  '/api/public/neural-status': typeof ApiPublicNeuralStatusRoute
+  '/launch-proofs/$network/$signature': typeof LaunchProofsNetworkSignatureRoute
+  '/api/public/qli-agent/worker': typeof ApiPublicQliAgentWorkerRoute
   '/api/public/v1/$': typeof ApiPublicV1SplatRoute
+  '/api/public/meteora/v1/pools/$network/$pool': typeof ApiPublicMeteoraV1PoolsNetworkPoolRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -215,18 +350,32 @@ export interface FileRoutesByTo {
   '/agent': typeof AgentRoute
   '/api-docs': typeof ApiDocsRoute
   '/audit': typeof AuditRoute
+  '/authorization': typeof AuthorizationRoute
+  '/creator-studio': typeof CreatorStudioRoute
   '/deposit': typeof DepositRoute
   '/docs': typeof DocsRoute
   '/explore': typeof ExploreRoute
   '/fees': typeof FeesRoute
+  '/flywheel': typeof FlywheelRoute
+  '/hackathon-pitch': typeof HackathonPitchRoute
+  '/hook-devnet': typeof HookDevnetRoute
+  '/hook-forge': typeof HookForgeRoute
+  '/hook-proofs': typeof HookProofsRoute
   '/identity': typeof IdentityRoute
+  '/identity-v2': typeof IdentityV2Route
   '/launch': typeof LaunchRoute
   '/launches': typeof LaunchesRoute
   '/markets': typeof MarketsRoute
+  '/meteora-intelligence': typeof MeteoraIntelligenceRoute
+  '/network-lab': typeof NetworkLabRoute
+  '/network-test': typeof NetworkTestRoute
+  '/neural-engine': typeof NeuralEngineRoute
   '/overview': typeof OverviewRoute
   '/pools': typeof PoolsRoute
   '/portfolio': typeof PortfolioRoute
   '/positions': typeof PositionsRoute
+  '/qli-agent': typeof QliAgentRoute
+  '/quantum-vault': typeof QuantumVaultRoute
   '/quantum-wallets': typeof QuantumWalletsRoute
   '/security': typeof SecurityRoute
   '/settings': typeof SettingsRoute
@@ -237,7 +386,12 @@ export interface FileRoutesByTo {
   '/verify': typeof VerifyRoute
   '/whitepaper': typeof WhitepaperRoute
   '/withdraw': typeof WithdrawRoute
+  '/launch-proofs': typeof LaunchProofsIndexRoute
+  '/api/public/neural-status': typeof ApiPublicNeuralStatusRoute
+  '/launch-proofs/$network/$signature': typeof LaunchProofsNetworkSignatureRoute
+  '/api/public/qli-agent/worker': typeof ApiPublicQliAgentWorkerRoute
   '/api/public/v1/$': typeof ApiPublicV1SplatRoute
+  '/api/public/meteora/v1/pools/$network/$pool': typeof ApiPublicMeteoraV1PoolsNetworkPoolRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -246,18 +400,32 @@ export interface FileRoutesById {
   '/agent': typeof AgentRoute
   '/api-docs': typeof ApiDocsRoute
   '/audit': typeof AuditRoute
+  '/authorization': typeof AuthorizationRoute
+  '/creator-studio': typeof CreatorStudioRoute
   '/deposit': typeof DepositRoute
   '/docs': typeof DocsRoute
   '/explore': typeof ExploreRoute
   '/fees': typeof FeesRoute
+  '/flywheel': typeof FlywheelRoute
+  '/hackathon-pitch': typeof HackathonPitchRoute
+  '/hook-devnet': typeof HookDevnetRoute
+  '/hook-forge': typeof HookForgeRoute
+  '/hook-proofs': typeof HookProofsRoute
   '/identity': typeof IdentityRoute
+  '/identity-v2': typeof IdentityV2Route
   '/launch': typeof LaunchRoute
   '/launches': typeof LaunchesRoute
   '/markets': typeof MarketsRoute
+  '/meteora-intelligence': typeof MeteoraIntelligenceRoute
+  '/network-lab': typeof NetworkLabRoute
+  '/network-test': typeof NetworkTestRoute
+  '/neural-engine': typeof NeuralEngineRoute
   '/overview': typeof OverviewRoute
   '/pools': typeof PoolsRoute
   '/portfolio': typeof PortfolioRoute
   '/positions': typeof PositionsRoute
+  '/qli-agent': typeof QliAgentRoute
+  '/quantum-vault': typeof QuantumVaultRoute
   '/quantum-wallets': typeof QuantumWalletsRoute
   '/security': typeof SecurityRoute
   '/settings': typeof SettingsRoute
@@ -268,7 +436,12 @@ export interface FileRoutesById {
   '/verify': typeof VerifyRoute
   '/whitepaper': typeof WhitepaperRoute
   '/withdraw': typeof WithdrawRoute
+  '/launch-proofs/': typeof LaunchProofsIndexRoute
+  '/api/public/neural-status': typeof ApiPublicNeuralStatusRoute
+  '/launch-proofs/$network/$signature': typeof LaunchProofsNetworkSignatureRoute
+  '/api/public/qli-agent/worker': typeof ApiPublicQliAgentWorkerRoute
   '/api/public/v1/$': typeof ApiPublicV1SplatRoute
+  '/api/public/meteora/v1/pools/$network/$pool': typeof ApiPublicMeteoraV1PoolsNetworkPoolRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -278,18 +451,32 @@ export interface FileRouteTypes {
     | '/agent'
     | '/api-docs'
     | '/audit'
+    | '/authorization'
+    | '/creator-studio'
     | '/deposit'
     | '/docs'
     | '/explore'
     | '/fees'
+    | '/flywheel'
+    | '/hackathon-pitch'
+    | '/hook-devnet'
+    | '/hook-forge'
+    | '/hook-proofs'
     | '/identity'
+    | '/identity-v2'
     | '/launch'
     | '/launches'
     | '/markets'
+    | '/meteora-intelligence'
+    | '/network-lab'
+    | '/network-test'
+    | '/neural-engine'
     | '/overview'
     | '/pools'
     | '/portfolio'
     | '/positions'
+    | '/qli-agent'
+    | '/quantum-vault'
     | '/quantum-wallets'
     | '/security'
     | '/settings'
@@ -300,7 +487,12 @@ export interface FileRouteTypes {
     | '/verify'
     | '/whitepaper'
     | '/withdraw'
+    | '/launch-proofs/'
+    | '/api/public/neural-status'
+    | '/launch-proofs/$network/$signature'
+    | '/api/public/qli-agent/worker'
     | '/api/public/v1/$'
+    | '/api/public/meteora/v1/pools/$network/$pool'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -308,18 +500,32 @@ export interface FileRouteTypes {
     | '/agent'
     | '/api-docs'
     | '/audit'
+    | '/authorization'
+    | '/creator-studio'
     | '/deposit'
     | '/docs'
     | '/explore'
     | '/fees'
+    | '/flywheel'
+    | '/hackathon-pitch'
+    | '/hook-devnet'
+    | '/hook-forge'
+    | '/hook-proofs'
     | '/identity'
+    | '/identity-v2'
     | '/launch'
     | '/launches'
     | '/markets'
+    | '/meteora-intelligence'
+    | '/network-lab'
+    | '/network-test'
+    | '/neural-engine'
     | '/overview'
     | '/pools'
     | '/portfolio'
     | '/positions'
+    | '/qli-agent'
+    | '/quantum-vault'
     | '/quantum-wallets'
     | '/security'
     | '/settings'
@@ -330,7 +536,12 @@ export interface FileRouteTypes {
     | '/verify'
     | '/whitepaper'
     | '/withdraw'
+    | '/launch-proofs'
+    | '/api/public/neural-status'
+    | '/launch-proofs/$network/$signature'
+    | '/api/public/qli-agent/worker'
     | '/api/public/v1/$'
+    | '/api/public/meteora/v1/pools/$network/$pool'
   id:
     | '__root__'
     | '/'
@@ -338,18 +549,32 @@ export interface FileRouteTypes {
     | '/agent'
     | '/api-docs'
     | '/audit'
+    | '/authorization'
+    | '/creator-studio'
     | '/deposit'
     | '/docs'
     | '/explore'
     | '/fees'
+    | '/flywheel'
+    | '/hackathon-pitch'
+    | '/hook-devnet'
+    | '/hook-forge'
+    | '/hook-proofs'
     | '/identity'
+    | '/identity-v2'
     | '/launch'
     | '/launches'
     | '/markets'
+    | '/meteora-intelligence'
+    | '/network-lab'
+    | '/network-test'
+    | '/neural-engine'
     | '/overview'
     | '/pools'
     | '/portfolio'
     | '/positions'
+    | '/qli-agent'
+    | '/quantum-vault'
     | '/quantum-wallets'
     | '/security'
     | '/settings'
@@ -360,7 +585,12 @@ export interface FileRouteTypes {
     | '/verify'
     | '/whitepaper'
     | '/withdraw'
+    | '/launch-proofs/'
+    | '/api/public/neural-status'
+    | '/launch-proofs/$network/$signature'
+    | '/api/public/qli-agent/worker'
     | '/api/public/v1/$'
+    | '/api/public/meteora/v1/pools/$network/$pool'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -369,18 +599,32 @@ export interface RootRouteChildren {
   AgentRoute: typeof AgentRoute
   ApiDocsRoute: typeof ApiDocsRoute
   AuditRoute: typeof AuditRoute
+  AuthorizationRoute: typeof AuthorizationRoute
+  CreatorStudioRoute: typeof CreatorStudioRoute
   DepositRoute: typeof DepositRoute
   DocsRoute: typeof DocsRoute
   ExploreRoute: typeof ExploreRoute
   FeesRoute: typeof FeesRoute
+  FlywheelRoute: typeof FlywheelRoute
+  HackathonPitchRoute: typeof HackathonPitchRoute
+  HookDevnetRoute: typeof HookDevnetRoute
+  HookForgeRoute: typeof HookForgeRoute
+  HookProofsRoute: typeof HookProofsRoute
   IdentityRoute: typeof IdentityRoute
+  IdentityV2Route: typeof IdentityV2Route
   LaunchRoute: typeof LaunchRoute
   LaunchesRoute: typeof LaunchesRoute
   MarketsRoute: typeof MarketsRoute
+  MeteoraIntelligenceRoute: typeof MeteoraIntelligenceRoute
+  NetworkLabRoute: typeof NetworkLabRoute
+  NetworkTestRoute: typeof NetworkTestRoute
+  NeuralEngineRoute: typeof NeuralEngineRoute
   OverviewRoute: typeof OverviewRoute
   PoolsRoute: typeof PoolsRoute
   PortfolioRoute: typeof PortfolioRoute
   PositionsRoute: typeof PositionsRoute
+  QliAgentRoute: typeof QliAgentRoute
+  QuantumVaultRoute: typeof QuantumVaultRoute
   QuantumWalletsRoute: typeof QuantumWalletsRoute
   SecurityRoute: typeof SecurityRoute
   SettingsRoute: typeof SettingsRoute
@@ -391,7 +635,12 @@ export interface RootRouteChildren {
   VerifyRoute: typeof VerifyRoute
   WhitepaperRoute: typeof WhitepaperRoute
   WithdrawRoute: typeof WithdrawRoute
+  LaunchProofsIndexRoute: typeof LaunchProofsIndexRoute
+  ApiPublicNeuralStatusRoute: typeof ApiPublicNeuralStatusRoute
+  LaunchProofsNetworkSignatureRoute: typeof LaunchProofsNetworkSignatureRoute
+  ApiPublicQliAgentWorkerRoute: typeof ApiPublicQliAgentWorkerRoute
   ApiPublicV1SplatRoute: typeof ApiPublicV1SplatRoute
+  ApiPublicMeteoraV1PoolsNetworkPoolRoute: typeof ApiPublicMeteoraV1PoolsNetworkPoolRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -431,6 +680,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuditRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/authorization': {
+      id: '/authorization'
+      path: '/authorization'
+      fullPath: '/authorization'
+      preLoaderRoute: typeof AuthorizationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/creator-studio': {
+      id: '/creator-studio'
+      path: '/creator-studio'
+      fullPath: '/creator-studio'
+      preLoaderRoute: typeof CreatorStudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/deposit': {
       id: '/deposit'
       path: '/deposit'
@@ -459,11 +722,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/flywheel': {
+      id: '/flywheel'
+      path: '/flywheel'
+      fullPath: '/flywheel'
+      preLoaderRoute: typeof FlywheelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hackathon-pitch': {
+      id: '/hackathon-pitch'
+      path: '/hackathon-pitch'
+      fullPath: '/hackathon-pitch'
+      preLoaderRoute: typeof HackathonPitchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hook-devnet': {
+      id: '/hook-devnet'
+      path: '/hook-devnet'
+      fullPath: '/hook-devnet'
+      preLoaderRoute: typeof HookDevnetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hook-forge': {
+      id: '/hook-forge'
+      path: '/hook-forge'
+      fullPath: '/hook-forge'
+      preLoaderRoute: typeof HookForgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hook-proofs': {
+      id: '/hook-proofs'
+      path: '/hook-proofs'
+      fullPath: '/hook-proofs'
+      preLoaderRoute: typeof HookProofsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/identity': {
       id: '/identity'
       path: '/identity'
       fullPath: '/identity'
       preLoaderRoute: typeof IdentityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/identity-v2': {
+      id: '/identity-v2'
+      path: '/identity-v2'
+      fullPath: '/identity-v2'
+      preLoaderRoute: typeof IdentityV2RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/launch': {
@@ -485,6 +790,34 @@ declare module '@tanstack/react-router' {
       path: '/markets'
       fullPath: '/markets'
       preLoaderRoute: typeof MarketsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meteora-intelligence': {
+      id: '/meteora-intelligence'
+      path: '/meteora-intelligence'
+      fullPath: '/meteora-intelligence'
+      preLoaderRoute: typeof MeteoraIntelligenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/network-lab': {
+      id: '/network-lab'
+      path: '/network-lab'
+      fullPath: '/network-lab'
+      preLoaderRoute: typeof NetworkLabRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/network-test': {
+      id: '/network-test'
+      path: '/network-test'
+      fullPath: '/network-test'
+      preLoaderRoute: typeof NetworkTestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/neural-engine': {
+      id: '/neural-engine'
+      path: '/neural-engine'
+      fullPath: '/neural-engine'
+      preLoaderRoute: typeof NeuralEngineRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/overview': {
@@ -513,6 +846,20 @@ declare module '@tanstack/react-router' {
       path: '/positions'
       fullPath: '/positions'
       preLoaderRoute: typeof PositionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/qli-agent': {
+      id: '/qli-agent'
+      path: '/qli-agent'
+      fullPath: '/qli-agent'
+      preLoaderRoute: typeof QliAgentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quantum-vault': {
+      id: '/quantum-vault'
+      path: '/quantum-vault'
+      fullPath: '/quantum-vault'
+      preLoaderRoute: typeof QuantumVaultRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quantum-wallets': {
@@ -585,11 +932,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WithdrawRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/launch-proofs/': {
+      id: '/launch-proofs/'
+      path: '/launch-proofs'
+      fullPath: '/launch-proofs/'
+      preLoaderRoute: typeof LaunchProofsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/neural-status': {
+      id: '/api/public/neural-status'
+      path: '/api/public/neural-status'
+      fullPath: '/api/public/neural-status'
+      preLoaderRoute: typeof ApiPublicNeuralStatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/launch-proofs/$network/$signature': {
+      id: '/launch-proofs/$network/$signature'
+      path: '/launch-proofs/$network/$signature'
+      fullPath: '/launch-proofs/$network/$signature'
+      preLoaderRoute: typeof LaunchProofsNetworkSignatureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/qli-agent/worker': {
+      id: '/api/public/qli-agent/worker'
+      path: '/api/public/qli-agent/worker'
+      fullPath: '/api/public/qli-agent/worker'
+      preLoaderRoute: typeof ApiPublicQliAgentWorkerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/v1/$': {
       id: '/api/public/v1/$'
       path: '/api/public/v1/$'
       fullPath: '/api/public/v1/$'
       preLoaderRoute: typeof ApiPublicV1SplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/meteora/v1/pools/$network/$pool': {
+      id: '/api/public/meteora/v1/pools/$network/$pool'
+      path: '/api/public/meteora/v1/pools/$network/$pool'
+      fullPath: '/api/public/meteora/v1/pools/$network/$pool'
+      preLoaderRoute: typeof ApiPublicMeteoraV1PoolsNetworkPoolRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -601,18 +983,32 @@ const rootRouteChildren: RootRouteChildren = {
   AgentRoute: AgentRoute,
   ApiDocsRoute: ApiDocsRoute,
   AuditRoute: AuditRoute,
+  AuthorizationRoute: AuthorizationRoute,
+  CreatorStudioRoute: CreatorStudioRoute,
   DepositRoute: DepositRoute,
   DocsRoute: DocsRoute,
   ExploreRoute: ExploreRoute,
   FeesRoute: FeesRoute,
+  FlywheelRoute: FlywheelRoute,
+  HackathonPitchRoute: HackathonPitchRoute,
+  HookDevnetRoute: HookDevnetRoute,
+  HookForgeRoute: HookForgeRoute,
+  HookProofsRoute: HookProofsRoute,
   IdentityRoute: IdentityRoute,
+  IdentityV2Route: IdentityV2Route,
   LaunchRoute: LaunchRoute,
   LaunchesRoute: LaunchesRoute,
   MarketsRoute: MarketsRoute,
+  MeteoraIntelligenceRoute: MeteoraIntelligenceRoute,
+  NetworkLabRoute: NetworkLabRoute,
+  NetworkTestRoute: NetworkTestRoute,
+  NeuralEngineRoute: NeuralEngineRoute,
   OverviewRoute: OverviewRoute,
   PoolsRoute: PoolsRoute,
   PortfolioRoute: PortfolioRoute,
   PositionsRoute: PositionsRoute,
+  QliAgentRoute: QliAgentRoute,
+  QuantumVaultRoute: QuantumVaultRoute,
   QuantumWalletsRoute: QuantumWalletsRoute,
   SecurityRoute: SecurityRoute,
   SettingsRoute: SettingsRoute,
@@ -623,7 +1019,13 @@ const rootRouteChildren: RootRouteChildren = {
   VerifyRoute: VerifyRoute,
   WhitepaperRoute: WhitepaperRoute,
   WithdrawRoute: WithdrawRoute,
+  LaunchProofsIndexRoute: LaunchProofsIndexRoute,
+  ApiPublicNeuralStatusRoute: ApiPublicNeuralStatusRoute,
+  LaunchProofsNetworkSignatureRoute: LaunchProofsNetworkSignatureRoute,
+  ApiPublicQliAgentWorkerRoute: ApiPublicQliAgentWorkerRoute,
   ApiPublicV1SplatRoute: ApiPublicV1SplatRoute,
+  ApiPublicMeteoraV1PoolsNetworkPoolRoute:
+    ApiPublicMeteoraV1PoolsNetworkPoolRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

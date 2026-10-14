@@ -14,6 +14,15 @@ const TASK_TEXT: Record<SafeTask, string> = {
 };
 const MODEL_ID = /^[A-Za-z0-9][\w.-]{0,63}\/[\w.-]{1,96}(:[\w.-]{1,40})?$/;
 const BASE58_LONG = /[1-9A-HJ-NP-Za-km-z]{32,}/;
+const EVIDENCE_LABELS = [
+  "Claimable quote fees",
+  "Pool quote reserve",
+  "Migration threshold",
+  "Owner wallet SOL",
+  "Migration progress %",
+  "Pool migrated",
+  "Observation age",
+] as const;
 
 export function isModelId(m: string) {
   return MODEL_ID.test(m);
@@ -24,6 +33,17 @@ export function buildHfBody(model: string, snapshot: Snapshot, task: SafeTask, m
   if (!isModelId(model)) throw new Error("Invalid model id.");
   if (!(SAFE_TASKS as readonly string[]).includes(task)) throw new Error("Unsupported task.");
   const s = snapshotSchema.parse(snapshot);
+  // Even innocuous-looking injected metadata is not allowed across the provider boundary.
+  if (
+    s.evidence.length !== EVIDENCE_LABELS.length ||
+    s.evidence.some(
+      (e, i) =>
+        e.id !== `E${i + 1}` ||
+        e.label !== EVIDENCE_LABELS[i] ||
+        (e.kind === "amount" && e.unit !== "SOL"),
+    )
+  )
+    throw new Error("Noncanonical evidence rejected.");
   const evidence = s.evidence.map((e) =>
     e.kind === "amount"
       ? { id: e.id, kind: e.kind, label: e.label, value: e.value, unit: e.unit }
@@ -88,10 +108,12 @@ export async function hfChat(opts: {
       headers: { Authorization: `Bearer ${opts.token}`, "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });
-    const latency = Date.now() - t0;
-    if (!res.ok) return { ok: false, reason: `http-${res.status}`, latency };
+    if (!res.ok) return { ok: false, reason: `http-${res.status}`, latency: Date.now() - t0 };
     const j = (await res.json()) as { choices?: { message?: { content?: string } }[] };
-    return { ok: true, raw: String(j.choices?.[0]?.message?.content ?? ""), latency };
+    const raw = j.choices?.[0]?.message?.content;
+    if (typeof raw !== "string" || raw.length > 16000)
+      return { ok: false, reason: "invalid-response", latency: Date.now() - t0 };
+    return { ok: true, raw, latency: Date.now() - t0 };
   } catch {
     return { ok: false, reason: "timeout-or-network", latency: Date.now() - t0 };
   } finally {
@@ -116,7 +138,8 @@ export async function routableModels(
     if (!res.ok) return [];
     const j = (await res.json()) as { data?: { id?: string }[] };
     const listed = new Set((j.data ?? []).map((m) => String(m.id ?? "")));
-    return allow.filter((m) => listed.has(m.split(":")[0]!));
+    // A listed base model does not attest a caller-selected provider suffix.
+    return allow.filter((m) => isModelId(m) && listed.has(m));
   } catch {
     return [];
   } finally {

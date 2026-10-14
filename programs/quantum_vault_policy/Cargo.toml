@@ -1,0 +1,7 @@
+[package]
+name = "quantum_vault_policy"
+version = "0.1.0"
+edition = "2021"
+description = "Dependency-free withdrawal policy core shared by the Quantum Vault program."
+
+[dependencies]

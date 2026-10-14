@@ -5,7 +5,9 @@ import { relative, join } from "node:path";
 // Check the retired identifier without making the audit itself a content match.
 export const retiredName = String.fromCharCode(113, 117, 97, 110, 116, 101, 107);
 export const lineHash = (line: string) => createHash("sha256").update(line).digest("hex");
-// Exact line fingerprints: immutable v1 protocol bytes only.
+// Exact line fingerprints: frozen protocol bytes only. External profile and
+// repository coordinates are first-party Quantum QLi accounts and must not
+// appear here — they are ordinary text, not retired-namespace exceptions.
 export const approvedLines: Record<string, readonly string[]> = {
   "src/lib/qli-core/compatibility.ts": [
     "18fa95c258c8ad43f10daa66af162e893a594c07b2a9129bcc44c89d6520a620",
@@ -19,8 +21,11 @@ export const approvedLines: Record<string, readonly string[]> = {
     "17f75f1b875cfc3f73b28d750df671a59cd92f9dfd0463b59724fa2d99d5630c",
     "7ab5755b6ea12b8a01dfad2a6395301d753d3c900f35091c7bf1f42deb0bf0a1",
   ],
+  // Frozen v1 proof domain bytes mirrored in the Rust reference verifier.
+  "programs/quantum_identity_verifier/src/lib.rs": [
+    "f1170084281eadcfa8d0b4fad7343b5e775ca61b885c18217a890581cce85a8d",
+  ],
 };
-
 export function brandViolations(path: string, text: string): string[] {
   const failures: string[] = [];
   if (path.toLowerCase().includes(retiredName)) failures.push(`Retired namespace path: ${path}`);
@@ -31,16 +36,15 @@ export function brandViolations(path: string, text: string): string[] {
   }
   return failures;
 }
-
 export function sourceFiles(dir: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-    if ([".git", "node_modules", "dist", ".workspace", ".tanstack"].includes(entry.name)) return [];
+    if ([".git", "node_modules", "dist", ".workspace", ".tanstack", "target"].includes(entry.name))
+      return [];
     const path = join(dir, entry.name);
     if (entry.isSymbolicLink()) return [];
     return entry.isDirectory() ? sourceFiles(path) : [relative(process.cwd(), path)];
   });
 }
-
 export function auditBrand() {
   return sourceFiles(process.cwd()).flatMap((path) =>
     brandViolations(path, readFileSync(path, "utf8")),

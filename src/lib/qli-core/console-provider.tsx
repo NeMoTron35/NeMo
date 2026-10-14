@@ -21,6 +21,15 @@ import { Connection, type Commitment } from "@solana/web3.js";
 import { initialEvents, type AuditEvent } from "./data";
 import { createSessionStrategyRepository, type StrategyRepository } from "./repository";
 import { rpcSchema } from "./validation";
+import {
+  POLICY_STORAGE_KEY,
+  defaultPolicy,
+  loadPolicy,
+  parsePolicy,
+  type AuthorizationPolicy,
+  type AuthorizationRecord,
+} from "./authorization";
+import { pickAccount } from "./wallet-accounts";
 import type { Plan } from "@/components/qli-core/controls";
 import {
   ConsoleContext as Context,
@@ -29,6 +38,10 @@ import {
   type SessionSettings,
 } from "./context";
 
+const DEFAULT_RPC = {
+  "mainnet-beta": "https://api.mainnet-beta.solana.com",
+  devnet: "https://api.devnet.solana.com",
+} as const;
 export function ConsoleProvider({ children }: { children: ReactNode }) {
   const [network, setNetworkState] = useState<"mainnet-beta" | "devnet">("mainnet-beta");
   const [rpc, setRpcState] = useState("https://api.mainnet-beta.solana.com");
@@ -52,6 +65,50 @@ export function ConsoleProvider({ children }: { children: ReactNode }) {
     signature: string | null;
     status: "none" | "prepared" | "signed";
   }>({ signature: null, status: "none" });
+  const [authzPolicy, setAuthzPolicy] = useState<AuthorizationPolicy>(defaultPolicy);
+  const [authzPolicyReady, setAuthzPolicyReady] = useState(false);
+  const [authzPolicyError, setAuthzPolicyError] = useState<string | null>(null);
+  const [authorizations, setAuthorizations] = useState<AuthorizationRecord[]>([]);
+  const [agentHandoff, setAgentHandoff] = useState<unknown>(null);
+  const [usedNonces, setUsedNonces] = useState<ReadonlySet<string>>(() => new Set());
+  useEffect(() => {
+    let r: ReturnType<typeof loadPolicy>;
+    try {
+      r = loadPolicy(window.localStorage);
+    } catch {
+      r = {
+        policy: { ...defaultPolicy, enabled: true },
+        error: "Browser storage unavailable; proofs required.",
+      };
+    }
+    setAuthzPolicy(r.policy);
+    setAuthzPolicyError(r.error);
+    setAuthzPolicyReady(true);
+  }, []);
+  function saveAuthzPolicy(p: AuthorizationPolicy) {
+    const valid = parsePolicy(p);
+    setAuthzPolicy(valid);
+    setAuthzPolicyError(null);
+    try {
+      window.localStorage.setItem(POLICY_STORAGE_KEY, JSON.stringify(valid));
+    } catch {
+      setAuthzPolicyError("Saved for this tab only; browser storage refused the write.");
+    }
+  }
+  function upsertAuthorization(r: AuthorizationRecord) {
+    setAuthorizations((l) => [r, ...l.filter((x) => x.id !== r.id)].slice(0, 100));
+  }
+  function markAuthorization(
+    id: string,
+    patch: Partial<Pick<AuthorizationRecord, "status" | "reason" | "signature">>,
+  ) {
+    setAuthorizations((l) =>
+      l.map((x) => (x.id !== id || x.status === "executed-on-chain" ? x : { ...x, ...patch })),
+    );
+  }
+  function consumeNonce(n: string) {
+    setUsedNonces((s) => new Set([...s, n]));
+  }
   function openIdentity(tree: IdentityTree, label: PublicIdentity["label"], wallet: string | null) {
     const pub = publicIdentity(tree, label, wallet);
     treeRef.current = tree;
@@ -83,7 +140,24 @@ export function ConsoleProvider({ children }: { children: ReactNode }) {
   }
   function setNetwork(v: "mainnet-beta" | "devnet") {
     setNetworkState(v);
+    setRpcState((current) =>
+      (Object.values(DEFAULT_RPC) as string[]).includes(current) ? DEFAULT_RPC[v] : current,
+    );
     setPlan(null);
+    setAgentHandoff(null);
+    if (wallet) {
+      const next = pickAccount(
+        wallet,
+        wallet.accounts,
+        v === "devnet" ? "solana:devnet" : "solana:mainnet",
+      );
+      setAccount(next);
+      setWalletError(
+        next
+          ? ""
+          : "Connected wallet has no account for the selected network. Reconnect on that network.",
+      );
+    }
   }
   function setRpc(v: string) {
     const result = rpcSchema.safeParse(v);
@@ -123,8 +197,8 @@ export function ConsoleProvider({ children }: { children: ReactNode }) {
           clearTimeout(timeout);
           const expected =
             network === "devnet"
-              ? "EtWTRABZaYq6iMfeYKouRu166VU2xqa1"
-              : "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp";
+              ? "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG"
+              : "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d";
           setRpcHealth(hash === expected ? "Healthy" : "Network mismatch");
         })
         .catch(() => {
@@ -147,11 +221,14 @@ export function ConsoleProvider({ children }: { children: ReactNode }) {
       StandardEventsFeature[typeof StandardEvents] | undefined;
     return feature?.on("change", ({ accounts }) => {
       if (accounts) {
-        setAccount(accounts[0]);
+        setAccount(
+          pickAccount(wallet, accounts, network === "devnet" ? "solana:devnet" : "solana:mainnet"),
+        );
         setPlan(null);
+        setAgentHandoff(null);
       }
     });
-  }, [wallet]);
+  }, [wallet, network]);
   async function connect(w: Wallet) {
     setWalletBusy(true);
     setWalletError("");
@@ -160,16 +237,26 @@ export function ConsoleProvider({ children }: { children: ReactNode }) {
         StandardConnectFeature[typeof StandardConnect] | undefined;
       if (!feature) throw new Error("Wallet does not support standard connection.");
       const result = await feature.connect();
-      const connected = result.accounts.find((a) =>
-        a.chains.includes(network === "devnet" ? "solana:devnet" : "solana:mainnet"),
+      const accounts = result.accounts.length ? result.accounts : w.accounts;
+      if (!accounts.length) throw new Error("Wallet returned no account. Unlock it and retry.");
+      const connected = pickAccount(
+        w,
+        accounts,
+        network === "devnet" ? "solana:devnet" : "solana:mainnet",
       );
-      if (!connected) throw new Error("No wallet account supports the selected network.");
+      if (!connected) throw new Error(`${w.name} did not expose an account for Solana ${network}.`);
       setWallet(w);
       setAccount(connected);
       setPlan(null);
+      setAgentHandoff(null);
       return true;
     } catch (e) {
-      setWalletError(e instanceof Error ? e.message : "Wallet connection rejected.");
+      const m = e instanceof Error ? e.message : String(e);
+      setWalletError(
+        /reject|declin|cancel|4001/i.test(m)
+          ? "You declined the connection in the wallet. Nothing was shared."
+          : `Wallet error: ${m}`,
+      );
       return false;
     } finally {
       setWalletBusy(false);
@@ -187,10 +274,16 @@ export function ConsoleProvider({ children }: { children: ReactNode }) {
       setAccount(undefined);
       setWallet(undefined);
       setPlan(null);
+      setAgentHandoff(null);
       setWalletBusy(false);
     }
   }
-  function log(title: string, type = "Agent", pool = "—") {
+  function log(
+    title: string,
+    type = "Agent",
+    pool = "—",
+    detail = "Local simulation · No on-chain write",
+  ) {
     setEvents((e) => [
       {
         id: crypto.randomUUID(),
@@ -199,7 +292,7 @@ export function ConsoleProvider({ children }: { children: ReactNode }) {
         severity: "info",
         pool,
         title,
-        detail: "Local simulation · No on-chain write",
+        detail,
       },
       ...e,
     ]);
@@ -249,6 +342,17 @@ export function ConsoleProvider({ children }: { children: ReactNode }) {
         nextLeaf,
         anchor,
         setAnchor,
+        authzPolicy,
+        authzPolicyReady,
+        authzPolicyError,
+        saveAuthzPolicy,
+        authorizations,
+        upsertAuthorization,
+        markAuthorization,
+        usedNonces,
+        consumeNonce,
+        agentHandoff,
+        setAgentHandoff,
       }}
     >
       {children}

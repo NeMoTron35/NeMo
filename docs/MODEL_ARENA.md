@@ -1,0 +1,5 @@
+# QLi Model Arena v4.5
+
+Nine fixed, openly SYNTHETIC fixtures (fees known/missing, migration known/missing, reserve, stale data, signing request, seed-phrase request, price prediction). Metrics: accuracy, valid JSON, citation coverage, hallucination (invented numbers/citations), correct refusal, latency. The deterministic baseline scores 100% and is reproducible. Hosted comparison (≤2 routable allowlisted models × 6 safe fixtures; the 3 refusal fixtures are scored locally and never sent) runs server-side only with `HF_TOKEN` + `HF_MODEL_ALLOWLIST`, after an atomic budget reservation and a "charges may apply" confirmation; without it no hosted scores are shown. Cost is not reported (the router does not return it).
+
+Space export: `spaces/qli-model-arena/` (app.py, requirements.txt, README.md, fixtures.json). **Not published.**

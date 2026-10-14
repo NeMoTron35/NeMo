@@ -25,6 +25,7 @@ import {
   type LaunchDraft,
 } from "@/lib/qli-core/validation";
 import { useConsole } from "@/lib/qli-core/context";
+import { OnChainLaunch } from "./launch-execute";
 import {
   DBC_PROGRAM_ID,
   PERMISSIONLESS_QUOTES,
@@ -290,6 +291,19 @@ export function LaunchPage() {
         eyebrow="LAUNCH / METEORA DBC"
         title="Launch Forge"
         description="Two launch modes, one review discipline. Every account, signer and SDK call is shown before a wallet is asked to sign."
+        action={
+          <span>
+            <Link to="/meteora-intelligence" className="desk-link">
+              DBC Lifecycle Intelligence
+            </Link>{" "}
+            <Link to="/network-lab" className="desk-link">
+              Network Test Centre
+            </Link>{" "}
+            <Link to="/hook-forge" className="desk-link">
+              Hook Forge
+            </Link>
+          </span>
+        }
       />
       <div className="mode-switch" role="group" aria-label="Launch mode">
         <button
@@ -391,8 +405,11 @@ export function LaunchPage() {
       )}
       <div className="notice mb-6">
         <ShieldCheck size={16} />
-        Simulation draft. No config or pool is created here. A live build requires a connected
-        wallet, a verified quote mint, an SDK-derived curve and your review of the unsigned bytes.
+        Devnet or mainnet: the Review step can create a real Meteora DBC config and pool with SOL as
+        quote, SPL token, no first buy, after a simulation, your review and your wallet approval.
+        Mainnet needs a separate risk confirmation. First buy, fee schedulers, vesting, Token-2022,
+        vanity mints and non-SOL quotes are not available yet. Quantum Launch needs a seal that
+        verifies.
       </div>
       <div className="wizard-steps" style={{ gridTemplateColumns: "repeat(7,1fr)" }}>
         {STEPS.map((s, i) => (
@@ -837,6 +854,9 @@ export function LaunchPage() {
               )}
               {step === 6 && (
                 <>
+                  <div className="span-2">
+                    <OnChainLaunch d={d} onApply={(patch) => setD((v) => ({ ...v, ...patch }))} />
+                  </div>
                   <div className="span-2 detail-rows">
                     <div>
                       <span>Mode</span>

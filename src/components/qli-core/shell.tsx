@@ -13,7 +13,10 @@ import {
   Waves,
   Boxes,
   Coins,
+  RefreshCcw,
   Fingerprint,
+  KeyRound,
+  Bot,
   ScanLine,
   History,
   Settings2,
@@ -23,6 +26,9 @@ import {
   PanelLeft,
   BookOpen,
   Activity,
+  Vault,
+  Clapperboard,
+  Anchor,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -33,8 +39,12 @@ import {
   productNavigation,
   navigation,
   GITHUB_URL,
+  X_URL,
+  TOKEN_CA,
   METEORA_DBC_URL,
 } from "@/lib/qli-core/data";
+import { GitHubMark, XMark } from "@/components/qli-core/brand-marks";
+import { CaCopy } from "@/components/qli-core/controls";
 import { useConsole } from "@/lib/qli-core/context";
 import { useWalletDialog } from "@/components/qli/wallet-dialog-context";
 import { WindowChrome } from "@/components/qli/desktop-window";
@@ -46,7 +56,18 @@ const modules = [
   ["Liquidity Chambers", "/pools", Waves],
   ["Inventory", "/positions", Boxes],
   ["Revenue", "/fees", Coins],
+  ["Flywheel", "/flywheel", RefreshCcw],
+  ["QLi Agent", "/qli-agent", Bot],
+  ["Neural Engine", "/neural-engine", Bot],
+  ["Creator Studio", "/creator-studio", Clapperboard],
+  ["Hook Forge", "/hook-forge", Anchor],
+  ["Hook Proofs", "/hook-proofs", ScanLine],
+  ["Hook Devnet", "/hook-devnet", FlaskConical],
+  ["Network Lab", "/network-lab", ScanLine],
   ["Quantum Identity", "/identity", Fingerprint],
+  ["Quantum Authorization", "/authorization", KeyRound],
+  ["Quantum Vault", "/quantum-vault", Vault],
+  ["Identity 2.0", "/identity-v2", Fingerprint],
   ["Proof Inspector", "/verify", ScanLine],
   ["Event Log", "/audit", History],
   ["System", "/settings", Settings2],
@@ -308,6 +329,35 @@ export function Shell({ children }: { children: ReactNode }) {
               <Wallet size={14} />
               {c.account ? "Connected" : "Wallet"}
             </Button>
+            <div className="desktop-social">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <CaCopy value={TOKEN_CA} label="contract address" />
+                </TooltipTrigger>
+                <TooltipContent>Copy contract address</TooltipContent>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a
+                    href={GITHUB_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                  >
+                    <GitHubMark />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>GitHub</TooltipContent>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a href={X_URL} target="_blank" rel="noopener noreferrer" aria-label="X">
+                    <XMark />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>X</TooltipContent>
+              </Tooltip>
+            </div>
           </div>
         </header>
         <div className="desktop-icons">

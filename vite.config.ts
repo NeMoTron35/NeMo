@@ -19,12 +19,21 @@ const solanaBrowserOnly = [
 const browserAlias = (p: string) =>
   fileURLToPath(new URL(`./node_modules/${p}/dist/index.browser.mjs`, import.meta.url));
 
+// Anchor's ESM entry assigns CommonJS `exports` outside browsers, which crashes the Worker.
+const anchorBrowser = fileURLToPath(
+  new URL("./node_modules/@coral-xyz/anchor/dist/browser/index.js", import.meta.url),
+);
+// Bare buffer imports otherwise become empty browser-external stubs in production.
+const bufferBrowser = fileURLToPath(new URL("./node_modules/buffer/index.js", import.meta.url));
+
 export default defineConfig(({ command }) => ({
   server: { host: "0.0.0.0", port: 8080, strictPort: true },
   resolve: {
     dedupe: ["react", "react-dom", "@tanstack/react-router"],
     alias: [
+      { find: /^(?:node:)?buffer\/?$/, replacement: bufferBrowser },
       { find: /^rpc-websockets$/, replacement: browserAlias("rpc-websockets") },
+      { find: /^@coral-xyz\/anchor$/, replacement: anchorBrowser },
       ...solanaBrowserOnly.map((n) => ({
         find: new RegExp(`^@solana/${n}$`),
         replacement: browserAlias(`@solana/${n}`),
@@ -32,6 +41,14 @@ export default defineConfig(({ command }) => ({
     ],
   },
   plugins: [
+    {
+      name: "qli-browser-buffer",
+      enforce: "pre",
+      resolveId(source) {
+        if (/^(?:node:)?buffer\/?$/.test(source)) return bufferBrowser;
+        return null;
+      },
+    },
     tsConfigPaths(),
     tanstackStart({ server: { entry: "server" } }),
     react(),
@@ -41,6 +58,7 @@ export default defineConfig(({ command }) => ({
           nitro({
             preset: "cloudflare-module",
             cloudflare: { nodeCompat: true, deployConfig: true },
+            alias: { "@coral-xyz/anchor": anchorBrowser },
             output: { dir: "dist", serverDir: "dist/server", publicDir: "dist/client" },
           }),
         ]

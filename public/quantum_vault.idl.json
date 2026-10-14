@@ -1,0 +1,695 @@
+{
+  "address": "93v9K8ytGDR3BAoxtaVVo7u1oaBv3Pu257eBAPCp7SH5",
+  "metadata": {
+    "name": "quantum_vault",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Quantum Vault Phase 1: owner-controlled classic SPL Token escrow with on-chain withdrawal policy."
+  },
+  "instructions": [
+    {
+      "name": "create_vault",
+      "discriminator": [29, 237, 247, 208, 193, 82, 54, 135],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [113, 118, 97, 117, 108, 116]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              },
+              {
+                "kind": "arg",
+                "path": "vault_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "vault"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140, 151, 37, 143, 78, 36, 137, 241, 187, 61, 16, 41, 20, 142, 13, 131, 11, 90, 19,
+                153, 218, 255, 16, 132, 4, 142, 123, 216, 219, 233, 248, 89
+              ]
+            }
+          }
+        },
+        {
+          "name": "destination",
+          "docs": [
+            "Fixed allowed destination: must be a classic SPL token account for the vault mint."
+          ]
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "vault_id",
+          "type": "u64"
+        },
+        {
+          "name": "max_per_withdraw",
+          "type": "u64"
+        },
+        {
+          "name": "daily_limit",
+          "type": "u64"
+        },
+        {
+          "name": "unlock_ts",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "deposit",
+      "discriminator": [242, 35, 198, 137, 82, 225, 242, 182],
+      "accounts": [
+        {
+          "name": "depositor",
+          "signer": true
+        },
+        {
+          "name": "vault",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [113, 118, 97, 117, 108, 116]
+              },
+              {
+                "kind": "account",
+                "path": "vault.owner",
+                "account": "Vault"
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              },
+              {
+                "kind": "account",
+                "path": "vault.vault_id",
+                "account": "Vault"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint",
+          "relations": ["vault"]
+        },
+        {
+          "name": "source",
+          "writable": true
+        },
+        {
+          "name": "escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "vault"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140, 151, 37, 143, 78, 36, 137, 241, 187, 61, 16, 41, 20, 142, 13, 131, 11, 90, 19,
+                153, 218, 255, 16, 132, 4, 142, 123, 216, 219, 233, 248, 89
+              ]
+            }
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "pause",
+      "discriminator": [211, 22, 221, 251, 74, 121, 193, 47],
+      "accounts": [
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": ["vault"]
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [113, 118, 97, 117, 108, 116]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              },
+              {
+                "kind": "account",
+                "path": "vault.mint",
+                "account": "Vault"
+              },
+              {
+                "kind": "account",
+                "path": "vault.vault_id",
+                "account": "Vault"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "request_unpause",
+      "discriminator": [102, 114, 36, 202, 204, 124, 59, 137],
+      "accounts": [
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": ["vault"]
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [113, 118, 97, 117, 108, 116]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              },
+              {
+                "kind": "account",
+                "path": "vault.mint",
+                "account": "Vault"
+              },
+              {
+                "kind": "account",
+                "path": "vault.vault_id",
+                "account": "Vault"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "unpause",
+      "discriminator": [169, 144, 4, 38, 10, 141, 188, 255],
+      "accounts": [
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": ["vault"]
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [113, 118, 97, 117, 108, 116]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              },
+              {
+                "kind": "account",
+                "path": "vault.mint",
+                "account": "Vault"
+              },
+              {
+                "kind": "account",
+                "path": "vault.vault_id",
+                "account": "Vault"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "withdraw",
+      "discriminator": [183, 18, 70, 156, 148, 109, 161, 34],
+      "accounts": [
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": ["vault"]
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [113, 118, 97, 117, 108, 116]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              },
+              {
+                "kind": "account",
+                "path": "vault.vault_id",
+                "account": "Vault"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint",
+          "relations": ["vault"]
+        },
+        {
+          "name": "escrow",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "vault"
+              },
+              {
+                "kind": "account",
+                "path": "token_program"
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140, 151, 37, 143, 78, 36, 137, 241, 187, 61, 16, 41, 20, 142, 13, 131, 11, 90, 19,
+                153, 218, 255, 16, 132, 4, 142, 123, 216, 219, 233, 248, 89
+              ]
+            }
+          }
+        },
+        {
+          "name": "destination",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "nonce",
+          "type": "u64"
+        },
+        {
+          "name": "epoch",
+          "type": "u32"
+        },
+        {
+          "name": "expires_at",
+          "type": "i64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Vault",
+      "discriminator": [211, 8, 232, 43, 2, 152, 117, 119]
+    }
+  ],
+  "events": [
+    {
+      "name": "Deposited",
+      "discriminator": [111, 141, 26, 45, 161, 35, 100, 57]
+    },
+    {
+      "name": "Paused",
+      "discriminator": [172, 248, 5, 253, 49, 255, 255, 232]
+    },
+    {
+      "name": "UnpauseRequested",
+      "discriminator": [91, 91, 137, 156, 16, 52, 3, 118]
+    },
+    {
+      "name": "Unpaused",
+      "discriminator": [156, 150, 47, 174, 120, 216, 93, 117]
+    },
+    {
+      "name": "VaultCreated",
+      "discriminator": [117, 25, 120, 254, 75, 236, 78, 115]
+    },
+    {
+      "name": "Withdrawn",
+      "discriminator": [20, 89, 223, 198, 194, 124, 219, 13]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidPolicy"
+    },
+    {
+      "code": 6001,
+      "name": "ZeroAmount"
+    },
+    {
+      "code": 6002,
+      "name": "Paused"
+    },
+    {
+      "code": 6003,
+      "name": "Locked"
+    },
+    {
+      "code": 6004,
+      "name": "Expired"
+    },
+    {
+      "code": 6005,
+      "name": "ExpiryTooFar"
+    },
+    {
+      "code": 6006,
+      "name": "WrongNonce"
+    },
+    {
+      "code": 6007,
+      "name": "WrongEpoch"
+    },
+    {
+      "code": 6008,
+      "name": "WrongDestination"
+    },
+    {
+      "code": 6009,
+      "name": "OverPerWithdraw"
+    },
+    {
+      "code": 6010,
+      "name": "OverDailyLimit"
+    },
+    {
+      "code": 6011,
+      "name": "InsufficientEscrow"
+    },
+    {
+      "code": 6012,
+      "name": "Overflow"
+    },
+    {
+      "code": 6013,
+      "name": "UnpauseNotRequested"
+    },
+    {
+      "code": 6014,
+      "name": "UnpauseDelayActive"
+    },
+    {
+      "code": 6015,
+      "name": "NotPaused"
+    },
+    {
+      "code": 6016,
+      "name": "WrongVersion"
+    }
+  ],
+  "types": [
+    {
+      "name": "Deposited",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "depositor",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Paused",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "vault",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UnpauseRequested",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "unpause_at",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Unpaused",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "epoch",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Vault",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "version",
+            "type": "u8"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault_id",
+            "type": "u64"
+          },
+          {
+            "name": "decimals",
+            "type": "u8"
+          },
+          {
+            "name": "destination",
+            "type": "pubkey"
+          },
+          {
+            "name": "destination_owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "max_per_withdraw",
+            "type": "u64"
+          },
+          {
+            "name": "daily_limit",
+            "type": "u64"
+          },
+          {
+            "name": "unlock_ts",
+            "type": "i64"
+          },
+          {
+            "name": "window_start",
+            "type": "i64"
+          },
+          {
+            "name": "window_spent",
+            "type": "u64"
+          },
+          {
+            "name": "nonce",
+            "type": "u64"
+          },
+          {
+            "name": "epoch",
+            "type": "u32"
+          },
+          {
+            "name": "paused",
+            "type": "bool"
+          },
+          {
+            "name": "unpause_at",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "VaultCreated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault_id",
+            "type": "u64"
+          },
+          {
+            "name": "destination",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Withdrawn",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "destination",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "nonce",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ]
+}

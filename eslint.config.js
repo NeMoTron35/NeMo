@@ -13,6 +13,8 @@ export default tseslint.config(
       ".vinxi",
       "src/integrations/supabase/types.ts",
       "packages/*/index.js",
+      "programs/**/target/**",
+      "scripts/.runtime/**",
     ],
   },
   {

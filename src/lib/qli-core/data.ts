@@ -126,17 +126,32 @@ export const consoleNavigation = [
   ["Liquidity Chambers", "/pools"],
   ["Inventory", "/positions"],
   ["Revenue", "/fees"],
+  ["Flywheel", "/flywheel"],
+  ["QLi Agent", "/qli-agent"],
+  ["Neural Engine", "/neural-engine"],
+  ["Creator Studio", "/creator-studio"],
+  ["Hook Forge", "/hook-forge"],
+  ["Hook Proofs", "/hook-proofs"],
+  ["Hook Devnet", "/hook-devnet"],
   ["Event Log", "/audit"],
   ["System", "/settings"],
 ] as const;
 export const productNavigation = [
   ["Launch Forge", "/launch"],
+  ["DBC Lifecycle Intelligence", "/meteora-intelligence"],
   ["Quantum Identity", "/identity"],
+  ["Quantum Authorization", "/authorization"],
+  ["Quantum Vault", "/quantum-vault"],
+  ["Identity 2.0 / Experimental", "/identity-v2"],
   ["Quantum Wallets", "/quantum-wallets"],
   ["Proof Inspector", "/verify"],
   ["Docs", "/docs"],
 ] as const;
-export const GITHUB_URL = "https://github.com/QuantumQLi/QuantumQLi";
+/** First-party external profiles. Verified owner-supplied coordinates. */
+export const GITHUB_URL = "https://github.com/QuantumQLi";
+export const X_URL = "https://x.com/QuantumQLi";
+/** Owner-supplied token contract address (mint), shown copyable in the menu bar. */
+export const TOKEN_CA = "2LmeQRz6m4dDigmysPQLAstnNBvVoQ9i7m3n5bQLi";
 export const METEORA_DBC_URL = "https://docs.meteora.ag/overview/products/dbc/what-is-dbc";
 /** All internal routes (console + product). GitHub is external. */
 export const publicNavigation = [
@@ -163,11 +178,12 @@ export const navigation = [
   ["Wallet Events", "/activity"],
 ] as const;
 export function metadata(title: string, description: string) {
+  const label = `Quantum QLi — ${title}`;
   return {
     meta: [
-      { title: `${title} — Quantum QLi` },
+      { title: label },
       { name: "description", content: description },
-      { property: "og:title", content: `${title} — Quantum QLi` },
+      { property: "og:title", content: label },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

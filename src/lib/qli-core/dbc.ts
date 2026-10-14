@@ -115,7 +115,9 @@ export function explainTransactionError(error: unknown) {
     return "Blockhash expired. Rebuild and review the transaction.";
   if (/account.*not|not.*account/i.test(message))
     return "Account not found on the selected network.";
-  if (/429|fetch|network|403/i.test(message))
+  if (/\b(403|429)\b|too many requests|forbidden/i.test(message))
+    return "RPC rate-limited or refused (HTTP 403/429). The public endpoint is throttled; set a dedicated RPC in System and try again. Nothing was submitted unless a signature is shown.";
+  if (/fetch|network/i.test(message))
     return "RPC unavailable, mismatched or rate-limited. Execution paused.";
   return message;
 }

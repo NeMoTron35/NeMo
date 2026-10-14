@@ -15,3 +15,5 @@ export const IDENTITY_MEMO_PREFIX = "quantek:v1:identity:";
 export const POSSESSION_MESSAGE_PREFIX = "quantek:v1:possession:";
 export const REGISTRATION_MESSAGE_PREFIX = "quantek:v1:register:";
 export const PUBLIC_DEMO_INPUT = "QUANTEK PUBLIC DEMO — KNOWN SECRET — NEVER USE LIVE";
+/** Additive v1 authorization-intent prefix (signed under DOMAINS.proof). Frozen once released. */
+export const AUTHORIZATION_MESSAGE_PREFIX = "qli:v1:authorization-intent:";

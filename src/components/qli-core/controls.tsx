@@ -168,3 +168,30 @@ export function InfoTip({ text }: { text: string }) {
     </span>
   );
 }
+
+/** Compact copy-only control for chrome bars: one square click copies the value. */
+export function CaCopy({ value, label }: { value: string; label: string }) {
+  const [copied, setCopied] = useState(false);
+  const [error, setError] = useState(false);
+  return (
+    <Button
+      variant="ghost"
+      className="ca-copy"
+      title={`Copy ${label}`}
+      aria-label={`Copy ${label}`}
+      onClick={async () => {
+        try {
+          await navigator.clipboard.writeText(value);
+          setCopied(true);
+          setError(false);
+          setTimeout(() => setCopied(false), 1500);
+        } catch {
+          setError(true);
+          setTimeout(() => setError(false), 3000);
+        }
+      }}
+    >
+      {copied ? <Check /> : <Copy />}
+    </Button>
+  );
+}

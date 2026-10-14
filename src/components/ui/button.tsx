@@ -4,15 +4,8 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
-const qliButtonRecipe = cva(
-  [
-    "inline-flex items-center justify-center whitespace-nowrap",
-    "gap-2 rounded-md text-sm font-medium",
-    "cursor-pointer transition-colors",
-    "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
-    "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
-    "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-  ].join(" "),
+const buttonVariants = cva(
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -39,25 +32,18 @@ const qliButtonRecipe = cva(
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof qliButtonRecipe> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ asChild = false, className, size, variant, ...props }, ref) => {
-    const Element = asChild ? Slot : "button";
-
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
     return (
-      <Element
-        ref={ref}
-        data-qli-control="button"
-        className={cn(qliButtonRecipe({ size, variant }), className)}
-        {...props}
-      />
+      <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
     );
   },
 );
-
-Button.displayName = "QLiButton";
+Button.displayName = "Button";
 
 export { Button };

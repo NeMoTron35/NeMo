@@ -17,7 +17,3 @@ Status on October 10, 2026: **0 critical, 0 high, 0 moderate, 0 low** across 609
 Unused UI scaffolding (accordion, calendar, carousel, chart, command, drawer, form, sidebar and similar) and their 33 packages were also removed; the app renders only the button, dialog, switch and tooltip primitives.
 
 Install scripts are not needed for the replacement package. Bun's `hoisted` linker keeps a flat `node_modules` with the local workspace package.
-
-## Update automation
-
-Dependabot tracks GitHub Actions. Bun dependency updates are reviewed separately because the repository intentionally overrides an upstream vulnerable package with a local workspace replacement; the scheduled `audit:dependencies` workflow still checks every locked package version against the public advisory service.

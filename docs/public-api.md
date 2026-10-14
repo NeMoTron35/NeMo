@@ -52,3 +52,7 @@ Use the origin actually reported by your local dev server if its port differs. T
 JSON bodies require `application/json` and are capped at 65,536 bytes. Errors include 400 `INVALID_BODY`, `VALIDATION_ERROR` or `INVALID_PUBLIC_KEY`; 404 `NOT_FOUND`; 405 `METHOD_NOT_ALLOWED` on recognized POST-only operations; and 501 `OPERATION_UNAVAILABLE`. Failed self-test results can return 503. Unexpected exceptions in the handler currently become 400 validation responses rather than a separate internal-error class.
 
 JSON responses carry `requestId`, elapsed `ms` and `x-request-id`; cache is disabled and public CORS permits GET/POST/OPTIONS. OPTIONS returns 204 without JSON or request-id fields. Health history is not uptime. Server key storage, signing, decapsulation, HSM and per-project usage are absent.
+
+## Meteora pool intelligence
+
+`GET /api/public/meteora/v1/pools/{network}/{pool}` returns a read-only DBC pool snapshot with optional `amountIn`, `direction`, `slippageBps`, `timeline=1`, `limit` and `before` parameters. Quotes are SDK estimates, not guaranteed outcomes. Full specification lives in the repository document `docs/METEORA_LIFECYCLE_INTELLIGENCE.md`.
