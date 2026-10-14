@@ -14,6 +14,17 @@ skip-lint = false
 # verified deployment is configured in src/lib/qli-core/quantum-vault.ts.
 [programs.localnet]
 quantum_vault = "93v9K8ytGDR3BAoxtaVVo7u1oaBv3Pu257eBAPCp7SH5"
+# Mode B research program placeholder (no keypair retained). NOT DEPLOYED.
+quantum_pq_first_buy_vault = "9EqcFT8B8NTkTZCXRFTEZxr7zUz3zXHrWgGZYJvViJ4T"
+
+# Network-specific ids. Change ONLY via scripts/sync-pq-vault-program-id.ts (public key only).
+# Devnet uses the local-build placeholder; Mainnet is an UNSET sentinel with no private key, so the
+# deploy script refuses it until the owner supplies their own public program id.
+[programs.devnet]
+quantum_pq_first_buy_vault = "9EqcFT8B8NTkTZCXRFTEZxr7zUz3zXHrWgGZYJvViJ4T"
+
+[programs.mainnet]
+quantum_pq_first_buy_vault = "6P39VXXxxRHoCX7eJCKC5Tkaf4SUxdJDAeJvzykA8q7Z"
 
 [provider]
 cluster = "localnet"
