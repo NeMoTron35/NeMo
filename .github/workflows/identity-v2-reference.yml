@@ -1,0 +1,36 @@
+name: Quantum Identity 2.0 Rust reference (no deploy)
+
+on:
+  push:
+    branches:
+      - "quantum-identity-v2-experimental-*"
+    paths:
+      - "programs/quantum_identity_verifier/**"
+      - ".github/workflows/identity-v2-reference.yml"
+  pull_request:
+    paths:
+      - "programs/quantum_identity_verifier/**"
+      - ".github/workflows/identity-v2-reference.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reference-verifier:
+    name: Rust WOTS/Merkle cross-language vectors
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Verify no Solana deployment exists in this job
+        run: |
+          set -eu
+          test ! -e programs/quantum_identity_verifier/target/deploy
+          echo "Reference Rust library only; no Solana SBF entrypoint or network deployment."
+      - name: Compile and execute reference cryptographic test vectors
+        run: cargo test --manifest-path programs/quantum_identity_verifier/Cargo.toml --release --locked -- --nocapture
+
+# Passing these tests does not establish Solana compute-unit feasibility,
+# on-chain authorization, audit approval, or post-quantum vault custody.
