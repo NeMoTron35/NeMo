@@ -20,7 +20,7 @@
 | Full `bun run test`                                | **371 passed, 11 skipped, 0 failed**; 42 test files passed, 4 skipped                                                                                                                                    |
 | `bun run format:check`                             | Passed                                                                                                                                                                                                   |
 | `bun run lint`                                     | Passed                                                                                                                                                                                                   |
-| Typecheck and production build                     | Automatic Lovable validation reported **build OK** after fixing an invalid `isBlockhashValid` SDK argument; not manually rerun because the environment forbids manual project builds/typechecks          |
+| Typecheck and production build                     | Automatic project editor validation reported **build OK** after fixing an invalid `isBlockhashValid` SDK argument; not manually rerun because the environment forbids manual project builds/typechecks          |
 | Rust unit                                          | **16 passed**, no failures                                                                                                                                                                               |
 | Actual Token-2022 BanksServer native-processor CPI | **2 passed**, no failures                                                                                                                                                                                |
 | Fresh SBF build                                    | **BLOCKED**: `error: no such command: build-sbf`; cargo 1.91.0 available, `cargo-build-sbf`/Solana CLI absent                                                                                            |
@@ -46,7 +46,7 @@ Dry-run stops after the first simulated dependent account-creation transaction; 
 
 Owner-reviewed artifact, owner devnet deployment/funding and explicit approvals are still required. No independent audit. Migration compatibility remains unresolved in [issue #17](https://github.com/QuantumQLi/QLi/issues/17); readiness does not prove graduation, no CLI migration is performed, and post-grad proof requires linked real transactions. Never disable the hook to manufacture success. Mainnet custom hooks remain disabled.
 
-Preview: https://id-preview--165e3830-c616-4f8f-8970-b84a328f3639.lovable.app/hook-devnet
+Preview: use the project editor's private preview link for the Hook Devnet route.
 
 ## Phase 2 readiness audit — 2026-10-11 21:50 UTC
 
@@ -56,7 +56,7 @@ Preview: https://id-preview--165e3830-c616-4f8f-8970-b84a328f3639.lovable.app/ho
 | Reviewed deployment (`HOOK_DEVNET_DEPLOYMENT`) | `null` — no reviewed program ID exists, so there was nothing to inspect on devnet                                                                                                     |
 | PR #16 head `035b347`                          | Open draft; CI, CodeQL, Rust unit and SBF compile jobs succeeded                                                                                                                      |
 | PR #16 artifact                                | `quantum-transfer-hook-research-sbf`, 44,610 bytes zip, GitHub digest `sha256:835b4344…c891` (zip digest, not the `.so` fingerprint); downloading it needs a signed-in GitHub account |
-| Source parity PR #16 vs Lovable                | `lib.rs`, `tests.rs`, CPI test and `Cargo.toml` match except whitespace (v2.2 `qlihk:db` present). The build script differs only by the `.sha256` sidecar line                        |
+| Source parity PR #16 vs project editor                | `lib.rs`, `tests.rs`, CPI test and `Cargo.toml` match except whitespace (v2.2 `qlihk:db` present). The build script differs only by the `.sha256` sidecar line                        |
 | App tests                                      | 371 passed, 11 skipped (42 files)                                                                                                                                                     |
 | Rust unit tests                                | 16 passed                                                                                                                                                                             |
 | Native Token-2022 CPI                          | 2 passed (`enforces_policy`, `dbc_mint_signer_bootstrap`; 0x5100 denial observed)                                                                                                     |
