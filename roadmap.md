@@ -1,4 +1,4 @@
-# Quantum QLi
+# NEMOTRON3.5
 
 - [x] Neutralize repository runtime hooks, replace build configuration and verify vendor-neutral sources: ZERO tracked filename/content matches and repository hygiene passed.
 - [x] Add GitHub checks, contribution/security/release policies and grounded repository documentation.
@@ -15,7 +15,7 @@
 - [x] Inventory all publicly reachable reference pages and interactions.
 - [x] Rebuild public architecture, branding, API playground, guide, market and wallet surfaces; retain stronger console capabilities.
 - [x] Exercise reference and implementation flows across desktop/mobile; fix omissions and run tests.
-- [x] Apply Aqua window system and original Quantum QLi terminology to every surface.
+- [x] Apply Aqua window system and original NEMOTRON3.5 terminology to every surface.
 - [x] Add cinematic cosmic hero with canonical artwork path and graceful fallback (exact artwork not received).
 - [x] Verify Aqua desktop/mobile consistency and retained workflows: 26 routes at 1280/768/390px, 35 tests, no runtime errors.
 - [x] Build all ten console pages and shared monochrome identity.

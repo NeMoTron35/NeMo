@@ -1,8 +1,8 @@
 import { useId } from "react";
 export function Wordmark() {
   return (
-    <span className="wordmark" aria-label="Quantum QLi">
-      Quantum QLi
+    <span className="wordmark" aria-label="NEMOTRON3.5">
+      NEMOTRON3.5
     </span>
   );
 }
@@ -13,7 +13,7 @@ export function Geometry({ compact = false }: { compact?: boolean }) {
       viewBox="0 0 600 540"
       fill="none"
       className={compact ? "geometry-glyph" : "geometry-mark"}
-      aria-label="Quantum QLi geometric construction"
+      aria-label="NEMOTRON3.5 geometric construction"
       role="img"
     >
       <defs>
