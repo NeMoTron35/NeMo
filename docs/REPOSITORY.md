@@ -1,10 +1,10 @@
-# Quantum QLi repository profile
+# NEMOTRON3.5 repository profile
 
 **Canonical repository:** https://github.com/QuantumQLi/QuantumQLi
 
 ## Repository description
 
-Quantum QLi is a non-custodial Solana liquidity command desk with Meteora DBC launch planning, wallet-controlled review, identity proofs and local post-quantum cryptography.
+NEMOTRON3.5 is a non-custodial Solana liquidity command desk with Meteora DBC launch planning, wallet-controlled review, identity proofs and local post-quantum cryptography.
 
 ## Suggested topics
 

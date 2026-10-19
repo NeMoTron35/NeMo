@@ -18,7 +18,7 @@ Use the repository's **Security → Report a vulnerability** private vulnerabili
 
 ## Product boundaries
 
-Quantum QLi is non-custodial. Wallet approval is explicit; reviewed messages are frozen, RPC genesis/fee payer/blockhash checked and simulation rechecked before returned signed bytes are verified. Signing is separate from submission.
+NEMOTRON3.5 is non-custodial. Wallet approval is explicit; reviewed messages are frozen, RPC genesis/fee payer/blockhash checked and simulation rechecked before returned signed bytes are verified. Signing is separate from submission.
 
 ML-DSA-65, SLH-DSA-SHA2-128s and ML-KEM-768 execute locally. They do **not** make Solana account/transaction authorization post-quantum secure. Quantum Identity is a reference WOTS/Merkle construction; consumed leaves are browser-local, not globally coordinated. JavaScript cannot guarantee complete secret erasure.
 
