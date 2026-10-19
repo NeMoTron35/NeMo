@@ -1,4 +1,4 @@
-name: Publish QLi Synthetic Research Space
+name: Publish NEMOTRON3.5 Synthetic Research Space
 
 on:
   workflow_dispatch:
@@ -92,7 +92,7 @@ jobs:
                   path_in_repo="",
                   repo_id=space_id,
                   repo_type="space",
-                  commit_message="Publish synthetic-only QLi Shadow Research",
+                  commit_message="Publish synthetic-only NEMOTRON3.5 Shadow Research",
                   token=token,
               )
               print("Space source published: https://huggingface.co/spaces/" + space_id)

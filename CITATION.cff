@@ -1,10 +1,10 @@
 cff-version: 1.2.0
-message: "If you reference Quantum QLi in technical work, cite this repository."
-title: "Quantum QLi"
+message: "If you reference NEMOTRON3.5 in technical work, cite this repository."
+title: "NEMOTRON3.5"
 type: software
 version: 0.1.0
 authors:
-  - name: "Quantum QLi"
+  - name: "NEMOTRON3.5"
 repository-code: "https://github.com/QuantumQLi/QuantumQLi"
 url: "https://github.com/QuantumQLi/QuantumQLi"
 abstract: "A non-custodial Solana liquidity command desk with Meteora DBC planning, wallet-controlled review, identity proofs and local post-quantum cryptography."

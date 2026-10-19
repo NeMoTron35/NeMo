@@ -1,4 +1,4 @@
-# Quantum QLi contributor architecture guidance
+# NEMOTRON3.5 contributor architecture guidance
 
 Read CONTRIBUTING.md and SECURITY.md before changing operation or auth boundaries.
 

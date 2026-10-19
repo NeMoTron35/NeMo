@@ -1,5 +1,5 @@
 name: Feature request
-description: Propose a focused improvement to Quantum QLi.
+description: Propose a focused improvement to NEMOTRON3.5.
 body:
   - type: textarea
     id: problem
