@@ -8,7 +8,7 @@ import {
   documentationSearch,
 } from "@/lib/qli/documentation";
 import { DOMAINS } from "@/lib/qli-core/pq";
-describe("Quantum QLi first-party documentation", () => {
+describe("NEMOTRON3.5 first-party documentation", () => {
   it("bundles every required topic from Markdown with unique stable ids", () => {
     expect(documentation.length).toBe(27);
     expect(new Set(documentation.map((d) => d.id)).size).toBe(documentation.length);
