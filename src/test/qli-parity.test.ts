@@ -22,7 +22,7 @@ const post = (body: unknown) =>
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-describe("Quantum QLi public parity", () => {
+describe("NEMOTRON3.5 public parity", () => {
   it("records only observed health checks without claiming continuous uptime", async () => {
     const r = await cryptoApi(new Request("https://example.test"), "health");
     expect(r.status).toBe(200);

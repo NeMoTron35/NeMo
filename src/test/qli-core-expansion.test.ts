@@ -39,8 +39,8 @@ function files(dir: string): string[] {
 }
 const valid = { ...initialLaunch, name: "Arc", symbol: "ARC" };
 
-describe("Quantum QLi v0.2", () => {
-  it("uses only Quantum QLi domains and no third-party product strings", () => {
+describe("NEMOTRON3.5 v0.2", () => {
+  it("uses only NEMOTRON3.5 domains and no third-party product strings", () => {
     expect(DOMAINS).toEqual(FROZEN_DOMAINS);
     const banned = [/pqc\.market/i, /\bpq1/, /pump\.fun/i, /pump[- ]sdk/i];
     for (const f of files("src").filter(

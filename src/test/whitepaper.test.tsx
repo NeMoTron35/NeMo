@@ -30,7 +30,7 @@ afterEach(() => {
   state.section = undefined;
   state.navigate.mockClear();
 });
-describe("Quantum QLi technical white paper", () => {
+describe("NEMOTRON3.5 technical white paper", () => {
   it("matches the public whitepaper route", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
     expect(router.matchRoutes("/whitepaper").at(-1)?.routeId).toBe("/whitepaper");
