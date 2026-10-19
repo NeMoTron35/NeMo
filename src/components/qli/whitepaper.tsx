@@ -15,11 +15,11 @@ export function WhitepaperPage() {
   const previous = whitepaperSections[index - 1];
   const next = whitepaperSections[index + 1];
   return (
-    <section className="qli-whitepaper qli-help" aria-label="Quantum QLi Technical White Paper">
+    <section className="qli-whitepaper qli-help" aria-label="NEMOTRON3.5 Technical White Paper">
       <header className="help-header">
         <BookOpen size={25} />
         <div>
-          <h1>Quantum QLi Technical White Paper</h1>
+          <h1>NEMOTRON3.5 Technical White Paper</h1>
           <p>{WHITEPAPER_VERSION}</p>
         </div>
       </header>
@@ -84,8 +84,8 @@ export function WhitepaperPage() {
         </nav>
         <article className="help-reader whitepaper-reader" aria-label="White paper reading surface">
           <div className="whitepaper-cover">
-            <p className="help-breadcrumb">Quantum QLi / Technical White Paper</p>
-            <h1>Quantum QLi — Technical White Paper</h1>
+            <p className="help-breadcrumb">NEMOTRON3.5 / Technical White Paper</p>
+            <h1>NEMOTRON3.5 — Technical White Paper</h1>
             <p>Quantum liquidity, under control.</p>
             <small>{WHITEPAPER_VERSION}</small>
           </div>
