@@ -6,8 +6,8 @@ export const Route = createFileRoute("/docs")({
   validateSearch: documentationSearch,
   head: () =>
     metadata(
-      "Quantum QLi Help",
-      "First-party Quantum QLi documentation: product workflows, wallet review, Meteora DBC, reference proofs, APIs and contributor guides.",
+      "NEMOTRON3.5 Help",
+      "First-party NEMOTRON3.5 documentation: product workflows, wallet review, Meteora DBC, reference proofs, APIs and contributor guides.",
     ),
   component: DocsPage,
 });

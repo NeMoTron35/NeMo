@@ -5,7 +5,7 @@ export const Route = createFileRoute("/launches")({
   head: () =>
     metadata(
       "Forge Ledger",
-      "Quantum QLi launch history, confirmed-account boundaries and searchable demo pools.",
+      "NEMOTRON3.5 launch history, confirmed-account boundaries and searchable demo pools.",
     ),
   component: LaunchesPage,
 });
