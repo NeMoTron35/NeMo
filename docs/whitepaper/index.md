@@ -49,18 +49,18 @@ On smaller screens, utility windows join document flow and navigation remains av
 
 ## 5. Product Modules
 
-| Module             | Current responsibility                                                  |
-| ------------------ | ----------------------------------------------------------------------- |
-| NEMOTRON3.5 Desk           | Public cryptography workbench and retained operational overview         |
-| NEMOTRON3.5 Operator       | Session strategies, guardrails and operation-plan previews              |
-| Launch Forge       | Seven-stage DBC drafting and review                                     |
-| Liquidity Chambers | Demonstration pools, filters and pool inspection                        |
-| Inventory          | Demonstration positions and operation previews                          |
-| Revenue            | Demonstration fee rows and fee-claim plans                              |
-| Quantum Identity   | Local reference derivation, registration, anchor preparation and proofs |
-| Proof Inspector    | Launch, identity and wallet-spend reference proof inspection            |
-| Event Log          | Session/demo events, filtering and export                               |
-| System             | Session network, RPC and operating preferences                          |
+| Module               | Current responsibility                                                  |
+| -------------------- | ----------------------------------------------------------------------- |
+| NEMOTRON3.5 Desk     | Public cryptography workbench and retained operational overview         |
+| NEMOTRON3.5 Operator | Session strategies, guardrails and operation-plan previews              |
+| Launch Forge         | Seven-stage DBC drafting and review                                     |
+| Liquidity Chambers   | Demonstration pools, filters and pool inspection                        |
+| Inventory            | Demonstration positions and operation previews                          |
+| Revenue              | Demonstration fee rows and fee-claim plans                              |
+| Quantum Identity     | Local reference derivation, registration, anchor preparation and proofs |
+| Proof Inspector      | Launch, identity and wallet-spend reference proof inspection            |
+| Event Log            | Session/demo events, filtering and export                               |
+| System               | Session network, RPC and operating preferences                          |
 
 Public surfaces also include Algorithm Atlas, Market Explorer, Market Pulse, Trade Console, Forge Ledger, Wallet Inventory, Vault Desk, backup and deposit/withdraw prototypes, API Reference and security views.
 
@@ -190,22 +190,22 @@ Readers should evaluate real primitives alongside integration limitations: one-t
 
 ## Appendix A — NEMOTRON3.5 Terminology
 
-| Term                | Meaning                                                          |
-| ------------------- | ---------------------------------------------------------------- |
-| NEMOTRON3.5 Desk            | Workbench and operational overview                               |
-| NEMOTRON3.5 Operator        | Strategy and operation-planning interface                        |
-| Launch Forge        | DBC launch-planning wizard                                       |
-| Liquidity Chambers  | Pool inspection interface                                        |
-| Inventory / Revenue | Position / fee-operation interfaces                              |
-| Quantum Identity    | Reference WOTS/Merkle identity                                   |
-| Proof Inspector     | Public proof-verification interface                              |
-| Event Log / System  | Session events / configuration                                   |
-| Attestation Seal    | Reference signature over the current limited launch digest       |
-| Leaf Budget         | Remaining one-time WOTS signing leaves                           |
-| Proof Trace         | Verification steps and public proof context                      |
-| Anchor              | SPL Memo preparation/signing; not confirmation in the current UI |
-| DBC / DAMM v2       | Meteora Dynamic Bonding Curve / migration destination            |
-| RPC                 | Remote procedure call service for network queries and simulation |
+| Term                 | Meaning                                                          |
+| -------------------- | ---------------------------------------------------------------- |
+| NEMOTRON3.5 Desk     | Workbench and operational overview                               |
+| NEMOTRON3.5 Operator | Strategy and operation-planning interface                        |
+| Launch Forge         | DBC launch-planning wizard                                       |
+| Liquidity Chambers   | Pool inspection interface                                        |
+| Inventory / Revenue  | Position / fee-operation interfaces                              |
+| Quantum Identity     | Reference WOTS/Merkle identity                                   |
+| Proof Inspector      | Public proof-verification interface                              |
+| Event Log / System   | Session events / configuration                                   |
+| Attestation Seal     | Reference signature over the current limited launch digest       |
+| Leaf Budget          | Remaining one-time WOTS signing leaves                           |
+| Proof Trace          | Verification steps and public proof context                      |
+| Anchor               | SPL Memo preparation/signing; not confirmation in the current UI |
+| DBC / DAMM v2        | Meteora Dynamic Bonding Curve / migration destination            |
+| RPC                  | Remote procedure call service for network queries and simulation |
 
 See the [expanded glossary](/docs?article=glossary) for protocol context.
 
