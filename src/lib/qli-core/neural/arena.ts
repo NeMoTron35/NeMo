@@ -1,4 +1,4 @@
-// QLi Model Arena v4.5: fixed, openly SYNTHETIC fixtures and reproducible scoring.
+// NEMOTRON3.5 Model Arena v4.5: fixed, openly SYNTHETIC fixtures and reproducible scoring.
 import {
   deterministicAnswer,
   validateModelOutput,

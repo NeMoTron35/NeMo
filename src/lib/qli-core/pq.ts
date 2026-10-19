@@ -1,5 +1,5 @@
-// Quantum QLi reference hash-signature primitives. Pure functions; invoked from handlers, never module scope.
-// Encoding: Quantum QLi reference v1 (own domain separation). Not an audited production implementation.
+// NEMOTRON3.5 reference hash-signature primitives. Pure functions; invoked from handlers, never module scope.
+// Encoding: NEMOTRON3.5 reference v1 (own domain separation). Not an audited production implementation.
 import { sha256 as nobleSha256 } from "@noble/hashes/sha256";
 
 export const PQ_PARAMETERS = {
@@ -107,7 +107,7 @@ export type VerifyResult = {
 export function verifyWotsProof(proof: WotsProof): VerifyResult {
   if (!proof || proof.kind !== WOTS_PROOF_KIND) throw new Error("Unsupported proof kind.");
   if (!Object.values(DOMAINS).includes(proof.domain))
-    throw new Error("Unknown Quantum QLi domain separation string.");
+    throw new Error("Unknown NEMOTRON3.5 domain separation string.");
   if (!Number.isInteger(proof.leaf) || proof.leaf < 0 || proof.leaf >= PQ_PARAMETERS.leaves)
     throw new Error("Leaf index out of range (0–255).");
   if (!Array.isArray(proof.signature) || proof.signature.length !== PQ_PARAMETERS.chains)
@@ -154,7 +154,7 @@ export async function verifyDemoProof(p: WotsProof) {
 }
 export async function makeDemoProof(
   domain: Domain = DOMAINS.launch,
-  message = "Quantum QLi / public demonstration / not a live launch attestation",
+  message = "NEMOTRON3.5 / public demonstration / not a live launch attestation",
 ) {
   const { publicDemoKeys, signLeaf } = await import("./identity");
   const keys = await publicDemoKeys();

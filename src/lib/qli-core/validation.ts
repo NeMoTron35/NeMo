@@ -20,7 +20,7 @@ const url = z
 export const SIGNATURE_SCHEMES = [
   {
     id: "wots",
-    label: "Quantum QLi Root · WOTS-16 + Merkle h=8",
+    label: "NEMOTRON3.5 Root · WOTS-16 + Merkle h=8",
     note: "One-time leaf · 2,404 B · reference implementation wired",
     status: "reference",
   },

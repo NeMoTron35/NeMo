@@ -35,7 +35,7 @@ export async function cryptoApi(request: Request, operation: string) {
       });
     if (operation === "health" && request.method === "GET") {
       const [d, k] = await Promise.all([
-        runLocal("ML-DSA-65", "Quantum QLi self-test"),
+        runLocal("ML-DSA-65", "NEMOTRON3.5 self-test"),
         runLocal("ML-KEM-768", ""),
       ]);
       const ok = d.valid && k.valid;
