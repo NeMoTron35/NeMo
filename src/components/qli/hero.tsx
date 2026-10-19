@@ -5,7 +5,7 @@ import { useConsole } from "@/lib/qli-core/context";
 export function QuantumHero() {
   const c = useConsole();
   return (
-    <section className="quantum-hero" aria-label="Quantum QLi command desk">
+    <section className="quantum-hero" aria-label="NEMOTRON3.5 command desk">
       <div className="quantum-hero-shade" />
       <div className="hero-session">
         <span>
@@ -20,7 +20,7 @@ export function QuantumHero() {
       </div>
       <div className="quantum-hero-copy">
         <p className="hero-kicker">SOLANA LIQUIDITY COMMAND DESK</p>
-        <h1>Quantum QLi</h1>
+        <h1>NEMOTRON3.5</h1>
         <h2>
           Quantum liquidity,
           <br />

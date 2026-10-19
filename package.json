@@ -1,17 +1,17 @@
 {
-  "name": "quantum-qli",
+  "name": "nemotron3.5",
   "private": true,
   "version": "0.1.0",
   "description": "Non-custodial Solana liquidity command desk with Meteora DBC planning and local post-quantum cryptography.",
   "license": "Apache-2.0",
-  "author": "Quantum QLi",
-  "homepage": "https://github.com/QuantumQLi/QuantumQLi#readme",
+  "author": "NEMOTRON3.5",
+  "homepage": "https://github.com/QuantumQLi/QLi#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/QuantumQLi/QuantumQLi.git"
+    "url": "https://github.com/QuantumQLi/QLi.git"
   },
   "bugs": {
-    "url": "https://github.com/QuantumQLi/QuantumQLi/issues"
+    "url": "https://github.com/QuantumQLi/QLi/issues"
   },
   "keywords": [
     "solana",

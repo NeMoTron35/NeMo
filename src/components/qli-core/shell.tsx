@@ -40,8 +40,8 @@ import { useWalletDialog } from "@/components/qli/wallet-dialog-context";
 import { WindowChrome } from "@/components/qli/desktop-window";
 import { useWindowPosition } from "@/components/qli/use-window-position";
 const modules = [
-  ["QLi Desk", "/", Monitor],
-  ["QLi Operator", "/agent", Orbit],
+  ["NEMOTRON3.5 Desk", "/", Monitor],
+  ["NEMOTRON3.5 Operator", "/agent", Orbit],
   ["Launch Forge", "/launch", FlaskConical],
   ["Liquidity Chambers", "/pools", Waves],
   ["Inventory", "/positions", Boxes],
@@ -184,13 +184,13 @@ export function Shell({ children }: { children: ReactNode }) {
     <TooltipProvider delayDuration={200}>
       <div className="aqua-desktop">
         <a className="skip-link" href="#workspace-content">
-          Skip to Quantum QLi workspace
+          Skip to NEMOTRON3.5 workspace
         </a>
         <header className="desktop-menu-bar">
           <nav aria-label="Desktop menu">
             <Link to="/" className="desktop-brand">
               <Orbit size={17} />
-              <strong>Quantum QLi</strong>
+              <strong>NEMOTRON3.5</strong>
             </Link>
             {["File", "View", "Tools", "Window", "Help"].map((name) => (
               <details
@@ -250,7 +250,7 @@ export function Shell({ children }: { children: ReactNode }) {
                         {sidebar ? "Hide" : "Show"} source list
                       </Button>
                       <Button variant="ghost" onClick={() => setUtility((v) => !v)}>
-                        {utility ? "Hide" : "Show"} QLi Console
+                        {utility ? "Hide" : "Show"} NEMOTRON3.5 Console
                       </Button>
                     </>
                   ) : name === "Tools" ? (
@@ -284,12 +284,12 @@ export function Shell({ children }: { children: ReactNode }) {
                           setFocus("console");
                         }}
                       >
-                        Bring QLi Console forward
+                        Bring NEMOTRON3.5 Console forward
                       </Button>
                     </>
                   ) : (
                     <>
-                      <Link to="/docs">Quantum QLi Docs</Link>
+                      <Link to="/docs">NEMOTRON3.5 Docs</Link>
                       <Link to="/whitepaper">White Paper</Link>
                       <Link to="/markets">Algorithm Atlas</Link>
                       <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
@@ -314,7 +314,7 @@ export function Shell({ children }: { children: ReactNode }) {
           <Button asChild variant="ghost">
             <Link to="/vault">
               <HardDrive />
-              <span>QLi Vault</span>
+              <span>NEMOTRON3.5 Vault</span>
             </Link>
           </Button>
           <Button asChild variant="ghost">
@@ -335,8 +335,8 @@ export function Shell({ children }: { children: ReactNode }) {
             <WindowChrome
               title={
                 path === "/whitepaper"
-                  ? "Quantum QLi Technical White Paper"
-                  : `Quantum QLi — ${title}`
+                  ? "NEMOTRON3.5 Technical White Paper"
+                  : `NEMOTRON3.5 — ${title}`
               }
               minimized={min}
               maximized={max}
@@ -388,7 +388,7 @@ export function Shell({ children }: { children: ReactNode }) {
                         setUtility((v) => !v);
                         setFocus("console");
                       }}
-                      aria-label="Toggle QLi Console"
+                      aria-label="Toggle NEMOTRON3.5 Console"
                     >
                       <Terminal />
                       <span>Console</span>
@@ -469,10 +469,10 @@ export function Shell({ children }: { children: ReactNode }) {
               }}
               onPointerDown={() => setFocus("console")}
               onFocusCapture={() => setFocus("console")}
-              aria-label="QLi Console utility window"
+              aria-label="NEMOTRON3.5 Console utility window"
             >
               <WindowChrome
-                title="QLi Console"
+                title="NEMOTRON3.5 Console"
                 minimized={utilityMin}
                 onMinimize={() => setUtilityMin((v) => !v)}
                 onClose={() => setUtility(false)}
@@ -481,7 +481,7 @@ export function Shell({ children }: { children: ReactNode }) {
               />
               {!utilityMin && (
                 <div className="utility-output">
-                  <div className="console-banner">QUANTUM QLi / SESSION MONITOR</div>
+                  <div className="console-banner">NEMOTRON3.5 / SESSION MONITOR</div>
                   <p>
                     <span>network</span> {c.network} · RPC {c.rpcHealth}
                   </p>
@@ -572,7 +572,7 @@ export function Shell({ children }: { children: ReactNode }) {
               <Button
                 variant="ghost"
                 className="dock-module dock-console"
-                aria-label="Open QLi Console"
+                aria-label="Open NEMOTRON3.5 Console"
                 onClick={() => {
                   setUtility(true);
                   setUtilityMin(false);
@@ -584,12 +584,12 @@ export function Shell({ children }: { children: ReactNode }) {
                 </span>
               </Button>
             </TooltipTrigger>
-            <TooltipContent>QLi Console</TooltipContent>
+            <TooltipContent>NEMOTRON3.5 Console</TooltipContent>
           </Tooltip>
         </nav>
         <Dialog open={menu} onOpenChange={setMenu}>
           <DialogContent className="qli-menu-dialog">
-            <DialogTitle>Quantum QLi</DialogTitle>
+            <DialogTitle>NEMOTRON3.5</DialogTitle>
             <DialogDescription>Applications and instruments</DialogDescription>
             <nav className="qli-menu-links" aria-label="Mobile navigation">
               {links}
@@ -599,7 +599,7 @@ export function Shell({ children }: { children: ReactNode }) {
         <Dialog open={palette} onOpenChange={setPalette}>
           <DialogContent>
             <DialogTitle>Command center</DialogTitle>
-            <DialogDescription>Quantum QLi applications</DialogDescription>
+            <DialogDescription>NEMOTRON3.5 applications</DialogDescription>
             <input
               aria-label="Search pages"
               value={q}

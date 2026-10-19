@@ -64,11 +64,11 @@ export function DocsPage() {
   }
   const headings = articleHeadings(article.body);
   return (
-    <section className="qli-help" aria-label="Quantum QLi Help">
+    <section className="qli-help" aria-label="NEMOTRON3.5 Help">
       <header className="help-header">
         <BookOpen size={25} />
         <div>
-          <h1>Quantum QLi Help</h1>
+          <h1>NEMOTRON3.5 Help</h1>
           <p>Product guide · current implementation</p>
         </div>
         <Button asChild variant="outline">
@@ -106,7 +106,7 @@ export function DocsPage() {
           <Search size={16} />
           <input
             aria-label="Search documentation"
-            placeholder="Search Quantum QLi Help…"
+            placeholder="Search NEMOTRON3.5 Help…"
             value={q}
             onChange={(e) => setQ(e.target.value)}
           />
@@ -204,7 +204,7 @@ export function DocsPage() {
               {!results.length && <p role="status">No topics match “{q}”.</p>}
             </section>
           )}
-          <p className="help-breadcrumb">Quantum QLi Help / {article.group}</p>
+          <p className="help-breadcrumb">NEMOTRON3.5 Help / {article.group}</p>
           {headings.length > 0 && (
             <details className="help-on-this-page">
               <summary>On this page</summary>

@@ -121,8 +121,8 @@ export const initialEvents: AuditEvent[] = [
   },
 ];
 export const consoleNavigation = [
-  ["QLi Desk", "/overview"],
-  ["QLi Operator", "/agent"],
+  ["NEMOTRON3.5 Desk", "/overview"],
+  ["NEMOTRON3.5 Operator", "/agent"],
   ["Liquidity Chambers", "/pools"],
   ["Inventory", "/positions"],
   ["Revenue", "/fees"],
@@ -136,12 +136,12 @@ export const productNavigation = [
   ["Proof Inspector", "/verify"],
   ["Docs", "/docs"],
 ] as const;
-export const GITHUB_URL = "https://github.com/QuantumQLi/QuantumQLi";
+export const GITHUB_URL = "https://github.com/QuantumQLi/QLi";
 export const METEORA_DBC_URL = "https://docs.meteora.ag/overview/products/dbc/what-is-dbc";
 /** All internal routes (console + product). GitHub is external. */
 export const publicNavigation = [
   ["Algorithm Atlas", "/markets"],
-  ["QLi Desk", "/"],
+  ["NEMOTRON3.5 Desk", "/"],
   ["API Reference", "/api-docs"],
   ["Launch Forge", "/launch"],
   ["Forge Ledger", "/launches"],
@@ -165,9 +165,9 @@ export const navigation = [
 export function metadata(title: string, description: string) {
   return {
     meta: [
-      { title: `${title} — Quantum QLi` },
+      { title: `${title} — NEMOTRON3.5` },
       { name: "description", content: description },
-      { property: "og:title", content: `${title} — Quantum QLi` },
+      { property: "og:title", content: `${title} — NEMOTRON3.5` },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

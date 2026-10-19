@@ -27,17 +27,17 @@ function NotFoundComponent() {
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">
-          Quantum QLi · Page unavailable
+          NEMOTRON3.5 · Page unavailable
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          This Quantum QLi workspace address is unavailable. Your wallet is unaffected.
+          This NEMOTRON3.5 workspace address is unavailable. Your wallet is unaffected.
         </p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Return to Quantum QLi
+            Return to NEMOTRON3.5
           </Link>
         </div>
       </div>
@@ -55,10 +55,10 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          Quantum QLi could not load this page
+          NEMOTRON3.5 could not load this page
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          No transaction was submitted by this error screen. Retry or return to the Quantum QLi
+          No transaction was submitted by this error screen. Retry or return to the NEMOTRON3.5
           workspace.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
@@ -76,7 +76,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
               to="/"
               className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
             >
-              Return to Quantum QLi
+              Return to NEMOTRON3.5
             </Link>
           </Button>
         </div>
@@ -88,14 +88,14 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
-      { title: "Quantum QLi — Liquidity Operations" },
+      { title: "NEMOTRON3.5 — Liquidity Operations" },
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         name: "description",
         content: "Non-custodial Solana liquidity operations and post-quantum provenance.",
       },
-      { property: "og:title", content: "Quantum QLi — Liquidity Operations" },
+      { property: "og:title", content: "NEMOTRON3.5 — Liquidity Operations" },
       {
         property: "og:description",
         content: "Non-custodial Solana liquidity operations and post-quantum provenance.",
@@ -123,7 +123,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   pendingComponent: () => (
     <div className="empty-state" role="status">
       <Geometry compact />
-      Loading Quantum QLi workspace…
+      Loading NEMOTRON3.5 workspace…
     </div>
   ),
   notFoundComponent: NotFoundComponent,

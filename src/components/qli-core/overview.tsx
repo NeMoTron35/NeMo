@@ -44,7 +44,7 @@ export function Overview() {
     <>
       <PageHeading
         eyebrow="OPERATIONS / DEMO"
-        title="QLi Desk"
+        title="NEMOTRON3.5 Desk"
         description="Liquidity, reserves and execution guardrails. Simulated until a verified live connection is available."
         action={
           <Button asChild>
@@ -136,7 +136,7 @@ export function Overview() {
         </section>
         <section className="instrument agent-status">
           <header className="panel-heading">
-            <h2>QLi Operator</h2>
+            <h2>NEMOTRON3.5 Operator</h2>
             <span className="status-tag bright">
               <span className="live-dot" />
               STANDBY
@@ -148,7 +148,7 @@ export function Overview() {
                 <Orbit />
               </div>
               <div>
-                <strong>QLi Operator / 01</strong>
+                <strong>NEMOTRON3.5 Operator / 01</strong>
                 <p>DETERMINISTIC · NON-CUSTODIAL</p>
               </div>
             </div>
