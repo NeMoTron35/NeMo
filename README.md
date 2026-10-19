@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/quantum-qli-banner.webp" alt="NEMOTRON3.5 — post-quantum Solana liquidity command desk" width="100%">
+  <img src="docs/nemotron3-5-banner.svg" alt="NEMOTRON3.5 — post-quantum Solana liquidity command desk" width="100%">
 </p>
 
 <h1 align="center">NEMOTRON3.5</h1>
@@ -10,16 +10,18 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/QuantumQLi/QLi/actions/workflows/ci.yml"><img src="https://github.com/QuantumQLi/QLi/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <a href="https://github.com/QuantumQLi/QLi/actions/workflows/security.yml"><img src="https://github.com/QuantumQLi/QLi/actions/workflows/security.yml/badge.svg" alt="Security checks"></a>
-  <a href="https://github.com/QuantumQLi/QLi/actions/workflows/codeql.yml"><img src="https://github.com/QuantumQLi/QLi/actions/workflows/codeql.yml/badge.svg" alt="CodeQL"></a>
-  <a href="https://github.com/QuantumQLi/QLi/actions/workflows/scorecard.yml"><img src="https://github.com/QuantumQLi/QLi/actions/workflows/scorecard.yml/badge.svg" alt="OpenSSF Scorecard"></a>
+  <a href="https://github.com/NeMoTron35/QLi/actions/workflows/ci.yml"><img src="https://github.com/NeMoTron35/QLi/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/NeMoTron35/QLi/actions/workflows/security.yml"><img src="https://github.com/NeMoTron35/QLi/actions/workflows/security.yml/badge.svg" alt="Security checks"></a>
+  <a href="https://github.com/NeMoTron35/QLi/actions/workflows/codeql.yml"><img src="https://github.com/NeMoTron35/QLi/actions/workflows/codeql.yml/badge.svg" alt="CodeQL"></a>
+  <a href="https://github.com/NeMoTron35/QLi/actions/workflows/scorecard.yml"><img src="https://github.com/NeMoTron35/QLi/actions/workflows/scorecard.yml/badge.svg" alt="OpenSSF Scorecard"></a>
   <img src="https://img.shields.io/badge/tests-59%20passing-brightgreen" alt="59 tests passing">
   <img src="https://img.shields.io/badge/dependency%20audit-0%20advisories-brightgreen" alt="0 dependency advisories">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" alt="Apache-2.0 license"></a>
 </p>
 
 > [!NOTE]
+> NEMOTRON3.5 is an independent Solana software project and is not affiliated with or endorsed by NVIDIA.
+>
 > **Status:** active development, pre-1.0. The current verified snapshot passes 59 tests, type checking, production build, repository-hygiene checks, lint with 0 errors / 0 warnings, and a dependency audit with 0 advisories at any severity.
 
 ## Latest Technical White Paper - v0.2 (11 October 2026)
@@ -99,7 +101,7 @@ flowchart TD
 **Requirements:** Node.js 22+ and Bun 1.3.3+.
 
 ```bash
-git clone https://github.com/QuantumQLi/QuantumQLi.git
+git clone https://github.com/NeMoTron35/QLi.git
 cd QuantumQLi
 bun install --frozen-lockfile
 bun run dev

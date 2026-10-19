@@ -1,6 +1,6 @@
 # NEMOTRON3.5 repository profile
 
-**Canonical repository:** https://github.com/QuantumQLi/QuantumQLi
+**Canonical repository:** https://github.com/NeMoTron35/QLi
 
 ## Repository description
 

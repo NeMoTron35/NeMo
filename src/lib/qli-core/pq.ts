@@ -154,7 +154,7 @@ export async function verifyDemoProof(p: WotsProof) {
 }
 export async function makeDemoProof(
   domain: Domain = DOMAINS.launch,
-  message = "NEMOTRON3.5 / public demonstration / not a live launch attestation",
+  message = "Quantum QLi / public demonstration / not a live launch attestation",
 ) {
   const { publicDemoKeys, signLeaf } = await import("./identity");
   const keys = await publicDemoKeys();

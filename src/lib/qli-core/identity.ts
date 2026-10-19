@@ -33,13 +33,13 @@ export const QTK_PREFIX = "qtk1";
 
 export function derivationMessage(wallet: string, network: string) {
   return [
-    "NEMOTRON3.5 Identity Derivation",
+    "Quantum QLi Identity Derivation",
     `domain: ${DOMAINS.identity}`,
     `wallet: ${wallet}`,
     `network: ${network}`,
     "purpose: derive a local hash-based identity root",
     "This signature is not a transaction and moves no funds.",
-    "Only sign this identity derivation message in NEMOTRON3.5.",
+    "Only sign this identity derivation message in Quantum QLi.",
   ].join("\n");
 }
 

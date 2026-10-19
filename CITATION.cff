@@ -5,8 +5,8 @@ type: software
 version: 0.1.0
 authors:
   - name: "NEMOTRON3.5"
-repository-code: "https://github.com/QuantumQLi/QuantumQLi"
-url: "https://github.com/QuantumQLi/QuantumQLi"
+repository-code: "https://github.com/NeMoTron35/QLi"
+url: "https://github.com/NeMoTron35/QLi"
 abstract: "A non-custodial Solana liquidity command desk with Meteora DBC planning, wallet-controlled review, identity proofs and local post-quantum cryptography."
 keywords:
   - Solana
