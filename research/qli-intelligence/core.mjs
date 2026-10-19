@@ -1,4 +1,4 @@
-// Quantum QLi Intelligence reference: pure, deterministic and non-custodial.
+// NEMOTRON3.5 Intelligence reference: pure, deterministic and non-custodial.
 // NO RPC, model inference, signer, contract deployment, wallet secrets or transactions.
 import { createHash, timingSafeEqual } from "node:crypto";
 

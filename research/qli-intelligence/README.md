@@ -1,8 +1,8 @@
-# Quantum QLi Intelligence reference implementation
+# NEMOTRON3.5 Intelligence reference implementation
 
 **Status: executable offline reference, not a deployed trading agent, hosted model, or mainnet custody system.**
 
-This directory contains testable, dependency-free Node.js components for the next QLi
+This directory contains testable, dependency-free Node.js components for the next NEMOTRON3.5
 intelligence release. The production application builder application has its own TS/server
 integration; this reference provides independently reproducible checks to compare against
 its business logic. Passing these tests **does not prove the live app is connected.**
@@ -78,7 +78,7 @@ of frontend settings.
 
 ## Publish the synthetic Space (operator-only)
 
-The GitHub workflow [Publish QLi Synthetic Research Space](../../.github/workflows/qli-huggingface-research-space.yml)
+The GitHub workflow [Publish NEMOTRON3.5 Synthetic Research Space](../../.github/workflows/qli-huggingface-research-space.yml)
 is manually triggered from GitHub Actions. It **never** runs on push and does
 not access any user's wallet or pool. It publishes only three allowlisted files:
 the Space card, UI and synthetic deterministic engine.
@@ -91,13 +91,13 @@ To activate it, an authorized operator must:
    `your-own-huggingface-account/qli-shadow-research` (replace the account
    with the owner's actual namespace). The job uses the `hf-research`
    environment if additional approvals are required.
-3. Run **Publish QLi Synthetic Research Space** manually and deliberately
+3. Run **Publish NEMOTRON3.5 Synthetic Research Space** manually and deliberately
    select `PUBLISH`. The default choice `NO` prevents an accidental release.
 4. Open the URL reported by the action and verify the Space has completed its
    Gradio build. This workflow does not guarantee hosting availability or
    bypass the Hugging Face account's hardware / eligibility requirements.
 
-The separate **live QLi Neural Engine** also requires `HF_TOKEN` and
+The separate **live NEMOTRON3.5 Neural Engine** also requires `HF_TOKEN` and
 `HF_MODEL_ALLOWLIST` configured as **server-only** secrets on the app's
 production hosting environment. Those hosting settings are independent of
 the GitHub publication workflow. Publishing this offline Space does not

@@ -1,4 +1,4 @@
-"""QLi Intelligence public synthetic-only reference for Hugging Face Spaces.
+"""NEMOTRON3.5 Intelligence public synthetic-only reference for Hugging Face Spaces.
 
 No real-chain RPC, private keys, wallets, automated trading, or external inference.
 The demo math mirrors research/qli-intelligence/core.mjs for fixed-point u64 swaps.

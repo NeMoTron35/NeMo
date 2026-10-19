@@ -1,5 +1,5 @@
 ---
-title: QLi Shadow Research
+title: NEMOTRON3.5 Shadow Research
 emoji: "🧠"
 colorFrom: gray
 colorTo: yellow
@@ -11,17 +11,17 @@ license: apache-2.0
 pinned: false
 ---
 
-# Quantum QLi — Shadow Engine Research
+# NEMOTRON3.5 — Shadow Engine Research
 
 This portable Hugging Face Space is a **synthetic, offline** demonstration of
-QLi's experimental constant-product stress simulation. It never connects to
+NEMOTRON3.5's experimental constant-product stress simulation. It never connects to
 Solana, a user's wallet, a live liquidity pool or a model provider.
 
 The controls use made-up integer reserve values. All five scenarios are
 hypothetical, not Meteora DBC calculations or predictions.
 
 **No deployment has been made from this GitHub repository.** To publish, an
-authorized QLi project operator must create a Hugging Face Space and upload
+authorized NEMOTRON3.5 project operator must create a Hugging Face Space and upload
 only the contents of this folder. No HF_TOKEN is required by this offline
 demo. Do not upload private user data or a wallet seed phrase.
 
