@@ -1,4 +1,4 @@
-// Quantum QLi Quantum Wallet model + adapter boundary. Quantum QLi has NOT deployed an on-chain WOTS verifier/vault program.
+// NEMOTRON3.5 Quantum Wallet model + adapter boundary. NEMOTRON3.5 has NOT deployed an on-chain WOTS verifier/vault program.
 import { DOMAINS, H, hex, utf8, PQ_PARAMETERS } from "./pq";
 
 /** Explicitly not deployed. Never substitute a third-party program id. */

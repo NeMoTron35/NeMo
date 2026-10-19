@@ -4,7 +4,7 @@ export const RWA_REGISTRY_LABEL = "Snapshot — verify live on-chain before laun
 export const RWA_ELIGIBILITY =
   "Availability and transfer restrictions vary by issuer and jurisdiction. A tokenized market asset represents only what its issuer’s terms grant; it does not imply direct equity ownership.";
 export const ONDO_NOTE =
-  "200+ Ondo Global Markets stocks and ETFs are issued on Solana. Quantum QLi ships no Ondo mints: enter a current mint and validate it on the active RPC before use.";
+  "200+ Ondo Global Markets stocks and ETFs are issued on Solana. NEMOTRON3.5 ships no Ondo mints: enter a current mint and validate it on the active RPC before use.";
 
 export type RwaAsset = {
   symbol: string;

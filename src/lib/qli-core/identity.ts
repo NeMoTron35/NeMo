@@ -6,7 +6,7 @@ import {
   REGISTRATION_MESSAGE_PREFIX,
   PUBLIC_DEMO_INPUT,
 } from "./compatibility";
-// Quantum QLi local reference identity. Secret material lives only in memory of the caller; nothing here persists secrets.
+// NEMOTRON3.5 local reference identity. Secret material lives only in memory of the caller; nothing here persists secrets.
 import { hkdf } from "@noble/hashes/hkdf";
 import { sha256 as nobleSha256 } from "@noble/hashes/sha256";
 import { scryptAsync } from "@noble/hashes/scrypt";

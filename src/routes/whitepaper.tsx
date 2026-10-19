@@ -7,7 +7,7 @@ export const Route = createFileRoute("/whitepaper")({
   head: () =>
     metadata(
       "Technical White Paper",
-      "Quantum QLi v0.1 — October 2026: non-custodial Solana liquidity planning, Meteora DBC, reference WOTS identities, cryptography and explicit trust boundaries.",
+      "NEMOTRON3.5 v0.1 — October 2026: non-custodial Solana liquidity planning, Meteora DBC, reference WOTS identities, cryptography and explicit trust boundaries.",
     ),
   component: WhitepaperPage,
 });

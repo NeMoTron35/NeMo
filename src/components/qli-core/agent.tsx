@@ -94,7 +94,7 @@ export function AgentPage() {
     <>
       <PageHeading
         eyebrow="STRATEGY / CONTROL PLANE"
-        title="QLi Operator"
+        title="NEMOTRON3.5 Operator"
         description="Deterministic strategies. Explicit guardrails. Every execution remains wallet-controlled."
         action={
           <Button
@@ -250,7 +250,7 @@ export function AgentPage() {
           </Panel>
           <div className="notice mt-5">
             <ShieldCheck size={16} />
-            Quantum QLi does not hold funds or sign on your behalf. Strategy snapshots are kept in
+            NEMOTRON3.5 does not hold funds or sign on your behalf. Strategy snapshots are kept in
             this session only.
           </div>
         </div>

@@ -330,7 +330,7 @@ export function VaultKeys() {
       />
       <div className="notice mb-4">
         <ShieldAlert />
-        Vault creation and on-chain registration are unavailable: Quantum QLi has no deployed vault
+        Vault creation and on-chain registration are unavailable: NEMOTRON3.5 has no deployed vault
         program.
       </div>
       <DeskWindow title="Vault Registry">
@@ -379,7 +379,7 @@ export function VaultKeys() {
             <div>
               <strong>PRIVATE BACKUP · WRITE DOWN OFFLINE</strong>
               <pre className="code-block">{backup}</pre>Never share this seed. It is not uploaded or
-              saved by Quantum QLi.
+              saved by NEMOTRON3.5.
             </div>
           </div>
         )}
@@ -482,7 +482,7 @@ export function VaultTransfer({ withdraw = false }: { withdraw?: boolean }) {
       />
       <DeskWindow title={withdraw ? "Withdrawal Authorization" : "Deposit Readiness"}>
         <div className="notice mb-4">
-          {withdraw ? "Withdrawal submission" : "Deposit"} unavailable: no Quantum QLi vault program
+          {withdraw ? "Withdrawal submission" : "Deposit"} unavailable: no NEMOTRON3.5 vault program
           is deployed. No funds can move.
         </div>
         <div className="form-grid">
@@ -585,7 +585,7 @@ export function SecurityPage() {
       <DeskWindow title="Deployment Requirements">
         <ol className="security-list">
           <li>
-            A dedicated Quantum QLi on-chain verifier/vault must be built, audited and deployed.
+            A dedicated NEMOTRON3.5 on-chain verifier/vault must be built, audited and deployed.
           </li>
           <li>
             Large signatures exceed a 1,232-byte packet; staging and verification cost must be

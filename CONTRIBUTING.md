@@ -1,4 +1,4 @@
-# Contributing to Quantum QLi
+# Contributing to NEMOTRON3.5
 
 Review [AGENTS.md](AGENTS.md), [SECURITY.md](SECURITY.md) and [licensing status](docs/LICENSING.md) first. Public visibility is not an open-source license grant.
 

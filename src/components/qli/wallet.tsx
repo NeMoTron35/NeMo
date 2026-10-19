@@ -14,7 +14,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
         <DialogContent>
           <DialogTitle>{c.account ? "Connected wallet" : "Connect a Solana wallet"}</DialogTitle>
           <DialogDescription>
-            Quantum QLi never asks for private keys. Connection alone cannot authorize a
+            NEMOTRON3.5 never asks for private keys. Connection alone cannot authorize a
             transaction.
           </DialogDescription>
           {c.account ? (

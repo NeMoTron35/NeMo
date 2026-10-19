@@ -1,4 +1,4 @@
-// QLi research reference Hugging Face bridge. SERVER ONLY.
+// NEMOTRON3.5 research reference Hugging Face bridge. SERVER ONLY.
 // Production integration MUST call after wallet-signed requireSession() + owner-scoped
 // database query. This module intentionally cannot initiate chain transactions.
 const ROUTER = "https://router.huggingface.co/v1/chat/completions";

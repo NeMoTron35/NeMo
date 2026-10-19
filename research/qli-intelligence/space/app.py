@@ -1,9 +1,9 @@
-"""Public QLi Model Arena / Shadow demonstration. Synthetic-only; no account connections."""
+"""Public NEMOTRON3.5 Model Arena / Shadow demonstration. Synthetic-only; no account connections."""
 import gradio as gr
 from engine import scenarios
 
 DESCRIPTION = """
-**QLi Shadow Engine — Experimental Research**
+**NEMOTRON3.5 Shadow Engine — Experimental Research**
 
 Simulate five counterfactual reserve shocks using exact integer constant-product math.
 This demo contains **no real Solana RPC connection, Hugging Face inference, wallet,
@@ -27,8 +27,8 @@ def run(reserve_in: int, reserve_out: int, amount_in: int, fee_bps: int):
     except (ValueError, ArithmeticError, TypeError) as exc:
         return [], "Input rejected: " + str(exc)
 
-with gr.Blocks(title="QLi Shadow Engine — Research") as demo:
-    gr.Markdown("# Quantum QLi | Shadow Research")
+with gr.Blocks(title="NEMOTRON3.5 Shadow Engine — Research") as demo:
+    gr.Markdown("# NEMOTRON3.5 | Shadow Research")
     gr.Markdown(DESCRIPTION)
     with gr.Row():
         reserve_in = gr.Number(value=100000, label="Synthetic reserve in (integer)", precision=0)

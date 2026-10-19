@@ -1,4 +1,4 @@
-# Quantum QLi feature matrix
+# NEMOTRON3.5 feature matrix
 
 This page separates implemented functionality from connected-wallet, planning and research/reference surfaces.
 
@@ -19,13 +19,13 @@ This page separates implemented functionality from connected-wallet, planning an
 ## Planning and validation
 
 - **Launch Forge** — seven-stage Meteora DBC planning targeting DAMM v2 migration. Review is not deployment.
-- **QLi Operator Observe / Guarded** — deterministic plans and guardrails with wallet-controlled signing.
+- **NEMOTRON3.5 Operator Observe / Guarded** — deterministic plans and guardrails with wallet-controlled signing.
 - **Identity anchor** — distinguishes signed bytes, submission and confirmation as separate states.
 
 ## Research and reference surfaces
 
 - **Quantum Identity WOTS/Merkle** — reference construction with one-time leaf consumption tracked locally; there is no globally synchronized reuse ledger.
-- **QLi Operator Autonomous** — scheduling preview only; there is no unattended production signer or background trading service.
+- **NEMOTRON3.5 Operator Autonomous** — scheduling preview only; there is no unattended production signer or background trading service.
 - **Liquidity Chambers / Inventory / Revenue** — structured reference datasets, not connected-wallet holdings.
 - **Public crypto API** — bounded verification and KEM operations; no custodial private-key API.
 
@@ -43,4 +43,4 @@ At the current verified snapshot:
 
 ## Security interpretation
 
-"Post-quantum" in Quantum QLi refers to the local and application-layer cryptographic primitives plus research/reference identity work. It is not a claim that Solana's current network authorization scheme has been replaced or made post-quantum secure.
+"Post-quantum" in NEMOTRON3.5 refers to the local and application-layer cryptographic primitives plus research/reference identity work. It is not a claim that Solana's current network authorization scheme has been replaced or made post-quantum secure.

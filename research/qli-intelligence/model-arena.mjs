@@ -1,4 +1,4 @@
-// QLi Model Arena offline benchmark: public synthetic cases, NO real-user data.
+// NEMOTRON3.5 Model Arena offline benchmark: public synthetic cases, NO real-user data.
 // The evaluator scores observable evidence references, unsafe claims and unsupported assertions.
 // Never call a provider or charge inference within a benchmark without explicit user action.
 export const FIXTURES = Object.freeze([

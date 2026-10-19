@@ -7,7 +7,7 @@ import { createRouter } from "@tanstack/react-router";
 import { QueryClient } from "@tanstack/react-query";
 import { routeTree } from "@/routeTree.gen";
 Object.defineProperty(globalThis, "crypto", { value: webcrypto, configurable: true });
-describe("Quantum QLi security and navigation", () => {
+describe("NEMOTRON3.5 security and navigation", () => {
   it("matches every console route", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
     for (const [, url] of navigation) expect(router.matchRoutes(url).at(-1)?.routeId).toBe(url);

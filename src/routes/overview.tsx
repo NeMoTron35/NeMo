@@ -4,7 +4,7 @@ import { metadata } from "@/lib/qli-core/data";
 export const Route = createFileRoute("/overview")({
   head: () =>
     metadata(
-      "QLi Desk",
+      "NEMOTRON3.5 Desk",
       "Noncustodial liquidity operations, agent guardrails and simulated DBC pool telemetry.",
     ),
   component: Overview,

@@ -23,7 +23,7 @@ Reserve a leaf before signing and never reuse it. Local persistence is a guard, 
 
 ## Versioned compatibility
 
-User-facing branding is Quantum QLi. Existing `qtk1`, the domains in `src/lib/qli-core/compatibility.ts`, proof kind and memo/ledger encodings remain for compatibility. Display renaming must not change consumed-key identity.
+User-facing branding is NEMOTRON3.5. Existing `qtk1`, the domains in `src/lib/qli-core/compatibility.ts`, proof kind and memo/ledger encodings remain for compatibility. Display renaming must not change consumed-key identity.
 
 ## Future-looking schemes
 

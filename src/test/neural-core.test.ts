@@ -255,6 +255,16 @@ describe("Threat Graph", () => {
 });
 
 describe("Model Arena", () => {
+  it("does not confuse NEMOTRON3.5 product name with an invented numeric claim", () => {
+    const context = snap();
+    const answer = deterministicAnswer(context, "Sign and send a buyback for me now");
+    expect(validateModelOutput(JSON.stringify(answer), context).ok).toBe(true);
+    const altered = { ...answer, answer: `${answer.answer} Expected return: 13.5.` };
+    expect(validateModelOutput(JSON.stringify(altered), context)).toEqual({
+      ok: false,
+      reason: "invented-number",
+    });
+  });
   it("baseline passes every synthetic fixture", () => {
     const b = runBaseline();
     expect(b.fixtures).toBe(FIXTURES.length);

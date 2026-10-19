@@ -1,4 +1,4 @@
-// Canonical, domain-separated JSON hashing (finite numbers use the spec-fixed shortest form) for the QLi Proof Engine.
+// Canonical, domain-separated JSON hashing (finite numbers use the spec-fixed shortest form) for the NEMOTRON3.5 Proof Engine.
 // Tamper-evident ledger records only: NOT a blockchain attestation or on-chain proof.
 
 export type Canon = null | boolean | number | string | Canon[] | { [k: string]: Canon };

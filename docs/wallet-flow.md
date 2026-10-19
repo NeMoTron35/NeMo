@@ -9,7 +9,7 @@ summary: Client-side authorization with review and simulation, never hidden subm
 
 ## Connection
 
-Quantum QLi detects Solana Wallet Standard wallets after hydration, shows connection status/errors and lets the user connect/disconnect. Compatible wallets must expose the required message or transaction signing feature. No email/password account flow is used by these product pages.
+NEMOTRON3.5 detects Solana Wallet Standard wallets after hydration, shows connection status/errors and lets the user connect/disconnect. Compatible wallets must expose the required message or transaction signing feature. No email/password account flow is used by these product pages.
 
 ## Reviewed transaction boundary
 

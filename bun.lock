@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "quantum-qli",
+      "name": "nemotron3.5",
       "dependencies": {
         "@meteora-ag/dynamic-bonding-curve-sdk": "^1.5.13",
         "@noble/curves": "1.9.7",

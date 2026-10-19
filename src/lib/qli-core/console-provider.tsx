@@ -182,7 +182,7 @@ export function ConsoleProvider({ children }: { children: ReactNode }) {
         StandardDisconnectFeature[typeof StandardDisconnect] | undefined;
       await feature?.disconnect();
     } catch {
-      setWalletError("Wallet disconnect request failed. Quantum QLi has cleared its connection.");
+      setWalletError("Wallet disconnect request failed. NEMOTRON3.5 has cleared its connection.");
     } finally {
       setAccount(undefined);
       setWallet(undefined);

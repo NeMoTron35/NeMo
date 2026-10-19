@@ -1,4 +1,4 @@
-// QLi Threat Graph v4.5: owner-scoped relationship graph built only from server-verified registered rows.
+// NEMOTRON3.5 Threat Graph v4.5: owner-scoped relationship graph built only from server-verified registered rows.
 // Signals describe patterns with uncertainty. They never label people and never block addresses.
 
 export const GRAPH_VERSION = "qli-threat-graph/4.5.0";

@@ -341,7 +341,7 @@ export function IdentityPage() {
           </div>
           <LeafGrid used={used} next={next} built={256} />
           <div className="notice">
-            One-time leaves: reusing a leaf leaks secret chain values. Quantum QLi persists only
+            One-time leaves: reusing a leaf leaks secret chain values. NEMOTRON3.5 persists only
             consumed indexes and public metadata{isDemo ? " (demo ledger is session-only)" : ""};
             secret seeds and passphrases are never stored.
           </div>
@@ -409,7 +409,7 @@ export function IdentityPage() {
               )}
             </div>
           </Panel>
-          <Panel title="Derivation pipeline" tag="Quantum QLi REFERENCE v1">
+          <Panel title="Derivation pipeline" tag="NEMOTRON3.5 REFERENCE v1">
             <pre
               className="code-block"
               style={{ margin: 19 }}
@@ -423,7 +423,7 @@ leaf_i   = H(pubSeed, i, pk_0 … pk_66)   // 67 chains × 15 steps
 root     = Merkle(leaf_0 … leaf_255)     // height 8
 address  = qtk1 ‖ base32(H(domain, root, pubSeed))[..20B] ‖ check`}</pre>
             <div className="notice">
-              Reference implementation with Quantum QLi domain separation; not independently
+              Reference implementation with NEMOTRON3.5 domain separation; not independently
               audited. Do not use it to secure value.
             </div>
           </Panel>
@@ -462,7 +462,7 @@ address  = qtk1 ‖ base32(H(domain, root, pubSeed))[..20B] ‖ check`}</pre>
           </Panel>
           <Panel title="What registration means here" tag="SERVERLESS">
             <div className="notice" style={{ margin: 19 }}>
-              Quantum QLi has no server ledger in this build. Registration is a local profile: the
+              NEMOTRON3.5 has no server ledger in this build. Registration is a local profile: the
               wallet authorizes the derivation message, and leaf #0 signs the binding. Anyone can
               verify the leaf-#0 proof; nobody else stores it until you anchor or publish it.
             </div>
@@ -541,7 +541,7 @@ address  = qtk1 ‖ base32(H(domain, root, pubSeed))[..20B] ‖ check`}</pre>
           <Panel title="Anchor semantics" tag="PUBLIC TIMESTAMP">
             <div className="notice" style={{ margin: 19 }}>
               An anchor is a public timestamp of your root on Solana. It exists only once a
-              submitted transaction is confirmed — Quantum QLi returns signed bytes and never claims
+              submitted transaction is confirmed — NEMOTRON3.5 returns signed bytes and never claims
               an anchor it has not observed on-chain. Submission is a separate, explicit step.
             </div>
           </Panel>
@@ -666,7 +666,7 @@ function extractProof(input: unknown, domain: Domain): WotsProof {
   if (o.proof && typeof o.proof === "object") return extractProof(o.proof, domain);
   const ext = o.extensions ?? o.properties?.extensions;
   if (ext && ext[domain]) return extractProof(ext[domain], domain);
-  throw new Error("No Quantum QLi proof found in input.");
+  throw new Error("No NEMOTRON3.5 proof found in input.");
 }
 async function demoFor(cat: Category) {
   const keys = await publicDemoKeys();
@@ -882,7 +882,7 @@ export function VerifyPage() {
             </div>
           </div>
         </Panel>
-        <Panel title="Parameters" tag="Quantum QLi REFERENCE v1">
+        <Panel title="Parameters" tag="NEMOTRON3.5 REFERENCE v1">
           <div className="detail-rows" style={{ padding: 19 }}>
             <div>
               <span>Scheme</span>
@@ -952,7 +952,7 @@ export function VerifyPage() {
       )}
       <div className="notice mt-4">
         <ShieldCheck size={16} />
-        Quantum QLi reference encoding with its own domain separation. Verification never calls an
+        NEMOTRON3.5 reference encoding with its own domain separation. Verification never calls an
         external API when the input already contains the public proof material.{" "}
         <InfoTip text="Proof material: message, leaf, public seed, 67 chain values, 8 auth-path nodes, root." />
       </div>

@@ -1,4 +1,4 @@
-# Quantum QLi public parity inventory
+# NEMOTRON3.5 public parity inventory
 
 Reference inspected directly with Chromium on 9 October 2026. Implementation is independent; no proprietary source or private accounts were accessed.
 
@@ -31,10 +31,10 @@ Recreate the retro desktop visual language and public routes. Keep the stronger 
 
 ## Final self-audit
 
-- All 16 public surfaces and 10 additional retained operations/product routes responded successfully with Quantum QLi document titles and no browser page errors.
+- All 16 public surfaces and 10 additional retained operations/product routes responded successfully with NEMOTRON3.5 document titles and no browser page errors.
 - Browser flows verified real ML-DSA and SLH-DSA signatures, ML-KEM encapsulation/decapsulation, tamper rejection, window controls, wallet connection modal, market search, order review/validation, vault local key generation, restore validation, local withdrawal signature, disabled live withdrawal and settings save.
 - Retained flows verified four-stage identity navigation, registration consuming leaf zero, demo-anchor blocking, fresh possession proof, seven-step Standard/Quantum launch review, 61-quote catalog/search, local Attestation Seal, all three valid/tampered verification categories, searchable docs and WOTS chunk staging.
 - Desktop/tablet/mobile layouts checked at 1280, 768 and 390 px; mobile navigation worked and tested routes had no page-level horizontal overflow.
 - Fixed self-audit omissions: terminal label escaping, stable launch symbols/sorting, asynchronous demo-load race, stale withdrawal result after asset changes, complete metadata public proofs, executable cURL examples and backup/lost-key/readiness documentation.
 - Health history records actual self-tests only in volatile worker memory; no invented uptime. Build/typecheck diagnostics reported build OK. Cryptographic domains and consumed-leaf storage retain legacy versioned encodings for existing proof compatibility and leaf safety.
-- Unavailable integrations remain explicit: live market/trading provider, deployed Quantum QLi vault verifier, custodial API operations and production launch certificate integration. Wallet-extension signing cannot be tested in headless Chromium without an installed wallet; simulated plans never sign or submit.
+- Unavailable integrations remain explicit: live market/trading provider, deployed NEMOTRON3.5 vault verifier, custodial API operations and production launch certificate integration. Wallet-extension signing cannot be tested in headless Chromium without an installed wallet; simulated plans never sign or submit.

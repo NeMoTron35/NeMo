@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1200 260">
+<title id="title">NEMOTRON3.5</title><desc id="desc">Independent Solana launch infrastructure project branding</desc>
+<defs><linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06122e"/><stop offset="0.55" stop-color="#17204f"/><stop offset="1" stop-color="#360f5d"/></linearGradient></defs>
+<rect width="1200" height="260" rx="22" fill="url(#grad)"/>
+<circle cx="150" cy="126" r="56" fill="none" stroke="#4dd9ff" stroke-width="9"/><path d="M175 157 208 186" stroke="#b193ff" stroke-width="10" stroke-linecap="round"/>
+<text x="270" y="132" fill="#f4f7ff" font-family="Arial,Helvetica,sans-serif" font-size="76" font-weight="700" letter-spacing="2">NEMOTRON3.5</text>
+<text x="275" y="178" fill="#a6c3ea" font-family="Arial,Helvetica,sans-serif" font-size="22" letter-spacing="2">SOLANA LAUNCH · LIQUIDITY · CRYPTOGRAPHIC VERIFICATION</text>
+</svg>

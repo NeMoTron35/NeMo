@@ -1,4 +1,4 @@
-// QLi Proof Engine v3.5: tamper-evident ledger records. Unsigned; not on-chain; not a proof of model output.
+// NEMOTRON3.5 Proof Engine v3.5: tamper-evident ledger records. Unsigned; not on-chain; not a proof of model output.
 import { z } from "zod";
 import { domainHash } from "./canonical";
 import { PROMPT_POLICY_VERSION, policyVerdict, snapshotSchema, type Snapshot } from "./engine";

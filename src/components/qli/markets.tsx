@@ -451,7 +451,7 @@ export function LaunchesPage() {
         </div>
         {!demo && (
           <div className="empty-state">
-            No confirmed Quantum QLi launches. No third-party launch history is attributed to this
+            No confirmed NEMOTRON3.5 launches. No third-party launch history is attributed to this
             app.
           </div>
         )}

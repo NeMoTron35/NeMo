@@ -5,7 +5,7 @@ export const Route = createFileRoute("/api-docs")({
   head: () =>
     metadata(
       "API Reference",
-      "Quantum QLi public verification and key encapsulation API contracts, limits and examples.",
+      "NEMOTRON3.5 public verification and key encapsulation API contracts, limits and examples.",
     ),
   component: ApiDocs,
 });

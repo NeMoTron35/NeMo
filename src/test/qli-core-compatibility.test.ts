@@ -30,7 +30,7 @@ import { H, hex, utf8, messageDigest, verifyWotsProof, type WotsProof } from "@/
 import { vaultChain, withdrawalCommitment } from "@/lib/qli-core/quantum-wallet";
 import vector from "./qli-core-v1-vector.json";
 
-describe("QLi core frozen v1 compatibility", () => {
+describe("NEMOTRON3.5 core frozen v1 compatibility", () => {
   it("verifies the original pre-refactor proof and reproduces every serialized byte", async () => {
     const original: WotsProof = {
       kind: WOTS_PROOF_KIND,

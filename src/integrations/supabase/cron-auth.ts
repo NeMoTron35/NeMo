@@ -1,4 +1,4 @@
-// QLi cron authorization: current and previous secrets support bounded rotation.
+// NEMOTRON3.5 cron authorization: current and previous secrets support bounded rotation.
 export async function authenticateCronRequest(request: Request): Promise<Response | null> {
   const currentSecret = process.env["QLI_CRON_SECRET"];
   const previousSecret = process.env["QLI_CRON_SECRET_PREVIOUS"];

@@ -237,7 +237,7 @@ export function LaunchPage() {
       return;
     }
     if (d.mode === "quantum" && !c.identity) {
-      setError("Quantum Launch requires an open Quantum QLi Identity.");
+      setError("Quantum Launch requires an open NEMOTRON3.5 Identity.");
       return;
     }
     c.setPlan({
@@ -300,7 +300,7 @@ export function LaunchPage() {
           <span className="micro">MODE A</span>
           <strong>Standard Launch</strong>
           <span>
-            DBC config + pool with Quantum QLi transaction review. No attestation required.
+            DBC config + pool with NEMOTRON3.5 transaction review. No attestation required.
           </span>
         </button>
         <button
@@ -311,7 +311,7 @@ export function LaunchPage() {
           <span className="micro">MODE B</span>
           <strong>Quantum Launch</strong>
           <span>
-            Adds an Attestation Seal rooted in your Quantum QLi Identity Root, embedded in token
+            Adds an Attestation Seal rooted in your NEMOTRON3.5 Identity Root, embedded in token
             metadata.
           </span>
         </button>
@@ -371,7 +371,7 @@ export function LaunchPage() {
                 <div className="notice mt-4">
                   <Fingerprint size={16} />
                   <span>
-                    Open a Quantum QLi Identity first.{" "}
+                    Open a NEMOTRON3.5 Identity first.{" "}
                     <Link to="/identity" className="underline">
                       Go to Identity →
                     </Link>
@@ -381,7 +381,7 @@ export function LaunchPage() {
                 <div className="notice mt-4">
                   <ShieldCheck size={16} />
                   {d.scheme === "wots"
-                    ? "Many-time schemes are certified by one WOTS leaf before use. WOTS root sealing is wired as a Quantum QLi reference implementation."
+                    ? "Many-time schemes are certified by one WOTS leaf before use. WOTS root sealing is wired as a NEMOTRON3.5 reference implementation."
                     : "Production cryptographic implementation pending for this scheme. A seal cannot be produced with it yet."}
                 </div>
               )}

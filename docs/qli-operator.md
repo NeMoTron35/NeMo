@@ -1,11 +1,11 @@
 ---
 id: qli-operator
-title: QLi Operator
+title: NEMOTRON3.5 Operator
 group: Operations
 summary: Strategy controls and reviewed scheduling previews, not background execution.
 ---
 
-# QLi Operator
+# NEMOTRON3.5 Operator
 
 ## Strategy session
 

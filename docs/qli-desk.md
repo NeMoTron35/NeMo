@@ -1,11 +1,11 @@
 ---
 id: qli-desk
-title: QLi Desk
+title: NEMOTRON3.5 Desk
 group: Workspace
 summary: Public cryptographic instruments and a separate operations overview.
 ---
 
-# QLi Desk
+# NEMOTRON3.5 Desk
 
 ## Desktop entry
 

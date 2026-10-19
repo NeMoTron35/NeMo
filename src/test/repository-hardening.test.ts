@@ -12,9 +12,9 @@ describe("First-party repository runtime boundaries", () => {
   it("reports only allowlisted diagnostics, never thrown secret fields or URLs", () => {
     const log = vi.spyOn(console, "error").mockImplementation(() => {});
     reportRuntimeError({ message: "private fixture", token: "sensitive fixture" });
-    expect(log).toHaveBeenCalledWith("[Quantum QLi] Page rendering failed", { category: "render" });
+    expect(log).toHaveBeenCalledWith("[NEMOTRON3.5] Page rendering failed", { category: "render" });
     reportRuntimeError(new Response(null, { status: 503 }));
-    expect(log).toHaveBeenLastCalledWith("[Quantum QLi] Page rendering failed", {
+    expect(log).toHaveBeenLastCalledWith("[NEMOTRON3.5] Page rendering failed", {
       category: "response",
       status: 503,
     });

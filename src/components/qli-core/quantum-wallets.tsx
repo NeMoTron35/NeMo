@@ -120,7 +120,7 @@ export function QuantumWalletsPage() {
       <div className="notice mb-6">
         <Construction size={16} />
         <span>
-          <strong>{QUANTUM_WALLET_STATUS}.</strong> Quantum QLi has not deployed an on-chain WOTS
+          <strong>{QUANTUM_WALLET_STATUS}.</strong> NEMOTRON3.5 has not deployed an on-chain WOTS
           verifier program (program id: {String(QLI_QUANTUM_WALLET_PROGRAM_ID)}). This section
           models the vault chain, commitments and signature staging locally. No deposit or
           withdrawal can execute.
@@ -157,7 +157,7 @@ export function QuantumWalletsPage() {
           <Panel title="Ordinary Solana wallet" tag="ED25519">
             <div className="notice" style={{ margin: 19 }}>
               Funds are authorized by an ed25519 signature. A sufficiently capable quantum computer
-              could derive the private key from the public key. Quantum QLi provenance signatures do
+              could derive the private key from the public key. NEMOTRON3.5 provenance signatures do
               not change this.
             </div>
           </Panel>
@@ -172,7 +172,7 @@ export function QuantumWalletsPage() {
             <div className="notice" style={{ margin: 19 }}>
               <ShieldAlert size={16} />
               On-chain verifier required for live Quantum Wallet custody. It must be audited,
-              deployed under a Quantum QLi-controlled program id, and verify{" "}
+              deployed under a NEMOTRON3.5-controlled program id, and verify{" "}
               {PQ_PARAMETERS.signatureBytes}-byte signatures staged across transactions.
             </div>
           </Panel>
@@ -184,7 +184,7 @@ export function QuantumWalletsPage() {
             {!c.identity ? (
               <div className="notice">
                 <span>
-                  A Quantum Wallet chain is derived from a Quantum QLi Identity Root.{" "}
+                  A Quantum Wallet chain is derived from a NEMOTRON3.5 Identity Root.{" "}
                   <Link to="/identity" className="underline">
                     Open an identity →
                   </Link>

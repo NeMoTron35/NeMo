@@ -1,13 +1,13 @@
 ---
 id: welcome
-title: Welcome to Quantum QLi
+title: Welcome to NEMOTRON3.5
 group: Start here
 summary: A noncustodial Solana liquidity workspace and public cryptography workbench.
 ---
 
-# Welcome to Quantum QLi
+# Welcome to NEMOTRON3.5
 
-Quantum QLi brings liquidity operations, token launch planning, identity proofs and public cryptography tools into one classic desktop workspace. The Dock, application source list and global menus open the same retained tools. QLi Console reports public session status and reviewed-plan titles, not private keys or raw RPC addresses.
+NEMOTRON3.5 brings liquidity operations, token launch planning, identity proofs and public cryptography tools into one classic desktop workspace. The Dock, application source list and global menus open the same retained tools. NEMOTRON3.5 Console reports public session status and reviewed-plan titles, not private keys or raw RPC addresses.
 
 ## What works today
 
@@ -24,4 +24,4 @@ This is not an autonomous trading service, audited custody system or deployed qu
 
 Start with [Quick start](/docs?article=quick-start), then [Known limitations](/docs?article=limitations).
 
-For the implementation-wide technical account, read the [Quantum QLi Technical White Paper](/whitepaper), version 0.1 — October 2026.
+For the implementation-wide technical account, read the [NEMOTRON3.5 Technical White Paper](/whitepaper), version 0.1 — October 2026.

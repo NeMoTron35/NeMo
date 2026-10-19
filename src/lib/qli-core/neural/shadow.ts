@@ -1,4 +1,4 @@
-// QLi Shadow Engine v4: counterfactual constant-product stress grid. NOT a forecast and NOT DBC curve math.
+// NEMOTRON3.5 Shadow Engine v4: counterfactual constant-product stress grid. NOT a forecast and NOT DBC curve math.
 import { z } from "zod";
 
 export const SHADOW_VERSION = "qli-shadow/4.0.0";

@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/quantum-qli-banner.webp" alt="Quantum QLi — post-quantum Solana liquidity command desk" width="100%">
+  <img src="docs/nemotron3-5-banner.svg" alt="NEMOTRON3.5 — post-quantum Solana liquidity command desk" width="100%">
 </p>
 
-<h1 align="center">Quantum QLi</h1>
+<h1 align="center">NEMOTRON3.5</h1>
 <p align="center"><strong>Quantum liquidity, under control.</strong></p>
 <p align="center">
   A non-custodial Solana liquidity command desk combining Meteora DBC launch planning,
@@ -10,29 +10,31 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/ci.yml"><img src="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <a href="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/security.yml"><img src="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/security.yml/badge.svg" alt="Security checks"></a>
-  <a href="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/codeql.yml"><img src="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/codeql.yml/badge.svg" alt="CodeQL"></a>
-  <a href="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/scorecard.yml"><img src="https://github.com/QuantumQLi/QuantumQLi/actions/workflows/scorecard.yml/badge.svg" alt="OpenSSF Scorecard"></a>
+  <a href="https://github.com/NeMoTron35/QLi/actions/workflows/ci.yml"><img src="https://github.com/NeMoTron35/QLi/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/NeMoTron35/QLi/actions/workflows/security.yml"><img src="https://github.com/NeMoTron35/QLi/actions/workflows/security.yml/badge.svg" alt="Security checks"></a>
+  <a href="https://github.com/NeMoTron35/QLi/actions/workflows/codeql.yml"><img src="https://github.com/NeMoTron35/QLi/actions/workflows/codeql.yml/badge.svg" alt="CodeQL"></a>
+  <a href="https://github.com/NeMoTron35/QLi/actions/workflows/scorecard.yml"><img src="https://github.com/NeMoTron35/QLi/actions/workflows/scorecard.yml/badge.svg" alt="OpenSSF Scorecard"></a>
   <img src="https://img.shields.io/badge/tests-59%20passing-brightgreen" alt="59 tests passing">
   <img src="https://img.shields.io/badge/dependency%20audit-0%20advisories-brightgreen" alt="0 dependency advisories">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" alt="Apache-2.0 license"></a>
 </p>
 
 > [!NOTE]
+> NEMOTRON3.5 is an independent Solana software project and is not affiliated with or endorsed by NVIDIA.
+>
 > **Status:** active development, pre-1.0. The current verified snapshot passes 59 tests, type checking, production build, repository-hygiene checks, lint with 0 errors / 0 warnings, and a dependency audit with 0 advisories at any severity.
 
 ## Latest Technical White Paper - v0.2 (11 October 2026)
 
-**[Read or download the Quantum QLi Technical White Paper (PDF)](docs/Quantum_QLi_Technical_White_Paper_v0.2_Oct_2026.pdf)**
+**[Read or download the NEMOTRON3.5 Technical White Paper (PDF)](docs/Quantum_QLi_Technical_White_Paper_v0.2_Oct_2026.pdf)**
 
 Version 0.2 covers the newer application implementation: SDK-backed Launch Forge transactions, wallet-approved Flywheel fee claims/buybacks/burns, Quantum Identity, transaction-specific Quantum Authorization v1, trust boundaries, testing evidence, and a roadmap for program-enforced treasury authorization. Its reported implementation is distinct from a demonstrated funded public-mainnet transaction. Cryptographic authorization is application-enforced at present, not an on-chain vault security control.
 
 The repository's earlier technical documents and test counts describe an older source snapshot and may not match all later application changes. Consult the dated PDF's evidence labels and referenced source material for precise status.
 
-## Why Quantum QLi
+## Why NEMOTRON3.5
 
-Liquidity tooling often splits launch configuration, wallet review, market context, cryptographic verification and operational documentation across unrelated interfaces. Quantum QLi brings those workflows into a single inspectable desktop-style environment with explicit trust boundaries.
+Liquidity tooling often splits launch configuration, wallet review, market context, cryptographic verification and operational documentation across unrelated interfaces. NEMOTRON3.5 brings those workflows into a single inspectable desktop-style environment with explicit trust boundaries.
 
 The project is primarily an **application-layer system**. A custom on-chain program is not required for its implemented local cryptography, proof verification, connected-wallet RPC reads or launch-planning workflows. Any transaction that reaches a wallet remains subject to explicit user review and signing.
 
@@ -55,8 +57,8 @@ See [Dependency Security](docs/DEPENDENCY_SECURITY.md), [Security Policy](SECURI
 
 | Workspace | Capability |
 | --- | --- |
-| **QLi Desk** | Cryptography workbench, system health, session overview and operational telemetry |
-| **QLi Operator** | Deterministic strategy planning with explicit guardrails and wallet-controlled review |
+| **NEMOTRON3.5 Desk** | Cryptography workbench, system health, session overview and operational telemetry |
+| **NEMOTRON3.5 Operator** | Deterministic strategy planning with explicit guardrails and wallet-controlled review |
 | **Launch Forge** | Seven-stage Meteora Dynamic Bonding Curve planning targeting DAMM v2 migration |
 | **Portfolio / Vault** | Connected-wallet RPC reads plus local cryptographic workflows |
 | **Quantum Identity** | Reference WOTS/Merkle identity construction with one-time leaf tracking |
@@ -73,7 +75,7 @@ The local workbench exposes:
 - **SLH-DSA-SHA2-128s**
 - **ML-KEM-768**
 
-These are application-layer cryptographic tools. Quantum QLi does **not** claim that Solana's current account or transaction authorization is post-quantum secure.
+These are application-layer cryptographic tools. NEMOTRON3.5 does **not** claim that Solana's current account or transaction authorization is post-quantum secure.
 
 ## Architecture
 
@@ -99,7 +101,7 @@ flowchart TD
 **Requirements:** Node.js 22+ and Bun 1.3.3+.
 
 ```bash
-git clone https://github.com/QuantumQLi/QuantumQLi.git
+git clone https://github.com/NeMoTron35/QLi.git
 cd QuantumQLi
 bun install --frozen-lockfile
 bun run dev
@@ -136,9 +138,9 @@ The in-app readers are available at `/docs` and `/whitepaper`.
 <details>
 <summary><strong>Security and scope boundaries</strong></summary>
 
-- Quantum QLi is non-custodial and does not hold wallet private keys.
+- NEMOTRON3.5 is non-custodial and does not hold wallet private keys.
 - Launch review is planning and validation; it is not the same thing as token deployment.
-- The QLi Operator's autonomous mode is a scheduling preview, not an unattended production signer.
+- The NEMOTRON3.5 Operator's autonomous mode is a scheduling preview, not an unattended production signer.
 - WOTS/Merkle one-time-leaf tracking is local to the browser environment and is not globally synchronized.
 - JavaScript cannot guarantee secure erasure of every secret buffer.
 - Reference liquidity rows are clearly separated from connected-wallet RPC portfolio data.
@@ -179,10 +181,10 @@ See [roadmap.md](roadmap.md).
 
 ## License
 
-Quantum QLi source code and project documentation are licensed under the **Apache License 2.0**. See [LICENSE](LICENSE) and [docs/LICENSING.md](docs/LICENSING.md).
+NEMOTRON3.5 source code and project documentation are licensed under the **Apache License 2.0**. See [LICENSE](LICENSE) and [docs/LICENSING.md](docs/LICENSING.md).
 
-The Quantum QLi name, logos, trademarks and original visual artwork are **not** granted under Apache-2.0 unless a file explicitly says otherwise. Third-party dependencies and assets remain subject to their respective licenses and rights.
+The NEMOTRON3.5 name, logos, trademarks and original visual artwork are **not** granted under Apache-2.0 unless a file explicitly says otherwise. Third-party dependencies and assets remain subject to their respective licenses and rights.
 
 ---
 
-<p align="center"><strong>Quantum QLi</strong> · inspectable infrastructure, explicit boundaries, wallet-controlled execution.</p>
+<p align="center"><strong>NEMOTRON3.5</strong> · inspectable infrastructure, explicit boundaries, wallet-controlled execution.</p>

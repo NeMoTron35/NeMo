@@ -9,7 +9,7 @@ summary: A safe first session without funds or private keys.
 
 ## Explore without a wallet
 
-1. Open QLi Desk at `/` and run a Cryptography Workbench signature test.
+1. Open NEMOTRON3.5 Desk at `/` and run a Cryptography Workbench signature test.
 2. Enable message modification and run again: the expected mismatch demonstrates tamper detection.
 3. Open Quantum Identity at `/identity` and choose the public demo identity. Its secret is published; never use it live.
 4. Register locally, then produce a possession proof. Registration consumes leaf zero; each proof consumes another leaf.
