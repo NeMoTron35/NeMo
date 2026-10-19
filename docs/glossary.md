@@ -1,16 +1,16 @@
 ---
 id: glossary
-title: Quantum QLi glossary
+title: NEMOTRON3.5 glossary
 group: Reference
 summary: Product labels and protocol-accurate definitions.
 ---
 
-# Quantum QLi glossary
+# NEMOTRON3.5 glossary
 
 | Term               | Meaning in this project                                                         |
 | ------------------ | ------------------------------------------------------------------------------- |
-| QLi Desk           | Desktop entry with API instruments; retained operations overview is `/overview` |
-| QLi Operator       | Session strategy and scheduling-preview console                                 |
+| NEMOTRON3.5 Desk           | Desktop entry with API instruments; retained operations overview is `/overview` |
+| NEMOTRON3.5 Operator       | Session strategy and scheduling-preview console                                 |
 | Launch Forge       | Standard/Quantum seven-stage DBC draft and review                               |
 | Liquidity Chambers | Demo DBC pool inspection                                                        |
 | Inventory          | Demo liquidity-position inspection; distinct from wallet Portfolio              |
