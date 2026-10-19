@@ -2,7 +2,7 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 /**
- * Quantum QLi class composer.
+ * NEMOTRON3.5 class composer.
  *
  * We resolve conditional class tokens first, then let Tailwind's merge pass
  * collapse conflicting utilities. Keeping this tiny boundary in one place
