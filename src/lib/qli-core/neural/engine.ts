@@ -257,7 +257,9 @@ export function validateModelOutput(raw: string, s: Snapshot): Validation {
     if (e.kind === "age") allowed.add(String(e.seconds));
   }
   if (s.slot) allowed.add(s.slot);
-  // The product version is a name, not an uncited numeric claim. Keep numeric claim checks strict.\n  const textForNumericClaims = a.answer.replace(/\bNEMOTRON3\.5\b/gi, "");\n  for (const n of textForNumericClaims.match(/\d+(?:\.\d+)?/g) ?? []) {
+  // The product version is a name, not an uncited numeric claim. Keep numeric claim checks strict.
+  const textForNumericClaims = a.answer.replace(/\bNEMOTRON3\.5\b/gi, "");
+  for (const n of textForNumericClaims.match(/\d+(?:\.\d+)?/g) ?? []) {
     if ((n.includes(".") || n.length >= 3) && !allowed.has(n))
       return { ok: false, reason: "invented-number" };
   }
