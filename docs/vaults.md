@@ -23,4 +23,4 @@ Restore validates the 64-hex seed and regenerates the same public fingerprint. R
 
 ## Recovery and loss
 
-There is no administrator recovery, server key store or custody backdoor. Without the offline ML-DSA seed, the prototype key cannot be restored. No deployed Quantum QLi vault receives funds in this build, so prototype key loss does not strand a Quantum QLi vault deposit.
+There is no administrator recovery, server key store or custody backdoor. Without the offline ML-DSA seed, the prototype key cannot be restored. No deployed NEMOTRON3.5 vault receives funds in this build, so prototype key loss does not strand a NEMOTRON3.5 vault deposit.

@@ -13,7 +13,7 @@ Wallet authorization happens in the client. The product does not store private k
 
 ## Not a security certification
 
-Ordinary Solana balances remain ed25519-authorized. Provenance proofs cannot replace account authorization. There is no independently audited, deployed Quantum QLi custody verifier. Browser compromise, malicious extensions and compromised RPC/device environments are not solved by algorithm choice.
+Ordinary Solana balances remain ed25519-authorized. Provenance proofs cannot replace account authorization. There is no independently audited, deployed NEMOTRON3.5 custody verifier. Browser compromise, malicious extensions and compromised RPC/device environments are not solved by algorithm choice.
 
 ## Local state caveats
 

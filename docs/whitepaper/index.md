@@ -1,4 +1,4 @@
-# Quantum QLi — Technical White Paper
+# NEMOTRON3.5 — Technical White Paper
 
 Quantum liquidity, under control.
 
@@ -8,7 +8,7 @@ Version 0.1 — October 2026
 
 ## Executive Summary
 
-Quantum QLi is a non-custodial Solana liquidity workspace, launch planner and cryptography workbench. Its classic desktop interface unifies operation previews, local identity proofs, public cryptographic tools and read-only wallet information. This paper describes the current implementation, not a completed production trading or custody system.
+NEMOTRON3.5 is a non-custodial Solana liquidity workspace, launch planner and cryptography workbench. Its classic desktop interface unifies operation previews, local identity proofs, public cryptographic tools and read-only wallet information. This paper describes the current implementation, not a completed production trading or custody system.
 
 The workbench performs real local ML-DSA-65 and SLH-DSA-SHA2-128s signature operations and ML-KEM-768 encapsulation/decapsulation roundtrips. Quantum Identity is a separate reference WOTS/Merkle construction. These capabilities do not make Solana itself post-quantum secure.
 
@@ -20,7 +20,7 @@ This paper accompanies the [27 technical documentation articles](/docs), which d
 
 Liquidity operations combine asset metadata, curve design, fees, migration policy, transaction construction and wallet authorization. Mixing these concerns can obscure which inputs were reviewed, which data is illustrative, and which actions actually reached the network.
 
-Post-quantum demonstrations create a second ambiguity: a standard cryptographic primitive can operate correctly while the surrounding identity coordination, custody verifier and account authorization remain incomplete. Quantum QLi separates these layers visibly and technically. Its present scope is an inspectable planning and reference-proof environment, with narrower live read and signing adapters.
+Post-quantum demonstrations create a second ambiguity: a standard cryptographic primitive can operate correctly while the surrounding identity coordination, custody verifier and account authorization remain incomplete. NEMOTRON3.5 separates these layers visibly and technically. Its present scope is an inspectable planning and reference-proof environment, with narrower live read and signing adapters.
 
 ## 2. Design Principles
 
@@ -43,7 +43,7 @@ Session strategies and plans are not durable production records. A refresh clear
 
 ## 4. Desktop Interaction Model
 
-Quantum QLi presents tools as applications within a classic desktop. Global menus, grouped source lists and the module Dock provide overlapping navigation paths. The main application window and QLi Console utility window support focus ordering and bounded movement. Keyboard alternatives and reset controls avoid dependence on dragging.
+NEMOTRON3.5 presents tools as applications within a classic desktop. Global menus, grouped source lists and the module Dock provide overlapping navigation paths. The main application window and NEMOTRON3.5 Console utility window support focus ordering and bounded movement. Keyboard alternatives and reset controls avoid dependence on dragging.
 
 On smaller screens, utility windows join document flow and navigation remains available through compact controls. The console exposes public session status and reviewed-plan titles, not secrets or raw RPC locations. The White Paper reader adds a section source list, stable section links, sequential navigation and a full-document print view without changing wallet or proof state.
 
@@ -51,8 +51,8 @@ On smaller screens, utility windows join document flow and navigation remains av
 
 | Module             | Current responsibility                                                  |
 | ------------------ | ----------------------------------------------------------------------- |
-| QLi Desk           | Public cryptography workbench and retained operational overview         |
-| QLi Operator       | Session strategies, guardrails and operation-plan previews              |
+| NEMOTRON3.5 Desk           | Public cryptography workbench and retained operational overview         |
+| NEMOTRON3.5 Operator       | Session strategies, guardrails and operation-plan previews              |
 | Launch Forge       | Seven-stage DBC drafting and review                                     |
 | Liquidity Chambers | Demonstration pools, filters and pool inspection                        |
 | Inventory          | Demonstration positions and operation previews                          |
@@ -86,7 +86,7 @@ The reviewed-transaction adapter freezes reviewed message bytes, verifies accoun
 
 > **Current UI boundary:** The Identity anchor flow can reach **signed, not submitted**. It has no broadcast/confirmation step. This is not a public timestamp or network confirmation. The general Review dialog is not a live deployment interface.
 
-QLi Operator's **Autonomous** setting is a scheduling preview, not a background trading service. Guarded operation expresses explicit approval; mode selection does not grant custody. A successful simulation is neither economic advice nor a guarantee that chain state will remain unchanged.
+NEMOTRON3.5 Operator's **Autonomous** setting is a scheduling preview, not a background trading service. Guarded operation expresses explicit approval; mode selection does not grant custody. A successful simulation is neither economic advice nor a guarantee that chain state will remain unchanged.
 
 ## 8. Post-Quantum Cryptography Model
 
@@ -178,22 +178,22 @@ Progress would require design review and evidence at each boundary. A roadmap it
 
 ## 16. Governance, Tokenomics, and Scope
 
-This white paper defines **no governance token, token sale, revenue-sharing instrument, investment product or guaranteed return**. Launch-planning features do not constitute an offering by Quantum QLi. Revenue labels describe fee-operation interfaces, not entitlements or distributions to readers.
+This white paper defines **no governance token, token sale, revenue-sharing instrument, investment product or guaranteed return**. Launch-planning features do not constitute an offering by NEMOTRON3.5. Revenue labels describe fee-operation interfaces, not entitlements or distributions to readers.
 
 No protocol governance rights, allocation schedule, valuation model or investment solicitation is specified. Tokenized quote presets are informational snapshots with issuer and jurisdiction risks, not endorsements. Future product work would not automatically change this paper's scope or create financial rights.
 
 ## 17. Conclusion
 
-Quantum QLi provides a coherent desktop workspace for inspectable liquidity planning, local cryptographic operations and reference identity verification. Its strongest current distinction is separation of planning, proof generation, wallet authorization and network execution—not an assertion that all production boundaries are complete.
+NEMOTRON3.5 provides a coherent desktop workspace for inspectable liquidity planning, local cryptographic operations and reference identity verification. Its strongest current distinction is separation of planning, proof generation, wallet authorization and network execution—not an assertion that all production boundaries are complete.
 
 Readers should evaluate real primitives alongside integration limitations: one-time identities need coordination, reviewed transactions still require explicit approval, and post-quantum provenance does not replace Solana authorization. The [technical docs](/docs) provide the implementation-level companion to this versioned paper.
 
-## Appendix A — Quantum QLi Terminology
+## Appendix A — NEMOTRON3.5 Terminology
 
 | Term                | Meaning                                                          |
 | ------------------- | ---------------------------------------------------------------- |
-| QLi Desk            | Workbench and operational overview                               |
-| QLi Operator        | Strategy and operation-planning interface                        |
+| NEMOTRON3.5 Desk            | Workbench and operational overview                               |
+| NEMOTRON3.5 Operator        | Strategy and operation-planning interface                        |
 | Launch Forge        | DBC launch-planning wizard                                       |
 | Liquidity Chambers  | Pool inspection interface                                        |
 | Inventory / Revenue | Position / fee-operation interfaces                              |
