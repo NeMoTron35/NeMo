@@ -14,7 +14,7 @@ export const initialLaunch: LaunchDraft = {
   website: "",
   telegram: "",
   vanity: false,
-  vanitySuffix: "NEMOTRON3.5",
+  vanitySuffix: "",
   launchSlippage: 1,
   prioritySol: 0.0001,
   metadata: "",
