@@ -162,7 +162,6 @@ export function WalletData({
                     <th>Mint</th>
                     <th>Balance</th>
                     <th>Decimals</th>
-                    <th>Explorer</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -171,16 +170,6 @@ export function WalletData({
                       <td>{t.mint}</td>
                       <td>{t.amount}</td>
                       <td>{t.decimals}</td>
-                      <td>
-                        <a
-                          className="desk-link"
-                          href={`https://solscan.io/token/${t.mint}${devnet || c.network === "devnet" ? "?cluster=devnet" : ""}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Solscan ↗
-                        </a>
-                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -210,14 +199,9 @@ export function WalletData({
                 {data.transactions.map((t) => (
                   <tr key={t.signature}>
                     <td>
-                      <a
-                        className="desk-link"
-                        href={`https://solscan.io/tx/${t.signature}${devnet || c.network === "devnet" ? "?cluster=devnet" : ""}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {t.signature.slice(0, 12)}… ↗
-                      </a>
+                      <code className="break-all" title={t.signature}>
+                        {t.signature}
+                      </code>
                     </td>
                     <td>{t.err ? "Failed" : "Confirmed"}</td>
                     <td>{t.time ? new Date(t.time * 1000).toLocaleString() : "Unavailable"}</td>
